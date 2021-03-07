@@ -136,7 +136,7 @@
                                             <td class="col-sm-1"> 1 </td>
                                             <td class="col-sm-5"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID (Self check) </td>
                                             <td class="col-sm-2"> ทีมดูแลเพจ </td>
-                                            <td class="col-sm-2"> 8000 ครั้ง </td>
+                                            <td class="col-sm-2"> 8000 / ครั้ง </td>
                                             <td class="col-sm-2"><button class="btn btn-success btns" data-toggle="modal" data-target="#modalAction"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
                                                 <button class="btn  btn-danger btns"><i class="mdi mdi-delete"></i></button>
                                             </td>
@@ -145,7 +145,7 @@
                                             <td class="col-sm-1"> 2 </td>
                                             <td class="col-sm-5"> การเข้าใช้บริการพื้นที่ศูนย์บรรณสารฯ แบบลงชื่อ (บุคคลภายนอก) </td>
                                             <td class="col-sm-2"> พิชัยยุทธ </td>
-                                            <td class="col-sm-2"> 5000 ครั้ง </td>
+                                            <td class="col-sm-2"> 5000 / ครั้ง </td>
                                             <td class="col-sm-2"><button class="btn btn-success btns" data-toggle="modal" data-target="#modalAction"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
                                                 <button class="btn  btn-danger btns"><i class="mdi mdi-delete"></i></button>
                                             </td>
