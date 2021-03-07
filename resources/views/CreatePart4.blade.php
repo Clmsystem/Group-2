@@ -20,30 +20,30 @@
         text-align: center;
     }
 </style>
+<!-- ------------------------------------------  Link Script Jquery-  --------------------------------------------->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-
 <body>
+    <!-- ------------------------------------------  include  --------------------------------------------->
 
     @include('partials.navbar')
     @include('partials.sidebar')
 
-
+    <!-- ------------------------------------------  include  --------------------------------------------->
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="newFont"> ฝ่ายส่งเสริมการเรียนรู้และให้บริการการศึกษา ศูนย์บรรณสารและสื่อการศึกษา </h3>
             </div>
-            <!-- สร้างตัวชี้วัก start -->
+
+            <!-- ------------------------------------------  สร้างตัวชี้วัด Start-  --------------------------------------------->
 
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h3 class="newFont">สร้างตัวชี้วัด</h3><br>
                         <hr><br>
-                        <!-- <p class="card-description"> Basic form elements </p> -->
                         <form class="forms-sample">
                             <div class="row">
                                 <div class="form-group col-md-6">
@@ -67,7 +67,6 @@
                                         </optgroup>
                                     </select>
                                 </div>
-
                                 <div class="form-group col-md-3">
                                     <label class="newFont">หน่วยนับ</label>
                                     <select class="form-control">
@@ -82,15 +81,6 @@
                                         </optgroup>
                                     </select>
                                 </div>
-                                <!-- <div class="form-group">
-                                <label>File upload</label>
-                                <input type="file" name="img[]" class="file-upload-default">
-                                <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                                    </span>
-                                </div> -->
                                 <div class="form-group col-md-9"></div>
                                 <div class="form-group col-md-3">
                                     <div class="button-position">
@@ -102,9 +92,10 @@
                     </div>
                 </div>
             </div>
-            <!-- สร้างตัวชี้วัด end -->
 
-            <!-- แสดงตัวชี้วัด start -->
+            <!-- ------------------------------------------  สร้างตัวชี้วัด end-  --------------------------------------------->
+
+            <!-- ------------------------------------------  แสดงตัวชี้วัด end-  --------------------------------------------->
 
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
@@ -160,10 +151,9 @@
                 </div>
             </div>
 
+            <!-- ------------------------------------------  แสดงตัวชี้วัด end-  --------------------------------------------->
 
-            <!-- แสดงตัวชี้วัด end -->
-
-
+            <!-- ------------------------------------------  แก้ไขตัวชี้วัด ---------------------------------------------------->
             <div class="modal fade" id="modalAction" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
@@ -228,10 +218,6 @@
     <!-- Div nav & side -->
     </div>
     </div>
-
-
-    <!-- Button trigger modal -->
-
     </div>
 
 </body>
