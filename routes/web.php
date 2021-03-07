@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CreatePart4Controller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +26,7 @@ Route::get('/', function () {
 // Route::post('/Valid', [LoginController::class,'index'],function ($argv){
 
 // } )->name('valid');
-
+Route::get('/createpart4',[CreatePart4Controller::class,'index']);
 
 Route::post('/index', function () {
     return view('index');
