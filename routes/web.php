@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/create4', function () {
+    return view('create_part4');
+});
+
+
 // Route::post('/login', [LoginController::class, 'index'])->name('login');
 
 
@@ -33,3 +38,5 @@ Route::get('/login1', function () {
 Route::get('/login2', function () {
     return view('promote.login');
 });
+
+
