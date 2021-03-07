@@ -19,6 +19,10 @@
     td {
         text-align: center;
     }
+
+    th {
+        text-align: center;
+    }
 </style>
 <!-- ------------------------------------------  Link Script Jquery-  --------------------------------------------->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -50,7 +54,7 @@
                                     <label class="newFont">หัวข้อ</label>
                                     <input type="text" class="form-control" placeholder="หัวข้อตัวขี้วัด" required>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label class="newFont">ผู้รับผิดชอบ</label>
                                     <select class="form-control">
                                         <optgroup class="newFont">
@@ -67,7 +71,11 @@
                                         </optgroup>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
+                                    <label class="newFont">จำนวน</label>
+                                    <input type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value="" required>
+                                </div>
+                                <div class="form-group col-md-2">
                                     <label class="newFont">หน่วยนับ</label>
                                     <select class="form-control">
                                         <optgroup class="newFont">
@@ -118,7 +126,7 @@
                                                 <h7 class="newFont">ผู้รับผิดชอบ</h7>
                                             </th>
                                             <th class="col-sm-2" scope="col">
-                                                <h7 class="newFont">หน่วยนับ</h7>
+                                                <h7 class="newFont">จำนวน</h7>
                                             </th>
                                             <th class="col-sm-2" scope="col"></th>
                                         </tr>
@@ -163,11 +171,11 @@
                             <form class="forms-sample">
                                 <hr><br>
                                 <div class="row">
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-6">
                                         <label class="newFont">หัวข้อ</label>
                                         <input type="text" class="form-control" placeholder="หัวข้อตัวขี้วัด" value="" required>
                                     </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-2">
                                         <label class="newFont">ผู้รับผิดชอบ</label>
                                         <select class="form-control">
                                             <optgroup class="newFont">
@@ -184,7 +192,11 @@
                                             </optgroup>
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-2">
+                                        <label class="newFont">จำนวน</label>
+                                        <input type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value="" required>
+                                    </div>
+                                    <div class="form-group col-md-2">
                                         <label class="newFont">หน่วยนับ</label>
                                         <select class="form-control">
                                             <optgroup class="newFont">
