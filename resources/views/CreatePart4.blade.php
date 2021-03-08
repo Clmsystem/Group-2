@@ -1,32 +1,31 @@
 @include('header.menu')
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Mitr&display=swap');
 
+    @import url('https://fonts.googleapis.com/css2?family=Mitr&display=swap');
+    /* adjust font this page */
     .newFont {
         font-family: 'Mitr', sans-serif;
     }
-
+    /* adjust btn position */
     .button-position {
         float: right;
         margin: -8px;
     }
-
+    /* adjust btn size */
     .btns {
         padding: 0.9rem 2em;
         font-size: 0.875rem;
     }
-
+    /* adjust text position */
     td {
         text-align: center;
     }
-
     th {
         text-align: center;
     }
+    
 </style>
-<!-- ------------------------------------------  Link Script Jquery-  --------------------------------------------->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
 <body>
     <!-- ------------------------------------------  include  --------------------------------------------->
@@ -159,9 +158,10 @@
                 </div>
             </div>
 
-            <!-- ------------------------------------------  แสดงตัวชี้วัด end-  --------------------------------------------->
+            <!--------------------------------------------  แสดงตัวชี้วัด end   --------------------------------------------------->
 
-            <!-- ------------------------------------------  แก้ไขตัวชี้วัด ---------------------------------------------------->
+            <!--------------------------------------------  แก้ไขตัวชี้วัด Start ---------------------------------------------------->
+
             <div class="modal fade" id="modalAction" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
