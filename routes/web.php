@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CreatePart4Controller;
+use App\Http\Controllers\ContentPart2Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::get('/', function () {
 
 // } )->name('valid');
 Route::get('/createpart4',[CreatePart4Controller::class,'index']);
+
+Route::get('/contentPart2',[ContentPart2Controller::class,'index']);
 
 Route::post('/index', function () {
     return view('index');
