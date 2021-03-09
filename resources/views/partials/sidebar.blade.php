@@ -42,6 +42,25 @@
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pages/icons/mdi.html">
+          <span class="menu-title">จัดการตัวชี้วัด</span>
+          <i class="mdi mdi-contacts menu-icon"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/insert">
+          <span class="menu-title">บันทึกผลตามตัวชี้วัด</span>
+          <i class="mdi mdi-contacts menu-icon"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pages/icons/mdi.html">
+          <span class="menu-title">การสืบค้นและออกรายงาน</span>
+          <i class="mdi mdi-contacts menu-icon"></i>
+        </a>
+      </li>
+      
     </ul>
   </nav>
 

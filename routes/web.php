@@ -20,6 +20,12 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/insert', function () {
+    return view('pages/insert');
+});
+
+
+
 // Route::post('/login', [LoginController::class, 'index'])->name('login');
 
 
@@ -31,3 +37,4 @@ Route::get('/createpart4',[CreatePart4Controller::class,'index']);
 Route::post('/index', function () {
     return view('index');
 })->name('/');
+
