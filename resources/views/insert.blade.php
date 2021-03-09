@@ -68,14 +68,10 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-        <div >
-        <div class="content-wrapper">
             <div class="page-header" >
                 <h3 class="newFont"> สถิติ ฝ่ายส่งเสริมการเรียนรู้และให้บริการการศึกษา ศูนย์บรรณสารและสื่อการศึกษา </h3>
             </div>
             <div ><h5 class="newFont"> เดือน มกราคม 2564 </h5></div>
-
-
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -107,7 +103,6 @@
                                             <th class="col-sm-2" scope="col">
                                                 <h7 class="newFont">แก้ไข</h7>
                                             </th>
-                                            
                                         </tr>
                                     </thead>
                                     <tbody class="test">
@@ -182,12 +177,14 @@
                         </div>
                     </div>
                 </div>
-              <div class="col-12 grid-margin stretch-card">
-            <div class="card">   
-          </div>
+                <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                   
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+
+        </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         @include('partials.footer')
