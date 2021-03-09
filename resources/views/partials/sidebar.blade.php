@@ -9,7 +9,7 @@
             <!--change to offline or busy as needed-->
           </div>
           <div class="nav-profile-text d-flex flex-column">
-            <span class="font-weight-bold mb-2">David Grey. H</span>
+            <span class="font-weight-bold mb-2"></span>
             <span class="text-secondary text-small">Project Manager</span>
           </div>
           <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -33,6 +33,7 @@
             <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Topic 2</a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Topic 3</a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Topic 4</a></li>
+            <li class="nav-item"> <a class="nav-link" href="/createpart4">Add</a></li>
           </ul>
         </div>
       </li>
@@ -49,7 +50,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/insert">
+        <a class="nav-link" href="/createpart4">
           <span class="menu-title">บันทึกผลตามตัวชี้วัด</span>
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
@@ -60,7 +61,7 @@
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
       </li>
-      
+
     </ul>
   </nav>
 

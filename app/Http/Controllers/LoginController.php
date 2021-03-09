@@ -13,7 +13,7 @@ class LoginController extends Controller
         $pass = $request->input('password');
         $users = DB::table('user')
                 ->where('user_name', '=',$email )
-                ->where('user_password','=',$pass)
+                ->where('password','=',$pass)
                 ->get();
 
         $result = json_decode($users, true);
@@ -21,7 +21,10 @@ class LoginController extends Controller
         if (count($users)>0){
             
             if ($result[0]['status_level1']=1){
-                return view("index");
+                return view("index",$users);
+                return view('partials.nav',$result);
+                return view('partials.sidebar',$result);
+                
             }
             else{
                 return view("menu.content");
@@ -29,7 +32,8 @@ class LoginController extends Controller
         }
         else{
             echo "pls check pass or email";
-            print_r($email);
+            return view('login');
+            echo $result;
         }
         
         

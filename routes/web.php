@@ -25,18 +25,32 @@ Route::get('/', function () {
     return view('login');
 });
 
+<<<<<<< Updated upstream
 // Route::get('/insert', function () {
 //     return view('pages.insert.index');
 // });
+=======
+Route::get('/insert', function () {
+    return view('pages.insert.index');
+});
+>>>>>>> Stashed changes
 
 
 
 // Route::post('/login', [LoginController::class, 'index'])->name('login');
 
 
-// Route::post('/Valid', [LoginController::class,'index'],function ($argv){
+Route::post('/Valid', [LoginController::class,'index'],function ($argv){
 
-// } )->name('valid');
+} )->name('valid');
+
+Route::get('/insert', [CreatePart4Controller::class,'index'],function () {
+    
+    
+});
+
+
+
 Route::get('/createpart4',[CreatePart4Controller::class,'index']);
 
 Route::get('/report',[ReportController::class,'index']);

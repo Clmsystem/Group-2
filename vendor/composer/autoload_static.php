@@ -510,6 +510,8 @@ class ComposerStaticInitcc28126b2d572a2186e52c4d81753600
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Flight' => __DIR__ . '/../..' . '/app/Flight.php',
+        'App\\Http\\Controllers\\ContentPart2Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/ContentPart2Controller.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CreatePart4Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/CreatePart4Controller.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
@@ -522,7 +524,7 @@ class ComposerStaticInitcc28126b2d572a2186e52c4d81753600
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Indicator' => __DIR__ . '/../..' . '/app/Indicator.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
