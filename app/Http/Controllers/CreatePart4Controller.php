@@ -14,14 +14,12 @@ class CreatePart4Controller extends Controller
     public function index(){
       
         $test=DB::table('list_item')
-        ->join('year', 'list_item.year_id ', '=', 'year.year_id')
-        ->join('summary', 'list_item.id_summary', '=', 'summary.id_summary')
         ->insertGetId([
-            'name_item' => 'kayla@example.com',
-            'id_summary' => 'test',
-            'year.year' => 2016,
+            'name_item' => 'สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID',
+            'year_id' => 2564,
         ]);
-        
+        return view('CreatePart4');
     }
-}
+   
+};
 

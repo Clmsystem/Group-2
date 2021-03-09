@@ -25,6 +25,10 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/submit', function () {
+    return view('insert');
+});
+
 
 
 // Route::post('/login', [LoginController::class, 'index'])->name('login');
@@ -33,12 +37,21 @@ Route::post('/Valid', [LoginController::class,'index'],function ($argv){
 
 } )->name('valid');
 
-Route::get('/createpart4',[CreatePart4Controller::class,'index']);
+Route::get('/insertDB', [CreatePart4Controller::class,'index'],function () {
+    
+    
+});
+
+
+
+Route::get('/createpart4',function () {
+    return view('CreatePart4');
+    
+});
 
 Route::get('/report',[ReportController::class,'index']);
 
 
-Route::get('/insert',[insertController::class,'index']);
 
 Route::post('/index', function () {
     return view('index');

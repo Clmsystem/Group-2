@@ -50,7 +50,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/createpart4">
+        <a class="nav-link" href="/submit">
           <span class="menu-title">บันทึกผลตามตัวชี้วัด</span>
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>

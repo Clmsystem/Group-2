@@ -32,7 +32,7 @@ class LoginController extends Controller
         }
         else{
             echo "pls check pass or email";
-            return view('login');
+            return view('index');
             echo $result;
         }
         

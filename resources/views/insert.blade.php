@@ -1,81 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Purple Admin</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <!-- endinject -->
-  <!-- Layout styles -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <!-- End layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
-</head>
+@include('header.menu')
 <style>
-
     @import url('https://fonts.googleapis.com/css2?family=Mitr&display=swap');
     /* adjust font this page  */
 
     .newFont {
         font-family: 'Mitr', sans-serif;
-        text-align:center;
+        text-align: center;
     }
-    /* .page-header {
+    .newFonts {
         font-family: 'Mitr', sans-serif;
-        text-align:center;
+        /* text-align: center; */
     }
-    .newFontmont{
-        font-family: 'Mitr', sans-serif;
-        text-align:center;
-    } */
-    /* adjust btn position */
+
     .button-position {
         float: right;
         margin: -8px;
     }
+
     /* adjust btn size */
     .btns {
         padding: 0.9rem 2em;
         font-size: 0.875rem;
     }
+
     /* adjust text position */
     td {
         text-align: center;
         font-size: 9px !important;
     }
+
     th {
         text-align: center;
     }
-    
-    
+
 </style>
+
 <body>
-  <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
+    <!-- ------------------------------------------  include  --------------------------------------------->
+
     @include('partials.navbar')
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
-      @include('partials.sidebar')
-      <!-- partial -->
-      <div class="main-panel">
+    @include('partials.sidebar')
+
+    <!-- ------------------------------------------  include  --------------------------------------------->
+
+    <div class="main-panel">
         <div class="content-wrapper">
-            <div class="page-header" >
+            <div class="page-header">
                 <h3 class="newFont"> สถิติ ฝ่ายส่งเสริมการเรียนรู้และให้บริการการศึกษา ศูนย์บรรณสารและสื่อการศึกษา </h3>
             </div>
-            <div ><h5 class="newFont"> เดือน มกราคม 2564 </h5></div>
+            
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                       
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3 class="newFonts">บันทึกผลตามตัวชี้วัด</h3>
+                            </div>
+                            
+                            <div class="form-group col-md-2">
+                                <select class="form-control ">
+                                    <optgroup class="newFont">
+                                        <option>เดือน</option>
+                                        <option>มกราคม</option>
+                                        <option>กุมภาพันธ์</option>
+                                        <option>มีนาคม</option>
+                                        <option>เมษายน</option>
+                                        <option>พฤษภาคม</option>
+                                        <option>มิถุนายน</option>
+                                        <option>กรกฎาคม</option>
+                                        <option>สิงหาคม</option>
+                                        <option>กันยายน</option>
+                                        <option>ตุลาคม</option>
+                                        <option>พฤศจิกายน</option>
+                                        <option>ธันวาคม</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row">
                             <!-- <div class="col-md-1"></div> -->
                             <div class="col-md-12">
@@ -108,26 +109,40 @@
                                     <tbody class="test">
                                         <tr class="d-flex newFont">
                                             <th class="col-sm-1"> 1 </th>
-                                            <td class="col-sm-3"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID (Self check) </td>
+                                            <td class="col-sm-3"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID (Self
+                                                check) </td>
                                             <td class="col-sm-2">
-                                                <div><input type="text" class="form-control" placeholder="จำนวน" required></div>
+                                                <div><input type="text" class="form-control" placeholder="จำนวน"
+                                                        required></div>
                                             </td>
                                             <th class="col-sm-1"> ครั้ง </th>
-                                            <td class="col-sm-3"> <div><input type="text" class="form-control" placeholder="หมายเหตุ" required></div> </td>
-                                            <td class="col-sm-2"><button class="btn btn-gradient-success btns" data-toggle="modal" data-target="#modalAction"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
+                                            <td class="col-sm-3">
+                                                <div><input type="text" class="form-control" placeholder="หมายเหตุ"
+                                                        required></div>
+                                            </td>
+                                            <td class="col-sm-2"><button class="btn btn-gradient-success btns"
+                                                    data-toggle="modal" data-target="#modalAction"><i
+                                                        class="mdi mdi-grease-pencil launch-modal"></i></button>
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr class="d-flex">
                                             <th class="col-sm-1"> 2 </th>
-                                            <td class="col-sm-3"> การเข้าใช้บริการพื้นที่ศูนย์บรรณสารฯ แบบลงชื่อ (บุคคลภายนอก) </td>
+                                            <td class="col-sm-3"> การเข้าใช้บริการพื้นที่ศูนย์บรรณสารฯ แบบลงชื่อ
+                                                (บุคคลภายนอก) </td>
                                             <td class="col-sm-2">
-                                                <div><input type="text" class="form-control" placeholder="จำนวน" required></div>
+                                                <div><input type="text" class="form-control" placeholder="จำนวน"
+                                                        required></div>
                                             </td>
                                             <th class="col-sm-1"> คน </th>
-                                            <td class="col-sm-3"> <div><input type="text" class="form-control" placeholder="หมายเหตุ" required></div> </td>
-                                            <td class="col-sm-2"><button class="btn btn-gradient-success btns" data-toggle="modal" data-target="#modalAction"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
-                                               </button>
+                                            <td class="col-sm-3">
+                                                <div><input type="text" class="form-control" placeholder="หมายเหตุ"
+                                                        required></div>
+                                            </td>
+                                            <td class="col-sm-2"><button class="btn btn-gradient-success btns"
+                                                    data-toggle="modal" data-target="#modalAction"><i
+                                                        class="mdi mdi-grease-pencil launch-modal"></i></button>
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -139,7 +154,8 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="modalAction" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalAction" tabindex="-1" role="dialog" data-backdrop="static"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
@@ -148,90 +164,95 @@
                             <form class="forms-sample">
                                 <hr><br>
                                 <div class="card-body">
-                       
-                       <div class="row">
-                           <!-- <div class="col-md-1"></div> -->
-                           <div class="col-md-12">
-                               <table class="table table-bordered newFont">
-                                   <thead>
-                                       <tr class="d-flex">
-                                           
-                                           <th class="col-sm-5" scope="col">
-                                               <h7 class="newFont">รายการ</h7>
-                                           </th>
-                                           <th class="col-sm-2" scope="col">
-                                               <h7 class="newFont">จำนวน</h7>
-                                           </th>
-                                           <th class="col-sm-2" scope="col">
-                                               <h7 class="newFont">หน่วยนับ</h7>
-                                           </th>
-                                           <th class="col-sm-3" scope="col">
-                                               <h7 class="newFont">หมายเหตุ</h7>
-                                           </th>
-                                           <!-- <th class="col-sm-2" scope="col">
+
+                                    <div class="row">
+                                        <!-- <div class="col-md-1"></div> -->
+                                        <div class="col-md-12">
+                                            <table class="table table-bordered newFont">
+                                                <thead>
+                                                    <tr class="d-flex">
+
+                                                        <th class="col-sm-5" scope="col">
+                                                            <h7 class="newFont">รายการ</h7>
+                                                        </th>
+                                                        <th class="col-sm-2" scope="col">
+                                                            <h7 class="newFont">จำนวน</h7>
+                                                        </th>
+                                                        <th class="col-sm-2" scope="col">
+                                                            <h7 class="newFont">หน่วยนับ</h7>
+                                                        </th>
+                                                        <th class="col-sm-3" scope="col">
+                                                            <h7 class="newFont">หมายเหตุ</h7>
+                                                        </th>
+                                                        <!-- <th class="col-sm-2" scope="col">
                                                <h7 class="newFont">สถานะ</h7>
                                            </th> -->
-                                       </tr>
-                                   </thead>
-                                   <tbody class="test">
-                                       <tr class="d-flex newFont">
-                                           <th class="col-sm-5"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID (Self check) </th>
-                                           <td class="col-sm-2">
-                                               <div><input type="text" class="form-control" placeholder="จำนวน" required></div>
-                                           </td>
-                                           <th class="col-sm-2"> ครั้ง </th>
-                                           <td class="col-sm-3"> <div><input type="text" class="form-control" placeholder="หมายเหตุ" required></div> </td>
-                                   </tbody>
-                               </table>
-                               <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                <h7 class="newFont">ยกเลิก</h7>
-                            </button>
-                            <button type="button" class="btn btn-primary">
-                                <h7 class="newFont">บันทึก</h7>
-                            </button>
-                        </div>
-                               <!-- <div class="col-md-1"></div> -->
-                           </div>
-                       </div>
-                   </div>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="test">
+                                                    <tr class="d-flex newFont">
+                                                        <th class="col-sm-5"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ
+                                                            RFID (Self check) </th>
+                                                        <td class="col-sm-2">
+                                                            <div><input type="text" class="form-control"
+                                                                    placeholder="จำนวน" required></div>
+                                                        </td>
+                                                        <th class="col-sm-2"> ครั้ง </th>
+                                                        <td class="col-sm-3">
+                                                            <div><input type="text" class="form-control"
+                                                                    placeholder="หมายเหตุ" required></div>
+                                                        </td>
+                                                </tbody>
+                                            </table>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    <h7 class="newFont">ยกเลิก</h7>
+                                                </button>
+                                                <button type="button" class="btn btn-primary">
+                                                    <h7 class="newFont">บันทึก</h7>
+                                                </button>
+                                            </div>
+                                            <!-- <div class="col-md-1"></div> -->
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 grid-margin stretch-card">
-                <div class="card">
-                   
+                    <div class="card">
+
+                    </div>
                 </div>
             </div>
-        </div>
 
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         @include('partials.footer')
         <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
+    </div>
+    <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="assets/vendors/chart.js/Chart.min.js"></script>
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="assets/js/off-canvas.js"></script>
-  <script src="assets/js/hoverable-collapse.js"></script>
-  <script src="assets/js/misc.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page -->
-  <script src="assets/js/dashboard.js"></script>
-  <script src="assets/js/todolist.js"></script>
-  <!-- End custom js for this page -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- End custom js for this page -->
 </body>
 
 </html>
