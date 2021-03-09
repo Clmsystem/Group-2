@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CreatePart4Controller;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ Route::get('/insert', function () {
 
 // } )->name('valid');
 Route::get('/createpart4',[CreatePart4Controller::class,'index']);
+Route::get('/report',[ReportController::class,'index']);
 
 Route::post('/index', function () {
     return view('index');
