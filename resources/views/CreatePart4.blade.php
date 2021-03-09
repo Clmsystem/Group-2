@@ -1,29 +1,32 @@
 @include('header.menu')
 <style>
-
     @import url('https://fonts.googleapis.com/css2?family=Mitr&display=swap');
+
     /* adjust font this page */
     .newFont {
         font-family: 'Mitr', sans-serif;
     }
+
     /* adjust btn position */
     .button-position {
         float: right;
         margin: -8px;
     }
+
     /* adjust btn size */
     .btns {
         padding: 0.9rem 2em;
         font-size: 0.875rem;
     }
+
     /* adjust text position */
     td {
         text-align: center;
     }
+
     th {
         text-align: center;
     }
-    
 </style>
 
 
@@ -71,7 +74,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <label class="newFont">จำนวน</label>
+                                    <label class="newFont">เป้าหมาย</label>
                                     <input type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value="" required>
                                 </div>
                                 <div class="form-group col-md-2">
@@ -137,7 +140,7 @@
                                             <td class="col-sm-2"> ทีมดูแลเพจ </td>
                                             <td class="col-sm-2"> 8000 / ครั้ง </td>
                                             <td class="col-sm-2"><button class="btn btn-gradient-success btns" data-toggle="modal" data-target="#modalAction"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
-                                                <button class="btn btn-gradient-danger btns"><i class="mdi mdi-delete"></i></button>
+                                                <button class="btn btn-gradient-danger btns" data-toggle="modal" data-target="#modalDelete"><i class="mdi mdi-delete"></i></button>
                                             </td>
                                         </tr>
                                         <tr class="d-flex">
@@ -146,7 +149,7 @@
                                             <td class="col-sm-2"> พิชัยยุทธ </td>
                                             <td class="col-sm-2"> 5000 / ครั้ง </td>
                                             <td class="col-sm-2"><button class="btn btn-gradient-success btns" data-toggle="modal" data-target="#modalAction"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
-                                                <button class="btn  btn-gradient-danger btns"><i class="mdi mdi-delete"></i></button>
+                                                <button class="btn  btn-gradient-danger btns" data-toggle="modal" data-target="#modalDelete"><i class="mdi mdi-delete"></i></button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -213,6 +216,7 @@
                                 </div>
                             </form>
                         </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                 <h7 class="newFont">ยกเลิก</ย>
@@ -224,6 +228,31 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h3 class="modal-title newFont" id="exampleModalLabel1">ลบตัวชี้วัด</h3>
+                            <hr>
+                            <h5 class="newFont"> ยืนยันที่จะลบตัวชี้วัดหรือไม่ ? </h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-gradient-primary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-gradient-danger">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
         </div>
         @include('partials.footer')
     </div>
