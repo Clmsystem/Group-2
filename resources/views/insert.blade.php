@@ -7,6 +7,7 @@
         font-family: 'Mitr', sans-serif;
         text-align: center;
     }
+
     .newFonts {
         font-family: 'Mitr', sans-serif;
         /* text-align: center; */
@@ -48,7 +49,7 @@
             <div class="page-header">
                 <h3 class="newFont"> สถิติ ฝ่ายส่งเสริมการเรียนรู้และให้บริการการศึกษา ศูนย์บรรณสารและสื่อการศึกษา </h3>
             </div>
-            
+
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -56,7 +57,6 @@
                             <div class="col-md-3">
                                 <h3 class="newFonts">บันทึกผลตามตัวชี้วัด</h3>
                             </div>
-                            
                             <div class="form-group col-md-2">
                                 <select class="form-control ">
                                     <optgroup class="newFont">
@@ -255,6 +255,4 @@
     <!-- End custom js for this page -->
 </body>
 
-</html>
-alsdasd
 </html>
