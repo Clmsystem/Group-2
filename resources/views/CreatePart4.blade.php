@@ -241,7 +241,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-gradient-primary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-gradient-danger">Save changes</button>
+                            <button type="button" class="btn btn-gradient-danger">Delete</button>
                         </div>
                     </div>
                 </div>
