@@ -16,6 +16,10 @@
             padding: 1rem 8rem;
         font-size: 0.875rem;
     }
+    .btns2 {
+            padding: 1rem 7rem;
+        font-size: 0.875rem;
+    }
     .btn-lg{
     padding: 1rem 8rem;
     font-size: 0.875rem;
@@ -63,7 +67,7 @@
                                         <optgroup class="newFont">
                                             <option>เดือน</option>
                                             <option>มกราคม</option>
-                                            <option>กุมภาพันธ์</option>
+                                            <optidon>กุมภาพันธ์</optidon>
                                             <option>มีนาคม</option>
                                             <option>เมษายน</option>
                                             <option>พฤษภาคม</option>
@@ -101,15 +105,19 @@
                         
                         <form class="forms-sample">
                         <div class="row">
+                
+                            
                                 <div class="form-group col-md-4">
-                                    <button type="button" class="btn btn-primary btn-lg">กราฟ</button>
+                                    <button type="button" class="btn btn-primary btns ">กราฟ</button>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <button type="button" class="btn btn-primary btn-lg">ดาวน์โหลด</button>
+                                    <button type="button" class="btn btn-primary btns2 ">ดาวน์โหลด</button>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <button type="button" class="btn btn-primary btn-lg">ค้นหา</button>
+                                    <button type="button" class="btn btn-primary btns ">ค้นหา</button>
                                 </div>
+                            
+                         
                             </div>
                         </form>
 
