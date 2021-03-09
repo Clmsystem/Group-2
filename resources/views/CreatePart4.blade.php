@@ -232,7 +232,7 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                <h7 class="newFont">ยกเลิก</ย>
+                                <h7 class="newFont">ยกเลิก</h7>
                             </button>
                             <button type="button" class="btn btn-primary">
                                 <h7 class="newFont">บันทึก</h7>
