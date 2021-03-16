@@ -38,10 +38,8 @@ Route::get('/insertDB', [CreatePart4Controller::class, 'index'], function () {
 });
 
 
-
-Route::get('/createpart4', function () {
-    return view('CreatePart4');
-});
+Route::resource('createpart4', CreatePart4Controller::class);
+// Route::get('/createpart4', [CreatePart4Controller::class, 'index']);
 
 Route::get('/report', [ReportController::class, 'index']);
 
