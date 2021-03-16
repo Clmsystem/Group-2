@@ -12,8 +12,8 @@ class insertController extends Controller
 {
     public function index()
     {
-        $indicator = DB::table('indicator')->get();
-        return view('insert', compact('indicator'));
+        $list_item = DB::table('list_item')->get();
+        return view('insert', compact('list_item'));
     }
 
     public function test()

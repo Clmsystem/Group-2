@@ -110,10 +110,10 @@
                                         </tr>
                                     </thead>
                                     <tbody class="test">
-                                        <tr class="d-flex newFont">
-                                            <th class="col-sm-1"> 1 </th>
-                                            <td class="col-sm-3"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID (Self
-                                                check) </td>
+                                    @foreach($list_item as $i => $value)
+                                    <tr class="d-flex newFont">
+                                            <th class="col-sm-1"> {{$i}} </th>
+                                            <td class="col-sm-3"> {{$value->name_item}} </td>
                                             <td class="col-sm-2">
                                                 <div><input type="text" class="form-control" placeholder="จำนวน"
                                                         required></div>
@@ -123,41 +123,14 @@
                                                 <div><input type="text" class="form-control" placeholder="หมายเหตุ"
                                                         required></div>
                                             </td>
-                                            <td class="col-sm-2"><button class="btn btn-gradient-success btns"
-                                                    data-toggle="modal" data-target="#modalAction"><i
-                                                        class="mdi mdi-grease-pencil launch-modal"></i></button>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr class="d-flex">
-                                            <th class="col-sm-1"> 2 </th>
-                                            <td class="col-sm-3"> การเข้าใช้บริการพื้นที่ศูนย์บรรณสารฯ แบบลงชื่อ
-                                                (บุคคลภายนอก) </td>
                                             <td class="col-sm-2">
-                                                <div><input type="text" class="form-control" placeholder="จำนวน"
-                                                        required></div>
-                                            </td>
-                                            <th class="col-sm-1"> คน </th>
-                                            <td class="col-sm-3">
-                                                <div><input type="text" class="form-control" placeholder="หมายเหตุ"
-                                                        required></div>
-                                            </td>
-                                            <td class="col-sm-2"><button class="btn btn-gradient-success btns"
-                                                    data-toggle="modal" data-target="#modalAction"><i
-                                                        class="mdi mdi-grease-pencil launch-modal"></i></button>
+                                            <button class="btn btn-gradient-success btns"
+                                                    data-toggle="modal" data-target="#modalAction{{$i}}"><i
+                                                        class="mdi mdi-grease-pencil launch-modal"></i>
+                                                 
                                                 </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <!-- <div class="col-md-1"></div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="modal fade" id="modalAction" tabindex="-1" role="dialog" data-backdrop="static"
+                                                <div class="modal fade" id="modalAction{{$i}}" tabindex="-1" role="dialog" data-backdrop="static"
                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
@@ -187,8 +160,7 @@
                                             </thead>
                                                 <tbody >
                                                     <tr class="d-flex newFont">
-                                                        <th class="col-sm-5"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ
-                                                            RFID (Self check) </th>
+                                                        <th class="col-sm-5"> {{$value->name_item}}</th>
                                                         <td class="col-sm-2">
                                                             <div><input type="text" class="form-control"
                                                                     placeholder="จำนวน" required></div>
@@ -223,6 +195,21 @@
                     </div>
                 </div>
             </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                        
+
+                                    </tbody>
+                                </table>
+                                <!-- <div class="col-md-1"></div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
 
         </div>
         <!-- content-wrapper ends -->
