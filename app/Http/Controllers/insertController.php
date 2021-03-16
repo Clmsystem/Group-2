@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 
@@ -18,7 +19,6 @@ class insertController extends Controller
 
     public function test()
     {
-        return
-            DB::table('indicator')->get();
+        return Carbon::now()->month;
     }
 }
