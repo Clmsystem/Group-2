@@ -25,35 +25,28 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/submit', function () {
-    return view('insert');
-});
+Route::get('/submit', [insertController::class, 'index']);
 
 
 
 // Route::post('/login', [LoginController::class, 'index'])->name('login');
 
-Route::post('/Valid', [LoginController::class,'index'],function ($argv){
+Route::post('/Valid', [LoginController::class, 'index'], function ($argv) {
+})->name('valid');
 
-} )->name('valid');
-
-Route::get('/insertDB', [CreatePart4Controller::class,'index'],function () {
-    
-    
+Route::get('/insertDB', [CreatePart4Controller::class, 'index'], function () {
 });
 
 
 
-Route::get('/createpart4',function () {
+Route::get('/createpart4', function () {
     return view('CreatePart4');
-    
 });
 
-Route::get('/report',[ReportController::class,'index']);
+Route::get('/report', [ReportController::class, 'index']);
 
 
 
 Route::post('/index', function () {
     return view('index');
 })->name('/');
-
