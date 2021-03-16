@@ -13,6 +13,15 @@
         margin: -8px;
     }
 
+
+
+    td.break {
+        word-wrap: break-word;
+        /* word-break: break-all; */
+        white-space: normal;
+    }
+
+
     /* adjust btn size */
     .btns {
         padding: 0.9rem 2em;
@@ -21,6 +30,7 @@
 
     /* adjust text position */
     td {
+
         text-align: center;
     }
 
@@ -128,7 +138,7 @@
                                     <tbody>
                                         <tr class="d-flex">
                                             <td class="col-sm-1"> 1 </td>
-                                            <td class="col-sm-4"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID (Selfcheck) </td>
+                                            <td class="col-sm-4  break"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID ( Self check ) </td>
                                             <td class="col-sm-2"> ทีมดูแลเพจ </td>
                                             <td class="col-sm-2"> 8000 </td>
                                             <td class="col-sm-1"> ครั้ง </td>
@@ -136,9 +146,9 @@
                                                 <button class="btn btn-gradient-danger btns" data-toggle="modal" data-target="#modalDelete"><i class="mdi mdi-delete"></i></button>
                                             </td>
                                         </tr>
-                                        <tr class="d-flex">
+                                        <tr style="word-wrap: break-word" class="d-flex ">
                                             <td class="col-sm-1"> 2 </td>
-                                            <td class="col-sm-4"> การเข้าใช้บริการพื้นที่ศูนย์บรรณสารฯ แบบลงชื่อ(บุคคลภายนอก) </td>
+                                            <td class="col-sm-4 break"> การเข้าใช้บริการพื้นที่ศูนย์บรรณสารฯ แบบลงชื่อ( บุคคลภายนอก ) </td>
                                             <td class="col-sm-2"> พิชัยยุทธ </td>
                                             <td class="col-sm-2"> 5000 </td>
                                             <td class="col-sm-1"> คน </td>

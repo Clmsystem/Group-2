@@ -27,11 +27,17 @@
     /* adjust text position */
     td {
         text-align: center;
-        font-size: 9px !important;
+        /* font-size: 9px !important; */
     }
 
     th {
         text-align: center;
+    }
+
+    td.break {
+        word-wrap: break-word;
+        /* word-break: break-all; */
+        white-space: normal;
     }
 </style>
 
@@ -112,7 +118,7 @@
                                         @foreach($list_item as $i => $value)
                                         <tr class="d-flex newFont">
                                             <th class="col-sm-1"> {{$i+1}} </th>
-                                            <td class="col-sm-3"> {{$value->name_item}} </td>
+                                            <td class="col-sm-3 break"> {{$value->name_item}} </td>
                                             <td class="col-sm-2">
                                                 <div><input type="text" class="form-control" placeholder="จำนวน" required></div>
                                             </td>
@@ -139,7 +145,7 @@
                                                                                 <thead>
                                                                                     <tr class="d-flex">
                                                                                         <th class="col-sm-5" scope="col">
-                                                                                            <h7 class="newFont">รายการ</h7>
+                                                                                            <h5 class="newFont">รายการ</h5>
                                                                                         </th>
                                                                                         <th class="col-sm-2" scope="col">
                                                                                             <h7 class="newFont">จำนวน</h7>
@@ -154,7 +160,7 @@
                                                                                 </thead>
                                                                                 <tbody>
                                                                                     <tr class="d-flex newFont">
-                                                                                        <th class="col-sm-5"> {{$value->name_item}}</th>
+                                                                                        <th class="col-sm-5 break"> {{$value->name_item}}</th>
                                                                                         <td class="col-sm-2">
                                                                                             <div><input type="text" class="form-control" placeholder="จำนวน" required></div>
                                                                                         </td>
