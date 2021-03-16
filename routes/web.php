@@ -8,6 +8,7 @@ use App\Http\Controllers\CreatePart4Controller;
 use App\Http\Controllers\ReportController;
 
 use App\Http\Controllers\insertController;
+use App\Http\Controllers\FileUploadController;
 
 
 /*
@@ -48,3 +49,9 @@ Route::get('/report', [ReportController::class, 'index']);
 Route::post('/index', function () {
     return view('index');
 })->name('/');
+
+// Route::get('file-upload', [FileUploadController::class, 'index']);
+// Route::post('store', [FileUploadController::class, 'store']);
+Route::get('file-upload', [FileUploadController::class, 'index'])->name('file.upload');
+Route::post('file-upload', [FileUploadController::class, 'store'])->name('file.upload.post');
+Route::get('file/download', [FileUploadController::class, 'getfile']);
