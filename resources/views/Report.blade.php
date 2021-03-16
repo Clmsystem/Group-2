@@ -13,13 +13,25 @@
     }
     /* adjust btn size */
     .btns {
-            padding: 1rem 8rem;
+            padding: 1rem 4rem;
         font-size: 0.875rem;
     }
     .btns2 {
-            padding: 1rem 7rem;
+            padding: 1rem 3rem;
         font-size: 0.875rem;
     }
+    .btn {
+    font-size: 0.875rem;
+    line-height: 1;
+    font-family: "ubuntu-bold", sans-serif;
+    
+    }
+    .Pbtn {
+    margin-left: 28px;
+    padding: 1rem;
+    align-items: end;
+    justify-content: end;
+}
     .btn-lg{
     padding: 1rem 8rem;
     font-size: 0.875rem;
@@ -65,19 +77,10 @@
                                 <div class="form-group col-md-4">
                                     <select class="form-control">
                                         <optgroup class="newFont">
-                                            <option>เดือน</option>
-                                            <option>มกราคม</option>
-                                            <optidon>กุมภาพันธ์</optidon>
-                                            <option>มีนาคม</option>
-                                            <option>เมษายน</option>
-                                            <option>พฤษภาคม</option>
-                                            <option>มิถุนายน</option>
-                                            <option>กรกฎาคม</option>
-                                            <option>สิงหาคม</option>
-                                            <option>กันยายน</option>
-                                            <option>ตุลาคม</option>
-                                            <option>พฤศจิกายน</option>
-                                            <option>ธันวาคม</option>
+                                            <option>ไตรมาส</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
                                         </optgroup>
                                     </select>
                                 </div>
@@ -93,13 +96,22 @@
                                 <div class="form-group col-md-4">
                                     <select class="form-control">
                                         <optgroup class="newFont">
-                                            <option>ไตรมาส</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
+                                            <option>เดือน</option>
+                                            <option>มกราคม</option>
+                                            <optidon>กุมภาพันธ์</optidon>
+                                            <option>มีนาคม</option>
+                                            <option>เมษายน</option>
+                                            <option>พฤษภาคม</option>
+                                            <option>มิถุนายน</option>
+                                            <option>กรกฎาคม</option>
+                                            <option>สิงหาคม</option>
+                                            <option>กันยายน</option>
+                                            <option>ตุลาคม</option>
+                                            <option>พฤศจิกายน</option>
+                                            <option>ธันวาคม</option>
                                         </optgroup>
                                     </select>
-                                </div>
+                                </div>                                                         
                             </div>
                         </form>
                         
@@ -107,13 +119,13 @@
                         <div class="row">
                 
                             
-                                <div class="form-group col-md-4">
-                                    <button type="button" class="btn btn-primary btns ">กราฟ</button>
+                                <div class="form-group col-md-8">
+                                    <!-- <button type="button" class="btn btn-primary btns ">กราฟ</button> -->
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-2">
                                     <button type="button" class="btn btn-primary btns2 ">ดาวน์โหลด</button>
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-2">
                                     <button type="button" class="btn btn-primary btns ">ค้นหา</button>
                                 </div>
                             
@@ -132,8 +144,11 @@
                                             <th class="col-sm-5" scope="col">
                                                 <h7 class="newFont">รายการ</h7>
                                             </th>
-                                            <th class="col-sm-2" scope="col">
+                                            <th class="col-sm-1" scope="col">
                                                 <h7 class="newFont">จำนวน</h7>
+                                            </th>
+                                            <th class="col-sm-1" scope="col">
+                                                <h7 class="newFont">หน่วย</h7>
                                             </th>
                                             <th class="col-sm-2" scope="col">
                                                 <h7 class="newFont">หมายเหตุ</h7>
@@ -144,20 +159,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($list_item as $i => $value)
                                         <tr class="d-flex">
-                                            <td class="col-sm-1"> 1 </td>
-                                            <td class="col-sm-5"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID (Self check) </td>
-                                            <td class="col-sm-2"> 8000 / ครั้ง </td>
+                                            <td class="col-sm-1"> {{$i}} </td>
+                                            <td class="col-sm-5"> {{$value->name_item}}  <button type="button" class="Pbtn btn btn-success"><i class="mdi mdi-chart-bar"></i></button></td>
+                                            <td class="col-sm-1">  </td>
+                                            <td class="col-sm-1"> ครั้ง </td>
                                             <td class="col-sm-2">  </td>
                                             <td class="col-sm-2"> ทีมดูแลเพจ </td>
                                         </tr>
-                                        <tr class="d-flex">
-                                            <td class="col-sm-1"> 2 </td>
-                                            <td class="col-sm-5"> การเข้าใช้บริการพื้นที่ศูนย์บรรณสารฯ แบบลงชื่อ (บุคคลภายนอก) </td>
-                                            <td class="col-sm-2"> 5000 / ครั้ง </td>
-                                            <td class="col-sm-2">  </td>
-                                            <td class="col-sm-2"> พิชัยยุทธ </td>
-                                        </tr>
+                                       
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <!-- <div class="col-md-1"></div> -->
