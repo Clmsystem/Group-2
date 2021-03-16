@@ -153,8 +153,11 @@
                                             <th class="col-sm-1" scope="col">
                                                 <h7 class="newFont">ลำดับ</h7>
                                             </th>
-                                            <th class="col-sm-5" scope="col">
+                                            <th class="col-sm-3" scope="col">
                                                 <h7 class="newFont">รายการ</h7>
+                                            </th>
+                                            <th class="col-sm-2" scope="col">
+                                                <h7 class="newFont">กราฟ</h7>
                                             </th>
                                             <th class="col-sm-1" scope="col">
                                                 <h7 class="newFont">จำนวน</h7>
@@ -174,7 +177,8 @@
                                         @foreach($list_item as $i => $value)
                                         <tr class="d-flex">
                                             <td class="col-sm-1"> {{$i+1}} </td>
-                                            <td class="col-sm-5 break"> {{$value->name_item}} <button type="button" class="Pbtn btn btn-success"><i class="mdi mdi-chart-bar"></i></button></td>
+                                            <td class="col-sm-3 break"> {{$value->name_item}}</td>
+                                            <td class="col-sm-2"><button type="button" class="Pbtn btn btn-success"><i class="mdi mdi-chart-bar"></i></button></td>
                                             <td class="col-sm-1"> </td>
                                             <td class="col-sm-1"> ครั้ง </td>
                                             <td class="col-sm-2"> </td>
