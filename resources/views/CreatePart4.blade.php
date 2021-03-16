@@ -51,28 +51,11 @@
                         <hr><br>
                         <form class="forms-sample" action="{{route('createpart4.store')}}" method="post">
                             @csrf
-                            <div class="row">
+                            <div class="row form-group">
                                 <div class="form-group col-md-6">
                                     <label class="newFont">หัวข้อ</label>
                                     <input type="text" name="indicator_list" id="indicator_list" class="form-control" placeholder="หัวข้อตัวขี้วัด" required>
                                 </div>
-                                <!-- <div class="form-group col-md-2">
-                                    <label class="newFont">ผู้รับผิดชอบ</label>
-                                    <select class="form-control">
-                                        <optgroup class="newFont">
-                                            <option>เลือกผู้รับผิดชอบ</option>
-                                            <option>ทีมดูแลเพจ</option>
-                                            <option>พิชัยยุทธ</option>
-                                            <option>ชื่นณัสฐา</option>
-                                            <option>กิตติพร</option>
-                                            <option>สุวัฒน์</option>
-                                            <option>สันถัต</option>
-                                            <option>ปรีชา</option>
-                                            <option>นิตยา</option>
-                                            <option>นาวิน</option>
-                                        </optgroup>
-                                    </select>
-                                </div> -->
                                 <div class="form-group col-md-4">
                                     <label class="newFont">หน่วยนับ</label>
                                     <div class="input-group">
@@ -89,7 +72,7 @@
                                                     <option value="7">อื่นๆ</option>
                                                 </optgroup>
                                             </select>
-                                            <input type="text" name="unit_incress" id="unit_incress" class="form-control" aria-label="Text input with dropdown button" placeholder="อื่นๆ" value="">
+                                            <input style="margin-left: 10px;" type="text" name="unit_incress" id="unit_incress" class="form-control" aria-label="Text input with dropdown button" placeholder="อื่นๆ" value="">
                                         </div>
                                     </div>
                                 </div>
