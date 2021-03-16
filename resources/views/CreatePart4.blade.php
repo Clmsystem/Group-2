@@ -56,7 +56,7 @@
                                     <label class="newFont">หัวข้อ</label>
                                     <input type="text" class="form-control" placeholder="หัวข้อตัวขี้วัด" required>
                                 </div>
-                                <div class="form-group col-md-2">
+                                <!-- <div class="form-group col-md-2">
                                     <label class="newFont">ผู้รับผิดชอบ</label>
                                     <select class="form-control">
                                         <optgroup class="newFont">
@@ -72,25 +72,32 @@
                                             <option>นาวิน</option>
                                         </optgroup>
                                     </select>
+                                </div> -->
+                                <div class="form-group col-md-4">
+                                <label class="newFont">หน่วยนับ</label>
+                                    <div class="input-group">
+                                        <div class="input-group-append">
+                                            <select class="form-control">
+                                                <optgroup class="newFont">
+                                                    <option selected>เลือกหน่วยนับ</option>
+                                                    <option value="1">รายการ</option>
+                                                    <option value="2">ชั่วโมง</option>
+                                                    <option value="3">บาท</option>
+                                                    <option value="4">ครั้ง</option>
+                                                    <option value="5">ชิ้น</option>
+                                                    <option value="6">คน</option>
+                                                    <option value="7">อื่นๆ</option>
+                                                </optgroup>                               
+                                            </select>
+                                            <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="อื่นๆ" value=""
+                                            required >
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label class="newFont">เป้าหมาย</label>
                                     <input type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value=""
                                         required>
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label class="newFont">หน่วยนับ</label>
-                                    <select class="form-control">
-                                        <optgroup class="newFont">
-                                            <option>เลือกหน่วยนับ</option>
-                                            <option>รายการ</option>
-                                            <option>ชั่วโมง</option>
-                                            <option>บาท</option>
-                                            <option>ครั้ง</option>
-                                            <option>ชิ้น</option>
-                                            <option>คน</option>
-                                        </optgroup>
-                                    </select>
                                 </div>
                                 <div class="form-group col-md-9"></div>
                                 <div class="form-group col-md-3">
@@ -123,7 +130,7 @@
                                             <th class="col-sm-1" scope="col">
                                                 <h7 class="newFont">ลำดับ</h7>
                                             </th>
-                                            <th class="col-sm-5" scope="col">
+                                            <th class="col-sm-4" scope="col">
                                                 <h7 class="newFont">ตัวชี้วัด</h7>
                                             </th>
                                             <th class="col-sm-2" scope="col">
@@ -132,16 +139,19 @@
                                             <th class="col-sm-2" scope="col">
                                                 <h7 class="newFont">จำนวน</h7>
                                             </th>
+                                            <th class="col-sm-1" scope="col">
+                                                <h7 class="newFont">หน่วยนับ</h7>
+                                            </th>
                                             <th class="col-sm-2" scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="d-flex">
                                             <td class="col-sm-1"> 1 </td>
-                                            <td class="col-sm-5"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID (Self
-                                                check) </td>
+                                            <td class="col-sm-4"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID (Selfcheck) </td>
                                             <td class="col-sm-2"> ทีมดูแลเพจ </td>
-                                            <td class="col-sm-2"> 8000 / ครั้ง </td>
+                                            <td class="col-sm-2"> 8000 </td>
+                                            <td class="col-sm-1"> ครั้ง </td>
                                             <td class="col-sm-2"><button class="btn btn-gradient-success btns"
                                                     data-toggle="modal" data-target="#modalAction"><i
                                                         class="mdi mdi-grease-pencil launch-modal"></i></button>
@@ -151,10 +161,10 @@
                                         </tr>
                                         <tr class="d-flex">
                                             <td class="col-sm-1"> 2 </td>
-                                            <td class="col-sm-5"> การเข้าใช้บริการพื้นที่ศูนย์บรรณสารฯ แบบลงชื่อ
-                                                (บุคคลภายนอก) </td>
+                                            <td class="col-sm-4"> การเข้าใช้บริการพื้นที่ศูนย์บรรณสารฯ แบบลงชื่อ(บุคคลภายนอก) </td>
                                             <td class="col-sm-2"> พิชัยยุทธ </td>
-                                            <td class="col-sm-2"> 5000 / ครั้ง </td>
+                                            <td class="col-sm-2"> 5000 </td>
+                                            <td class="col-sm-1"> คน </td>
                                             <td class="col-sm-2"><button class="btn btn-gradient-success btns"
                                                     data-toggle="modal" data-target="#modalAction"><i
                                                         class="mdi mdi-grease-pencil launch-modal"></i></button>
