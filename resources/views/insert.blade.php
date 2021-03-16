@@ -76,6 +76,9 @@
                                     </optgroup>
                                 </select>
                             </div>
+                            <div class="col-md-3">
+                                <h3 class="newFonts"> ปี 2564</h3>
+                            </div>
                         </div>
                         <div class="row">
                             <!-- <div class="col-md-1"></div> -->
@@ -164,32 +167,25 @@
                             <form class="forms-sample">
                                 <hr><br>
                                 <div class="card-body">
-
-                                    <div class="row">
-                                        <!-- <div class="col-md-1"></div> -->
-                                        <div class="col-md-12">
-                                            <table class="table table-bordered newFont">
-                                                <thead>
-                                                    <tr class="d-flex">
-
-                                                        <th class="col-sm-5" scope="col">
-                                                            <h7 class="newFont">รายการ</h7>
-                                                        </th>
-                                                        <th class="col-sm-2" scope="col">
-                                                            <h7 class="newFont">จำนวน</h7>
-                                                        </th>
-                                                        <th class="col-sm-2" scope="col">
-                                                            <h7 class="newFont">หน่วยนับ</h7>
-                                                        </th>
-                                                        <th class="col-sm-3" scope="col">
-                                                            <h7 class="newFont">หมายเหตุ</h7>
-                                                        </th>
-                                                        <!-- <th class="col-sm-2" scope="col">
-                                               <h7 class="newFont">สถานะ</h7>
-                                           </th> -->
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="test">
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered newFont">
+                                            <thead>
+                                                <tr class="d-flex">
+                                                    <th class="col-sm-5" scope="col">
+                                                        <h7 class="newFont">รายการ</h7>
+                                                    </th>
+                                                    <th class="col-sm-2" scope="col">
+                                                         <h7 class="newFont">จำนวน</h7>
+                                                    </th>
+                                                    <th class="col-sm-2" scope="col">
+                                                        <h7 class="newFont">หน่วยนับ</h7>
+                                                    </th>
+                                                    <th class="col-sm-3" scope="col">
+                                                        <h7 class="newFont">หมายเหตุ</h7>
+                                                    </th>    
+                                                </tr>
+                                            </thead>
+                                                <tbody >
                                                     <tr class="d-flex newFont">
                                                         <th class="col-sm-5"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ
                                                             RFID (Self check) </th>
@@ -202,8 +198,10 @@
                                                             <div><input type="text" class="form-control"
                                                                     placeholder="หมายเหตุ" required></div>
                                                         </td>
+                                                    </tr>
                                                 </tbody>
-                                            </table>
+                                            </thead>
+                                        </table>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                     <h7 class="newFont">ยกเลิก</h7>
@@ -214,7 +212,6 @@
                                             </div>
                                             <!-- <div class="col-md-1"></div> -->
                                         </div>
-                                    </div>
                                 </div>
                             </form>
                         </div>
