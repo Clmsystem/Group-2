@@ -37,6 +37,7 @@
     th {
         text-align: center;
     }
+
 </style>
 
 
@@ -59,12 +60,13 @@
                     <div class="card-body">
                         <h3 class="newFont">สร้างตัวชี้วัด</h3><br>
                         <hr><br>
-                        <form class="forms-sample" action="{{route('createpart4.store')}}" method="post">
+                        <form class="forms-sample" action="{{ route('createpart4.store') }}" method="post">
                             @csrf
                             <div class="row form-group">
                                 <div class="form-group col-md-6">
                                     <label class="newFont">หัวข้อ</label>
-                                    <input type="text" name="indicator_list" id="indicator_list" class="form-control" placeholder="หัวข้อตัวขี้วัด" required>
+                                    <input type="text" name="indicator_list" id="indicator_list" class="form-control"
+                                        placeholder="หัวข้อตัวขี้วัด" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label class="newFont">หน่วยนับ</label>
@@ -82,18 +84,23 @@
                                                     <option value="7">อื่นๆ</option>
                                                 </optgroup>
                                             </select>
-                                            <input style="margin-left: 10px;" type="text" name="unit_incress" id="unit_incress" class="form-control" aria-label="Text input with dropdown button" placeholder="อื่นๆ" value="">
+                                            <input style="margin-left: 10px;" type="text" name="unit_incress"
+                                                id="unit_incress" class="form-control"
+                                                aria-label="Text input with dropdown button" placeholder="อื่นๆ"
+                                                value="">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label class="newFont">เป้าหมาย</label>
-                                    <input type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value="" required>
+                                    <input type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value=""
+                                        required>
                                 </div>
                                 <div class="form-group col-md-9"></div>
                                 <div class="form-group col-md-3">
                                     <div class="button-position">
-                                        <button type="submit" class="btn btn-gradient-primary mr-2 newFont">เพิ่มตัวชี้วัด</button>
+                                        <button type="submit"
+                                            class="btn btn-gradient-primary mr-2 newFont">เพิ่มตัวชี้วัด</button>
                                     </div>
                                 </div>
                             </div>
@@ -136,26 +143,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="d-flex">
-                                            <td class="col-sm-1"> 1 </td>
-                                            <td class="col-sm-4  break"> สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID ( Self check ) </td>
-                                            <td class="col-sm-2"> ทีมดูแลเพจ </td>
-                                            <td class="col-sm-2"> 8000 </td>
-                                            <td class="col-sm-1"> ครั้ง </td>
-                                            <td class="col-sm-2"><button class="btn btn-gradient-success btns" data-toggle="modal" data-target="#modalAction"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
-                                                <button class="btn btn-gradient-danger btns" data-toggle="modal" data-target="#modalDelete"><i class="mdi mdi-delete"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr style="word-wrap: break-word" class="d-flex ">
-                                            <td class="col-sm-1"> 2 </td>
-                                            <td class="col-sm-4 break"> การเข้าใช้บริการพื้นที่ศูนย์บรรณสารฯ แบบลงชื่อ( บุคคลภายนอก ) </td>
-                                            <td class="col-sm-2"> พิชัยยุทธ </td>
-                                            <td class="col-sm-2"> 5000 </td>
-                                            <td class="col-sm-1"> คน </td>
-                                            <td class="col-sm-2"><button class="btn btn-gradient-success btns" data-toggle="modal" data-target="#modalAction"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
-                                                <button class="btn  btn-gradient-danger btns" data-toggle="modal" data-target="#modalDelete"><i class="mdi mdi-delete"></i></button>
-                                            </td>
-                                        </tr>
+                                        @foreach ($list_item as $i => $value)
+                                            <tr class="d-flex">
+                                                <td class="col-sm-1">{{ $i + 1 }} </td>
+                                                <td class="col-sm-4  break">{{ $value->name_item }} </td>
+                                                <td class="col-sm-2"> ทีมดูแลเพจ </td>
+                                                <td class="col-sm-2"> 8000 </td>
+                                                <td class="col-sm-1"> ครั้ง </td>
+                                                <td class="col-sm-2"><button class="btn btn-gradient-success btns"
+                                                        data-toggle="modal" data-target="#modalAction"><i
+                                                            class="mdi mdi-grease-pencil launch-modal"></i></button>
+                                                    <button class="btn btn-gradient-danger btns" data-toggle="modal"
+                                                        data-target="#modalDelete"><i
+                                                            class="mdi mdi-delete"></i></button>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                                 <!-- <div class="col-md-1"></div> -->
@@ -169,7 +172,8 @@
 
             <!--------------------------------------------  แก้ไขตัวชี้วัด Start ---------------------------------------------------->
 
-            <div class="modal fade" id="modalAction" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalAction" tabindex="-1" role="dialog" data-backdrop="static"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
@@ -178,13 +182,15 @@
                             <form class="forms-sample">
                                 <hr><br>
                                 <div class="row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-5">
                                         <label class="newFont">หัวข้อ</label>
-                                        <input type="text" class="form-control" placeholder="หัวข้อตัวขี้วัด" value="" required>
+                                        <input type="text" class="form-control" placeholder="หัวข้อตัวขี้วัด" value=""
+                                            required>
                                     </div>
-                                    <div class="form-group col-md-2">
+                                    <div class="form-group col-md-3">
                                         <label class="newFont">ผู้รับผิดชอบ</label>
-                                        <select class="form-control">
+                                        {{-- <select class="form-control ui fluid search dropdown" multiple="">>  --}}
+                                        <select class="selectpicker" multiple data-live-search="true"> 
                                             <optgroup class="newFont">
                                                 <option>เลือกผู้รับผิดชอบ</option>
                                                 <option>ทีมดูแลเพจ</option>
@@ -198,10 +204,12 @@
                                                 <option>นาวิน</option>
                                             </optgroup>
                                         </select>
+
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label class="newFont">จำนวน</label>
-                                        <input type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value="" required>
+                                        <input type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value=""
+                                            required>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label class="newFont">หน่วยนับ</label>
@@ -235,7 +243,8 @@
 
 
             <!-- Modal -->
-            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+            <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
@@ -260,3 +269,7 @@
     </div> -->
 
 </body>
+
+<script>
+$('select').selectpicker();
+</script>

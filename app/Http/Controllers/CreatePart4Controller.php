@@ -13,13 +13,8 @@ class CreatePart4Controller extends Controller
 
     public function index()
     {
-
-        // $test=DB::table('list_item')
-        // ->insertGetId([
-        //     'name_item' => 'สถิติการยืมต่อทรัพยากรสารสนเทศผ่านระบบ RFID',
-        //     'year_id' => 2564,
-        // ]);
-        return view('CreatePart4');
+        $list_item = DB::table('list_item')->get();
+        return view('CreatePart4', compact('list_item'));
     }
 
     public function store(Request $request)
