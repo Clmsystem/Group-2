@@ -11,8 +11,8 @@ class LoginController extends Controller
   
         $email = $request->input('email');
         $pass = $request->input('password');
-        $users = DB::table('user')
-                ->where('user_name', '=',$email )
+        $users = DB::table('employee')
+                ->where('username', '=',$email )
                 ->where('password','=',$pass)
                 ->get();
 
