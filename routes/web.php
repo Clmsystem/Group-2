@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CreatePart4Controller;
 
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\GraphController;
 
 use App\Http\Controllers\insertController;
 use App\Http\Controllers\FileUploadController;
@@ -43,6 +44,8 @@ Route::resource('createpart4', CreatePart4Controller::class);
 // Route::get('/createpart4', [CreatePart4Controller::class, 'index']);
 
 Route::get('/report', [ReportController::class, 'index']);
+
+Route::get('/graph', [GraphController::class, 'index']);
 
 
 
