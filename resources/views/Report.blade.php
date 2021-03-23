@@ -32,7 +32,7 @@
     }
 
     .Pbtn {
-        margin-left: 28px;
+        margin-left: 0px;
         padding: 1rem;
         align-items: end;
         justify-content: end;
@@ -81,7 +81,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <label for=""> แผนสถิติประจำปี 2564</label> <!-- ปีต้องดึงมาโชว์ -->
+                            <h3 class="newFont" for=""> แผนสถิติประจำปี 2564</h3> <!-- ปีต้องดึงมาโชว์ -->
                         </div>
                         <hr><br>
                         <form class="forms-sample">
@@ -135,17 +135,18 @@
                                     <!-- <button type="button" class="btn btn-primary btns ">กราฟ</button> -->
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <button type="button" class="btn btn-primary btns2 ">ดาวน์โหลด</button>
+                                    <button type="button" class="btn btn-gradient-primary btns2 ">ดาวน์โหลด</button>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <button type="button" class="btn btn-primary btns ">ค้นหา</button>
+                                    <button type="button" class="btn btn-gradient-primary btns ">ค้นหา</button>
                                 </div>
 
 
                             </div>
                         </form>
-
+                        <hr><br>
                         <div class="row">
+                            
                             <div class="col-md-12">
                                 <table class="table table-bordered newFont">
                                     <thead>
@@ -157,9 +158,6 @@
                                                 <h7 class="newFont">รายการ</h7>
                                             </th>
                                             <th class="col-sm-2" scope="col">
-                                                <h7 class="newFont">กราฟ</h7>
-                                            </th>
-                                            <th class="col-sm-1" scope="col">
                                                 <h7 class="newFont">จำนวน</h7>
                                             </th>
                                             <th class="col-sm-1" scope="col">
@@ -171,6 +169,9 @@
                                             <th class="col-sm-2" scope="col">
                                                 <h7 class="newFont">ผู้รับผิดชอบ</h7>
                                             </th>
+                                            <th class="col-sm-1" scope="col">
+                                                <h7 class="newFont">กราฟ</h7>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -178,11 +179,11 @@
                                         <tr class="d-flex">
                                             <td class="col-sm-1"> {{$i+1}} </td>
                                             <td class="col-sm-3 break"> {{$value->name_item}}</td>
-                                            <td class="col-sm-2"><a target = '_blank' href=graph><button type="button" class="Pbtn btn btn-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
-                                            <td class="col-sm-1"> </td>
-                                            <td class="col-sm-1"> ครั้ง </td>
+                                            <td class="col-sm-2"> </td>
+                                            <td class="col-sm-1"> {{$value->unit_name}} </td>
                                             <td class="col-sm-2"> </td>
                                             <td class="col-sm-2"> ทีมดูแลเพจ </td>
+                                            <td class="col-sm-1"><a target = '_blank' href=graph><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
                                         </tr>
 
                                         @endforeach
