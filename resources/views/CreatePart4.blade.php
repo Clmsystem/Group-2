@@ -38,6 +38,7 @@
         padding: 0.9rem 2em;
         font-size: 0.875rem;
     }
+
 </style>
 
 
@@ -143,130 +144,131 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($list_item as $i => $value)
-                                        <tr class="d-flex">
-                                            <td class="col-sm-1">{{ $i + 1 }} </td>
-                                            <td class="col-sm-4  break">{{ $value->name_item }} </td>
-                                            <td class="col-sm-2"> ทีมดูแลเพจ </td>
-                                            <td class="col-sm-2"> 8000 </td>
-                                            <td class="col-sm-1"> ครั้ง </td>
-                                            <td class="col-sm-2"><button class="btn btn-gradient-success btns"
-                                                    data-toggle="modal" data-target="#modalAction{{$i}}"><i
-                                                        class="mdi mdi-grease-pencil launch-modal"></i></button>
-                                                <button class="btn btn-gradient-danger btns" data-toggle="modal"
-                                                    data-target="#modalDelete{{$i}}"><i
-                                                        class="mdi mdi-delete"></i></button>
+                                            <tr class="d-flex">
+                                                <td class="col-sm-1">{{ $i + 1 }} </td>
+                                                <td class="col-sm-4  break">{{ $value->name_item }} </td>
+                                                <td class="col-sm-2"> ทีมดูแลเพจ </td>
+                                                <td class="col-sm-2"> 8000 </td>
+                                                <td class="col-sm-1"> {{ $value->unit_name }} </td>
+                                                <td class="col-sm-2"><button class="btn btn-gradient-success btns"
+                                                        data-toggle="modal"
+                                                        data-target="#modalAction{{ $i }}"><i
+                                                            class="mdi mdi-grease-pencil launch-modal"></i></button>
+                                                    <button class="btn btn-gradient-danger btns" data-toggle="modal"
+                                                        data-target="#modalDelete{{ $i }}"><i
+                                                            class="mdi mdi-delete"></i></button>
 
-                                                <!--------------------------------------------  แสดงตัวชี้วัด end   --------------------------------------------------->
+                                                    <!--------------------------------------------  แสดงตัวชี้วัด end   --------------------------------------------------->
 
-                                                <!--------------------------------------------  แก้ไขตัวชี้วัด Start ---------------------------------------------------->
+                                                    <!--------------------------------------------  แก้ไขตัวชี้วัด Start ---------------------------------------------------->
 
-                                                <div class="modal fade" id="modalAction{{$i}}" tabindex="-1"
-                                                    role="dialog" data-backdrop="static"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-xl" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-body">
-                                                                <br>
-                                                                <h2 class="modal-title newFont" id="exampleModalLabel">
-                                                                    แก้ไขตัวชี้วัด</h2>
-                                                                <form class="forms-sample">
-                                                                    <hr><br>
-                                                                    <div class="row">
-                                                                        <div class="form-group col-md-5">
-                                                                            <label class="newFont">หัวข้อ</label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="หัวข้อตัวขี้วัด"
-                                                                                value="{{ $value->name_item }}"
-                                                                                required>
-                                                                        </div>
-                                                                        <div class="form-group col-md-3">
-                                                                            <label
-                                                                                class="newFont">ผู้รับผิดชอบ</label><br>
-                                                                            {{-- <select class="form-control ui fluid search dropdown" multiple="">> --}}
-                                                                            <select class="selectpicker newFont"
-                                                                                multiple data-live-search="true">
-                                                                                <optgroup class="newFont">
-                                                                                    <option>ทีมดูแลเพจ</option>
-                                                                                    <option>พิชัยยุทธ</option>
-                                                                                    <option>ชื่นณัสฐา</option>
-                                                                                    <option>กิตติพร</option>
-                                                                                    <option>สุวัฒน์</option>
-                                                                                    <option>สันถัต</option>
-                                                                                    <option>ปรีชา</option>
-                                                                                    <option>นิตยา</option>
-                                                                                    <option>นาวิน</option>
-                                                                                </optgroup>
-                                                                            </select>
+                                                    <div class="modal fade" id="modalAction{{ $i }}"
+                                                        tabindex="-1" role="dialog" data-backdrop="static"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-xl" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-body">
+                                                                    <br>
+                                                                    <h2 class="modal-title newFont"
+                                                                        id="exampleModalLabel">
+                                                                        แก้ไขตัวชี้วัด</h2>
+                                                                    <form class="forms-sample">
+                                                                        <hr><br>
+                                                                        <div class="row">
+                                                                            <div class="form-group col-md-5">
+                                                                                <label class="newFont">หัวข้อ</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="หัวข้อตัวขี้วัด"
+                                                                                    value="{{ $value->name_item }}"
+                                                                                    required>
+                                                                            </div>
+                                                                            <div class="form-group col-md-3">
+                                                                                <label
+                                                                                    class="newFont">ผู้รับผิดชอบ</label><br>
+                                                                                {{-- <select class="form-control ui fluid search dropdown" multiple="">> --}}
+                                                                                <select class="selectpicker newFont"
+                                                                                    multiple data-live-search="true">
+                                                                                    <optgroup class="newFont">
+                                                                                        <option>ทีมดูแลเพจ</option>
+                                                                                        <option>พิชัยยุทธ</option>
+                                                                                        <option>ชื่นณัสฐา</option>
+                                                                                        <option>กิตติพร</option>
+                                                                                        <option>สุวัฒน์</option>
+                                                                                        <option>สันถัต</option>
+                                                                                        <option>ปรีชา</option>
+                                                                                        <option>นิตยา</option>
+                                                                                        <option>นาวิน</option>
+                                                                                    </optgroup>
+                                                                                </select>
 
+                                                                            </div>
+                                                                            <div class="form-group col-md-2">
+                                                                                <label class="newFont">จำนวน</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="จำนวน/หน่วยนับ"
+                                                                                    value="" required>
+                                                                            </div>
+                                                                            <div class="form-group col-md-2">
+                                                                                <label
+                                                                                    class="newFont">หน่วยนับ</label><br>
+                                                                                <select class="form-control">
+                                                                                    <optgroup class="newFont">
+                                                                                        <option>รายการ</option>
+                                                                                        <option>ชั่วโมง</option>
+                                                                                        <option>บาท</option>
+                                                                                        <option>ครั้ง</option>
+                                                                                        <option>ชิ้น</option>
+                                                                                        <option>คน</option>
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="form-group col-md-2">
-                                                                            <label class="newFont">จำนวน</label>
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="จำนวน/หน่วยนับ" value=""
-                                                                                required>
-                                                                        </div>
-                                                                        <div class="form-group col-md-2">
-                                                                            <label class="newFont">หน่วยนับ</label><br>
-                                                                            <select class="form-control">
-                                                                                <optgroup class="newFont">
-                                                                                    <option>รายการ</option>
-                                                                                    <option>ชั่วโมง</option>
-                                                                                    <option>บาท</option>
-                                                                                    <option>ครั้ง</option>
-                                                                                    <option>ชิ้น</option>
-                                                                                    <option>คน</option>
-                                                                                </optgroup>
-                                                                            </select>
-                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <h7 class="newFont">ยกเลิก</h7>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary">
+                                                                        <h7 class="newFont">บันทึก</h7>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <form class="forms-sample"
+                                                        action="{{ route('createpart4.delete') }}" method="post">
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="modalDelete{{ $i }}"
+                                                            tabindex="-1" role="dialog"
+                                                            aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <h3 class="modal-title newFont"
+                                                                            id="exampleModalLabel1">
+                                                                            ลบตัวชี้วัด</h3>
+                                                                        <hr>
+                                                                        <h5 class="newFont">
+                                                                            ยืนยันที่จะลบตัวชี้วัดหรือไม่ ?
+                                                                        </h5>
                                                                     </div>
-                                                                </form>
-                                                            </div>
-
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">
-                                                                    <h7 class="newFont">ยกเลิก</h7>
-                                                                </button>
-                                                                <button type="button" class="btn btn-primary">
-                                                                    <h7 class="newFont">บันทึก</h7>
-                                                                </button>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-gradient-primary"
+                                                                            data-dismiss="modal">Close</button>
+                                                                        <button type="button"
+                                                                            class="btn btn-gradient-danger" name="del" id="del">Delete</button>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="modalDelete{{$i}}" tabindex="-1"
-                                                    role="dialog" aria-labelledby="exampleModalLabel1"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-body">
-                                                                <h3 class="modal-title newFont" id="exampleModalLabel1">
-                                                                    ลบตัวชี้วัด</h3>
-                                                                <hr>
-                                                                <h5 class="newFont"> ยืนยันที่จะลบตัวชี้วัดหรือไม่ ?
-                                                                </h5>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-gradient-primary"
-                                                                    data-dismiss="modal">Close</button>
-                                                                <button type="button"
-                                                                    class="btn btn-gradient-danger">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-
-                                            </td>
-                                        </tr>
+                                                    </form>
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>

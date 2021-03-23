@@ -19,11 +19,11 @@ class CreatePart4Controller extends Controller
 
     public function index()
     {
-        $users = DB::table('list_item')
+        $list_item = DB::table('list_item')
         ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
         ->select('list_item.id_item','list_item.name_item', 'unit.unit_name')
         ->get();
-        return view('CreatePart4', compact('users'));
+        return view('CreatePart4', compact('list_item'));
     }
 
     public function delete(Request $request)
