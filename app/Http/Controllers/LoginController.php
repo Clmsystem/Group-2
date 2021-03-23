@@ -12,23 +12,22 @@ class LoginController extends Controller
         $email = $request->input('email');
         $pass = $request->input('password');
         $users = DB::table('employee')
+                ->join('position_list', 'position_list.id_position', '=', 'employee.id_position')
+                ->join('department', 'department.id_department', '=', 'employee.id_department')
                 ->where('username', '=',$email )
                 ->where('password','=',$pass)
                 ->get();
-
+        
         $result = json_decode($users, true);
+        session()->put('user', $result[0]);
+       
 
         if (count($users)>0){
+           
+            // print_r(session()->get('user'));
+                return view("index");
             
-            if ($result[0]['status_level1']=1){
-                return view("index",$users);
-                return view('partials.nav',$result);
-                return view('partials.sidebar',$result);
-                
-            }
-            else{
-                return view("menu.content");
-            }
+         
         }
         else{
             echo "pls check pass or email";
