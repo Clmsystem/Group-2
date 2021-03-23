@@ -11,11 +11,33 @@ use Illuminate\Support\Facades\DB;
 class CreatePart4Controller extends Controller
 {
 
+    // public function index()
+    // {
+    //     $list_item = DB::table('list_item')->get();
+    //     return view('CreatePart4', compact('list_item'));
+    // }
+
     public function index()
     {
-        $list_item = DB::table('list_item')->get();
-        return view('CreatePart4', compact('list_item'));
+        $users = DB::table('list_item')
+        ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
+        ->select('list_item.id_item','list_item.name_item', 'unit.unit_name')
+        ->get();
+        return view('CreatePart4', compact('users'));
     }
+
+    public function delete(Request $request)
+    {
+        DB::table('list_item')->where('id_item', '=', $request->del)->delete();
+        
+        return redirect()->route('createpart4.index')->with('success', 'Delete success');
+    }
+
+    
+
+
+
+
 
     public function store(Request $request)
     {
