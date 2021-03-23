@@ -178,7 +178,7 @@
                                         <tr class="d-flex">
                                             <td class="col-sm-1"> {{$i+1}} </td>
                                             <td class="col-sm-3 break"> {{$value->name_item}}</td>
-                                            <td class="col-sm-2"><button type="button" class="Pbtn btn btn-success"><i class="mdi mdi-chart-bar"></i></button></td>
+                                            <td class="col-sm-2"><a target = '_blank' href=graph><button type="button" class="Pbtn btn btn-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
                                             <td class="col-sm-1"> </td>
                                             <td class="col-sm-1"> ครั้ง </td>
                                             <td class="col-sm-2"> </td>
