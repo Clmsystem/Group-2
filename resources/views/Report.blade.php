@@ -15,12 +15,12 @@
 
     /* adjust btn size */
     .btns {
-        padding: 1rem 4rem;
+        padding: 1rem 3.3rem;
         font-size: 0.875rem;
     }
 
     .btns2 {
-        padding: 1rem 3rem;
+        padding: 1rem 2.7rem;
         font-size: 0.875rem;
     }
 
@@ -89,19 +89,19 @@
                                 <div class="form-group col-md-4">
                                     <select class="form-control">
                                         <optgroup class="newFont">
-                                            <option>ไตรมาส</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
+                                            <option>ปี</option>
+                                            <option>2563</option>
+                                            <option>2562</option>
                                         </optgroup>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <select class="form-control">
                                         <optgroup class="newFont">
-                                            <option>ปี</option>
-                                            <option>2563</option>
-                                            <option>2562</option>
+                                            <option>ไตรมาส</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
                                         </optgroup>
                                     </select>
                                 </div>
