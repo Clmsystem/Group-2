@@ -7,7 +7,10 @@
         font-family: 'Mitr', sans-serif;
     }
 
-
+    .newFonts {
+        font-family: 'Mitr', sans-serif;
+        font-size: 50px !important;
+    }
 
 
     .dropdown .dropdown-menu .dropdown-item {
@@ -69,9 +72,8 @@
                                     <label class="newFont">หน่วยนับ</label>
                                     <div class="input-group">
                                         <div class="input-group-append">
-                                            <select class="form-control" name="unit" id="unit">
-                                                <optgroup class="newFonts">
-                                                    <option selected>เลือกหน่วยนับ</option>
+                                            <select class="form-control newFonts" name="unit" id="unit">
+                                                <optgroup class="newFont">
                                                     <option value="1">รายการ</option>
                                                     <option value="2">ชั่วโมง</option>
                                                     <option value="3">บาท</option>
@@ -207,7 +209,6 @@
                                                                             <label class="newFont">หน่วยนับ</label><br>
                                                                             <select class="form-control">
                                                                                 <optgroup class="newFont">
-                                                                                    <option>เลือกหน่วยนับ</option>
                                                                                     <option>รายการ</option>
                                                                                     <option>ชั่วโมง</option>
                                                                                     <option>บาท</option>
