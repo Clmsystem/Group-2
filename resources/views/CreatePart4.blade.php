@@ -185,7 +185,6 @@
                                                                                     <option value="9">นาวิน</option>
                                                                                 </optgroup>
                                                                             </select>
-
                                                                         </div>
                                                                         <div class="form-group col-md-2">
                                                                             <label class="newFont">จำนวน</label>
