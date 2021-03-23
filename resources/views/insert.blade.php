@@ -128,8 +128,8 @@
                                                 <div><input style="border:none" type="text" class="form-control" placeholder="หมายเหตุ" required></div>
                                             </td>
                                             <td class="col-sm-2">
-                                                <button class="btn btn-gradient-primary btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
-                                                <button type="submit" class="btn btn-gradient-success btns"><i class="mdi mdi-content-save launch-modal"></i></button>
+                                                <button class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
+                                                <button type="submit" class="btn btn-inverse-info btns"><i class="mdi mdi-content-save launch-modal"></i></button>
 
                                                 <div class="modal fade" id="modalAction{{ $i }}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-xl" role="document">
