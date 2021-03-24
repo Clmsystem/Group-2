@@ -194,12 +194,11 @@
                                                                         <div class="form-group col-md-3">
                                                                             <label
                                                                                 class="newFont">ผู้รับผิดชอบ</label><br>
-                                                                            <select name="employee" id="employee"
+                                                                            <select name="employee[]" id="employee"
                                                                                 class="selectpicker newFont" multiple
                                                                                 data-live-search="true">
-                                                                                <optgroup class="newFont">
-                                                                                    <option value="1">ทีมดูแลเพจ
-                                                                                    </option>
+                                                                                <optgroup class="newFont"
+                                                                                    label="ทีมดูแลเพจ">
                                                                                     <option value="2">พิชัยยุทธ</option>
                                                                                     <option value="3">ชื่นณัสฐา</option>
                                                                                     <option value="4">กิตติพร</option>
@@ -311,4 +310,5 @@
         });
         document.getElementById("value_of_item").style.visibility = "hidden";
     });
+    
 </script>

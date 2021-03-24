@@ -49,6 +49,17 @@ class CreatePart4Controller extends Controller
             ->where('id_item', $request->value_of_item)
             ->update(['name_item' => $request->indicator_list]);
 
+        // print_r($request->employee);
+        // 
+        // 
+        foreach ($request->employee as $key => $value) {
+            // print_r($request->employee);
+            print_r($value);
+            DB::table('priority')
+            ->insertGetId(
+                ['id_item' => $request->value_of_item, 'id_employee' =>$value]);
+                
+        }
         return redirect()->route('createpart4.index');
     }
 
