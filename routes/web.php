@@ -34,7 +34,7 @@ Route::get('/submit', [insertController::class, 'index']);
 // Route::post('/login', [LoginController::class, 'index'])->name('login');
 
 Route::post('/Valid', [LoginController::class, 'index'], function ($argv) {
-})->name('valid');
+})->name('test');
 
 Route::get('/insertDB', [CreatePart4Controller::class, 'index'], function () {
 });

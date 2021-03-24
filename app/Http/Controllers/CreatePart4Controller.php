@@ -19,11 +19,16 @@ class CreatePart4Controller extends Controller
 
     public function index()
     {
+       if (session()->get('user')) {
         $list_item = DB::table('list_item')
-            ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
-            ->select('list_item.id_item', 'list_item.name_item', 'unit.unit_name')
-            ->get();
+        ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
+        ->select('list_item.id_item', 'list_item.name_item', 'unit.unit_name')
+        ->get();
         return view('CreatePart4', compact('list_item'));
+       } else {
+        return redirect('login');
+       }
+       
     }
 
 

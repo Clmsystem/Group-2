@@ -21,12 +21,12 @@ class ExampleTest extends TestCase
 
 
 
-    public function testLogin()
-    {
-        $response = $this->call('POST', '/Valid', ['email' => 'a','password'=>'a']);
+    // public function testLogin()
+    // {
+    //     $response = $this->call('POST', '/Valid', ['email' => 'a','password'=>'a']);
 
-        $response->assertSessionHas('user');
-    }
+    //     $response->assertSessionHas('user');
+    // }
 
 
     // public function testCreatPart4()
