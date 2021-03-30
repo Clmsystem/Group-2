@@ -83,7 +83,8 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <h3 class="newFonts"> ปี 2564</h3>
+                                <h3 class="newFonts"> ประจำปี พ.ศ. <?php echo date("Y") + 543; ?></h3>
+
                             </div>
                         </div>
                         <div class="row">
