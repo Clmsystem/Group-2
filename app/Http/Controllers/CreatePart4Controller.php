@@ -40,8 +40,12 @@ class CreatePart4Controller extends Controller
     
        
     }
-
-  
+ public function showResponsiblePerson()
+ {
+    $ResponsiblePerson = DB::table('employee')
+    ->where('id_department', '=',2)
+    ->get();
+}
 
     public function update(Request $request)
     {
@@ -67,7 +71,7 @@ class CreatePart4Controller extends Controller
             // print_r($request->employee);
             print_r($value);
             DB::table('priority')
-            ->insertGetId(
+            ->insert(
                 ['id_item' => $request->value_of_item, 'id_employee' =>$value]);
                 
         }
