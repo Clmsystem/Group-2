@@ -27,9 +27,6 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/submit', [insertController::class, 'index']);
-
-
 
 // Route::post('/login', [LoginController::class, 'index'])->name('login');
 
@@ -39,6 +36,8 @@ Route::post('/Valid', [LoginController::class, 'index'], function ($argv) {
 Route::get('/insertDB', [CreatePart4Controller::class, 'index'], function () {
 });
 
+Route::resource('submit', insertController::class);
+Route::post('/updateCount', [insertController::class, 'edit']);
 
 Route::resource('createpart4', CreatePart4Controller::class);
 // Route::get('/createpart4', [CreatePart4Controller::class, 'index']);
