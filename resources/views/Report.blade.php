@@ -81,7 +81,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <h3 class="newFont" for=""> แผนสถิติประจำปี 2564</h3> <!-- ปีต้องดึงมาโชว์ -->
+                            <h3 class="newFont" for=""> แผนสถิติ ประจำปี พ.ศ. <?php echo date("Y") + 543; ?></h3> <!-- ปีต้องดึงมาโชว์ -->
                         </div>
                         <hr><br>
                         <form class="forms-sample">
@@ -146,7 +146,7 @@
                         </form>
                         <hr><br>
                         <div class="row">
-                            
+
                             <div class="col-md-12">
                                 <table class="table table-bordered newFont">
                                     <thead>
@@ -183,7 +183,7 @@
                                             <td class="col-sm-1"> {{$value->unit_name}} </td>
                                             <td class="col-sm-2"> </td>
                                             <td class="col-sm-2"> ทีมดูแลเพจ </td>
-                                            <td class="col-sm-1"><a target = '_blank' href=graph><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
+                                            <td class="col-sm-1"><a target='_blank' href=graph><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
                                         </tr>
 
                                         @endforeach
