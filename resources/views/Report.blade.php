@@ -84,10 +84,12 @@
                             <h3 class="newFont" for=""> แผนสถิติ ประจำปี พ.ศ. <?php echo date("Y") + 543; ?></h3> <!-- ปีต้องดึงมาโชว์ -->
                         </div>
                         <hr><br>
-                        <form class="forms-sample">
+                        <form class="forms-sample" action="/sea" method="post">
+                            @csrf
+                            <!-- @method('POST') -->
                             <div class="row">
                                 <div class="form-group col-md-4">
-                                    <select class="form-control">
+                                    <select class="form-control" name="year" unit="year">
                                         <option>ปี</option>
                                         @foreach ($year as $i => $value)
                                         <optgroup class="newFont">
@@ -98,8 +100,8 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <select class="form-control">
-                                        <optgroup class="newFont">
-                                            <option>ไตรมาส</option>
+                                        <optgroup class="newFont" name="quater" unit="quater">
+                                            <option value="0">ไตรมาส</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -107,11 +109,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <select class="form-control">
+                                    <select class="form-control" name="mount" unit="mount">
                                         <optgroup class="newFont">
-                                            <option>เดือน</option>
+                                            <option value="0">เดือน</option>
                                             <option value="1">มกราคม</option>
-                                            <option value="2">กุมภาพันธ์</optidon>
+                                            <option value="2">กุมภาพันธ์</option>
                                             <option value="3">มีนาคม</option>
                                             <option value="4">เมษายน</option>
                                             <option value="5">พฤษภาคม</option>
@@ -126,11 +128,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </form>
-
-                        <form class="forms-sample">
                             <div class="row">
-
 
                                 <div class="form-group col-md-10">
                                     <!-- <button type="button" class="btn btn-primary btns ">กราฟ</button> -->
@@ -139,16 +137,11 @@
                                     <button type="button" class="btn btn-gradient-primary btns2 ">ดาวน์โหลด</button>
                                 </div> -->
                                 <div class="form-group col-md-2">
-                                    <button type="button" class="btn btn-gradient-primary btns ">ค้นหา</button>
+                                    <button type="submit" class="btn btn-gradient-primary btns ">ค้นหา</button>
                                 </div>
-
-
                             </div>
-                        </form>
-                        <hr><br>
-                        <form class="forms-sample">
+                            <hr><br>
                             <div class="row">
-
 
                                 <div class="form-group col-md-10">
                                     <!-- <button type="button" class="btn btn-primary btns ">กราฟ</button> -->
@@ -159,9 +152,6 @@
 
 
                             </div>
-                        </form>
-                        <!-- <hr><br> -->
-                        <form class="forms-sample">
                             <div class="row">
 
                                 <div class="col-md-12">
@@ -192,14 +182,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($list_item as $i => $value)
+                                            @foreach($search as $i => $value)
                                             <tr class="d-flex">
                                                 <td class="col-sm-1"> {{$i+1}} </td>
                                                 <td class="col-sm-3 break"> {{$value->name_item}}</td>
                                                 <td class="col-sm-2"> </td>
                                                 <td class="col-sm-1"> {{$value->unit_name}} </td>
                                                 <td class="col-sm-2"> </td>
-                                                <td class="col-sm-2"> ทีมดูแลเพจ </td>
+                                                <td class="col-sm-2"> </td>
                                                 <td class="col-sm-1"><a target='_blank' href=graph><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
                                             </tr>
 

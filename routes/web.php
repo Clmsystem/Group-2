@@ -39,10 +39,11 @@ Route::get('/insertDB', [CreatePart4Controller::class, 'index'], function () {
 Route::resource('submit', insertController::class);
 Route::post('/updateCount', [insertController::class, 'edit']);
 
+Route::resource('report', ReportController::class);
+Route::post('/sea', [ReportController::class, 'sea']);
 Route::resource('createpart4', CreatePart4Controller::class);
 // Route::get('/createpart4', [CreatePart4Controller::class, 'index']);
 
-Route::get('/report', [ReportController::class, 'index']);
 
 Route::get('/graph', [GraphController::class, 'index']);
 
@@ -57,3 +58,4 @@ Route::post('/index', function () {
 Route::get('file-upload', [FileUploadController::class, 'index'])->name('file.upload');
 Route::post('file-upload', [FileUploadController::class, 'store'])->name('file.upload.post');
 Route::get('file/download', [FileUploadController::class, 'getfile']);
+Route::get('file-upload', [FileUploadController::class, 'store'])->name('file.upload.get');
