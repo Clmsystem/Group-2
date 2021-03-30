@@ -166,7 +166,7 @@
                                                                                 <tbody>
                                                                                     <tr class="d-flex newFont">
                                                                                         <th class="col-sm-5 break">
-                                                                                            {{ $value->id_employee }}
+                                                                                            {{ $value->name_item }}
                                                                                         </th>
                                                                                         <td class="col-sm-2">
                                                                                             <div><input type="text" class="form-control" placeholder="จำนวน" required></div>
