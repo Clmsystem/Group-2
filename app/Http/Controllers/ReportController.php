@@ -17,12 +17,18 @@ class ReportController extends Controller
 
 
         $list_item = DB::table('list_item')
-        ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
-        ->select('list_item.id_item', 'list_item.name_item', 'unit.unit_name')
-        ->get();
-        return view('Report', compact('list_item'));
+            ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
+            ->select('list_item.id_item', 'list_item.name_item', 'unit.unit_name')
+            ->get();
 
+        $year = DB::table('year')
+            ->get();
+
+
+
+
+        return view('Report', compact('list_item', 'year'));
+        // return view('Report', compact('year'));
 
     }
 }
-

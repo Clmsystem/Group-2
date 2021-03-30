@@ -88,11 +88,12 @@
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <select class="form-control">
+                                        <option>ปี</option>
+                                        @foreach ($year as $i => $value)
                                         <optgroup class="newFont">
-                                            <option>ปี</option>
-                                            <option>2563</option>
-                                            <option>2562</option>
+                                            <option value="{{$value->year_id}}">{{$value->year}}</option>
                                         </optgroup>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
@@ -131,12 +132,12 @@
                             <div class="row">
 
 
-                                <div class="form-group col-md-8">
+                                <div class="form-group col-md-10">
                                     <!-- <button type="button" class="btn btn-primary btns ">กราฟ</button> -->
                                 </div>
-                                <div class="form-group col-md-2">
+                                <!-- <div class="form-group col-md-2">
                                     <button type="button" class="btn btn-gradient-primary btns2 ">ดาวน์โหลด</button>
-                                </div>
+                                </div> -->
                                 <div class="form-group col-md-2">
                                     <button type="button" class="btn btn-gradient-primary btns ">ค้นหา</button>
                                 </div>
@@ -145,53 +146,70 @@
                             </div>
                         </form>
                         <hr><br>
-                        <div class="row">
+                        <form class="forms-sample">
+                            <div class="row">
 
-                            <div class="col-md-12">
-                                <table class="table table-bordered newFont">
-                                    <thead>
-                                        <tr class="d-flex">
-                                            <th class="col-sm-1" scope="col">
-                                                <h7 class="newFont">ลำดับ</h7>
-                                            </th>
-                                            <th class="col-sm-3" scope="col">
-                                                <h7 class="newFont">รายการ</h7>
-                                            </th>
-                                            <th class="col-sm-2" scope="col">
-                                                <h7 class="newFont">จำนวน</h7>
-                                            </th>
-                                            <th class="col-sm-1" scope="col">
-                                                <h7 class="newFont">หน่วย</h7>
-                                            </th>
-                                            <th class="col-sm-2" scope="col">
-                                                <h7 class="newFont">หมายเหตุ</h7>
-                                            </th>
-                                            <th class="col-sm-2" scope="col">
-                                                <h7 class="newFont">ผู้รับผิดชอบ</h7>
-                                            </th>
-                                            <th class="col-sm-1" scope="col">
-                                                <h7 class="newFont">กราฟ</h7>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($list_item as $i => $value)
-                                        <tr class="d-flex">
-                                            <td class="col-sm-1"> {{$i+1}} </td>
-                                            <td class="col-sm-3 break"> {{$value->name_item}}</td>
-                                            <td class="col-sm-2"> </td>
-                                            <td class="col-sm-1"> {{$value->unit_name}} </td>
-                                            <td class="col-sm-2"> </td>
-                                            <td class="col-sm-2"> ทีมดูแลเพจ </td>
-                                            <td class="col-sm-1"><a target='_blank' href=graph><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
-                                        </tr>
 
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                                <!-- <div class="col-md-1"></div> -->
+                                <div class="form-group col-md-10">
+                                    <!-- <button type="button" class="btn btn-primary btns ">กราฟ</button> -->
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <button type="button" class="btn btn-gradient-primary btns2 ">ดาวน์โหลด</button>
+                                </div>
+
+
                             </div>
-                        </div>
+                        </form>
+                        <!-- <hr><br> -->
+                        <form class="forms-sample">
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <table class="table table-bordered newFont">
+                                        <thead>
+                                            <tr class="d-flex">
+                                                <th class="col-sm-1" scope="col">
+                                                    <h7 class="newFont">ลำดับ</h7>
+                                                </th>
+                                                <th class="col-sm-3" scope="col">
+                                                    <h7 class="newFont">รายการ</h7>
+                                                </th>
+                                                <th class="col-sm-2" scope="col">
+                                                    <h7 class="newFont">จำนวน</h7>
+                                                </th>
+                                                <th class="col-sm-1" scope="col">
+                                                    <h7 class="newFont">หน่วย</h7>
+                                                </th>
+                                                <th class="col-sm-2" scope="col">
+                                                    <h7 class="newFont">หมายเหตุ</h7>
+                                                </th>
+                                                <th class="col-sm-2" scope="col">
+                                                    <h7 class="newFont">ผู้รับผิดชอบ</h7>
+                                                </th>
+                                                <th class="col-sm-1" scope="col">
+                                                    <h7 class="newFont">กราฟ</h7>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($list_item as $i => $value)
+                                            <tr class="d-flex">
+                                                <td class="col-sm-1"> {{$i+1}} </td>
+                                                <td class="col-sm-3 break"> {{$value->name_item}}</td>
+                                                <td class="col-sm-2"> </td>
+                                                <td class="col-sm-1"> {{$value->unit_name}} </td>
+                                                <td class="col-sm-2"> </td>
+                                                <td class="col-sm-2"> ทีมดูแลเพจ </td>
+                                                <td class="col-sm-1"><a target='_blank' href=graph><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
+                                            </tr>
+
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <!-- <div class="col-md-1"></div> -->
+                                </div>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
