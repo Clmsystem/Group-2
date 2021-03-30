@@ -13,9 +13,14 @@ class insertController extends Controller
 {
     public function index()
     {
-        $list_item = DB::table('list_item')->get();
-        return view('insert', compact('list_item'));
+        $id_user = session()->get('user')['id_employee'];
+        $priority = DB::table('priority')
+            ->join('list_item', 'priority.id_item', '=', 'list_item.id_item')
+            ->where('id_employee', $id_user)
+            ->get();
+        return view('insert', compact('priority'));
     }
+
 
     public function test()
     {

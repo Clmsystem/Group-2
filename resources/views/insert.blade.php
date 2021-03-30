@@ -117,7 +117,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="test">
-                                        @foreach ($list_item as $i => $value)
+                                        @foreach ($priority as $i => $value)
                                         <tr class="d-flex newFont">
                                             <th class="col-sm-1"> {{ $i + 1 }} </th>
                                             <td class="col-sm-3 break"> {{ $value->name_item }} </td>
@@ -166,7 +166,7 @@
                                                                                 <tbody>
                                                                                     <tr class="d-flex newFont">
                                                                                         <th class="col-sm-5 break">
-                                                                                            {{ $value->name_item }}
+                                                                                            {{ $value->id_employee }}
                                                                                         </th>
                                                                                         <td class="col-sm-2">
                                                                                             <div><input type="text" class="form-control" placeholder="จำนวน" required></div>
