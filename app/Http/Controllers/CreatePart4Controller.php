@@ -24,7 +24,12 @@ class CreatePart4Controller extends Controller
             $units = DB::table('unit')
                 // ->select('unit*')
                 ->get();
-            return view('CreatePart4', compact('list_item', 'units'));
+
+            $employee = DB::table('employee')
+                ->where('id_department', '=', 2)
+                ->get();
+
+            return view('CreatePart4', compact('list_item', 'units', 'employee'));
         } else {
             return redirect('login');
         }

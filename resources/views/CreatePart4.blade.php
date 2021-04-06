@@ -158,7 +158,7 @@
                                                                     @method('PUT')
                                                                     <hr><br>
                                                                     <div class="row">
-                                                                        <div class="form-group col-md-5">
+                                                                        <div class="form-group col-md-7">
                                                                             <label class="newFont">หัวข้อ</label>
                                                                             <input name="value_of_item" id="value_of_item" type="text" value="{{ $value->id_item }}" hidden>
                                                                             <input type="text" class="form-control" name="indicator_list" id="indicator_list" placeholder="หัวข้อตัวขี้วัด" value="{{ $value->name_item }}" required>
@@ -167,9 +167,9 @@
                                                                             <label class="newFont">ผู้รับผิดชอบ</label><br>
                                                                             <select name="employee[]" id="employee" class="selectpicker newFont" multiple data-live-search="true">
                                                                                 <optgroup class="newFont" label="ทีมดูแลเพจ">
-                                                                                    <option value="2">พิชัยยุทธ
-                                                                                    </option>
-                                                                                    <option value="3">ชื่นณัสฐา
+                                                                                    @foreach ($employee as $i => $value)
+                                                                                    <option value="{{ $value->id_employee }}">{{ $value->name_employee }}</option>
+                                                                                    <!-- <option value="3">ชื่นณัสฐา
                                                                                     </option>
                                                                                     <option value="4">กิตติพร
                                                                                     </option>
@@ -179,27 +179,19 @@
                                                                                     </option>
                                                                                     <option value="7">ปรีชา</option>
                                                                                     <option value="8">นิตยา</option>
-                                                                                    <option value="9">นาวิน</option>
+                                                                                    <option value="9">นาวิน</option> -->
+                                                                                    @endforeach
                                                                                 </optgroup>
                                                                             </select>
                                                                         </div>
-                                                                        <div class="form-group col-md-2">
-                                                                            <label class="newFont">จำนวน</label>
-                                                                            <input name="count" id="count" type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value="" required>
-                                                                        </div>
+
                                                                         <div class="form-group col-md-2">
                                                                             <label class="newFont">หน่วยนับ</label><br>
                                                                             <select class="form-control newFonts" name="unit" id="unit">
-                                                                                <optgroup class="newFont">
-                                                                                    <option value="1">รายการ
-                                                                                    </option>
-                                                                                    <option value="2">ชั่วโมง
-                                                                                    </option>
-                                                                                    <option value="3">บาท</option>
-                                                                                    <option value="4">ครั้ง</option>
-                                                                                    <option value="5">ชิ้น</option>
-                                                                                    <option value="6">คน</option>
-                                                                                    <option value="7">อื่นๆ</option>
+                                                                                <optgroup class="newFont" label="หน่วยนับ">
+                                                                                    @foreach ($units as $i => $value)
+                                                                                    <option value="{{ $value->id_unit }}">{{ $value->unit_name }}</option>
+                                                                                    @endforeach
                                                                                 </optgroup>
                                                                             </select>
                                                                         </div>
