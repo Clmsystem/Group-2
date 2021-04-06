@@ -59,7 +59,6 @@
         /* word-break: break-all; */
         white-space: normal;
     }
-
 </style>
 
 
@@ -93,9 +92,9 @@
                                 <div class="form-group col-md-4">
                                     <select class="form-control" name="year" id="year" onchange="getSelectValue()">
                                         <optgroup class="newFont">
-                                            <option value="0">ปี</option>
+                                            <option hidden value="0">ปี</option>
                                             @foreach ($year as $i => $value)
-                                                <option value="{{ $value->year_id }}">{{ $value->year }}</option>
+                                            <option value="{{ $value->year_id }}">{{ $value->year }}</option>
                                             @endforeach
                                         </optgroup>
                                     </select>
@@ -103,7 +102,7 @@
                                 <div class="form-group col-md-4">
                                     <select class="form-control" name="quater" id="quater">
                                         <optgroup class="newFont">
-                                            <option value="0">ไตรมาส</option>
+                                            <option hidden value="0">ไตรมาส</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -113,7 +112,7 @@
                                 <div class="form-group col-md-4">
                                     <select class="form-control" name="month" id="month">
                                         <optgroup class="newFont">
-                                            <option value="0">เดือน</option>
+                                            <option hidden value="0">เดือน</option>
                                             <option value="1">มกราคม</option>
                                             <option value="2">กุมภาพันธ์</option>
                                             <option value="3">มีนาคม</option>
@@ -142,6 +141,7 @@
                                     <button type="button" class="btn btn-inverse-primary btns2 ">ดาวน์โหลด</button>
                                 </div>
                             </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -192,17 +192,15 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($search as $i => $value)
-                                            <tr class="d-flex">
-                                                <td class="col-sm-1"> {{ $i + 1 }} </td>
-                                                <td class="col-sm-3 break"> {{ $value->name_item }}</td>
-                                                <td class="col-sm-2"> </td>
-                                                <td class="col-sm-1"> {{ $value->unit_name }} </td>
-                                                <td class="col-sm-2"> </td>
-                                                <td class="col-sm-2"> </td>
-                                                <td class="col-sm-1"><a target='_blank' href=graph><button type="button"
-                                                            class="Pbtn btn btn-inverse-success"><i
-                                                                class="mdi mdi-chart-bar"></i></button></a></td>
-                                            </tr>
+                                        <tr class="d-flex">
+                                            <td class="col-sm-1"> {{ $i + 1 }} </td>
+                                            <td class="col-sm-3 break"> {{ $value->name_item }}</td>
+                                            <td class="col-sm-2"> </td>
+                                            <td class="col-sm-1"> {{ $value->unit_name }} </td>
+                                            <td class="col-sm-2"> </td>
+                                            <td class="col-sm-2"> </td>
+                                            <td class="col-sm-1"><a target='_blank' href=graph><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
+                                        </tr>
 
                                         @endforeach
                                     </tbody>
@@ -241,5 +239,4 @@
         // console.log(getText);
     }
     getSelectValue();
-
 </script>
