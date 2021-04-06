@@ -122,11 +122,12 @@
                                             <th class="col-sm-1"> {{ $i + 1 }} </th>
                                             <td class="col-sm-3 break"> {{ $value->name_item }} </td>
                                             <td class="col-sm-2">
-                                                {{ $value->id_item }}
+                                                {{ $value->count }}
                                             </td>
                                             <th class="col-sm-1"> ครั้ง </th>
                                             <td class="col-sm-3">
-                                                <div><input style="border:none" type="text" class="form-control" placeholder="หมายเหตุ" required></div>
+                                                {{ $value->description }}
+                                                <!-- <div><input style="border:none" type="text" class="form-control" placeholder="หมายเหตุ" required></div> -->
 
                                             </td>
                                             <td class="col-sm-2">
@@ -173,25 +174,25 @@
                                                                                             {{ $value->name_item }}
                                                                                         </th>
                                                                                         <td class="col-sm-2">
-                                                                                            <input value="{{ $value->id_item }}" hidden name="count" id="count">
-                                                                                            <div><input type="text" id="count" name="count" class="form-control" placeholder="จำนวน" required></div>
+                                                                                            <!-- <input  hidden name="count" id="count"> -->
+                                                                                            <div><input type="text" value="{{ $value->count }}" id="count" name="count" class="form-control" placeholder="จำนวน" required></div>
                                                                                         </td>
                                                                                         <th class="col-sm-2"> ครั้ง
                                                                                         </th>
                                                                                         <td class="col-sm-3">
-                                                                                            <input value="{{ $value->id_item }}" hidden name="description" id="description">
-                                                                                            <div><input type="text" id="description" name="description" class="form-control" placeholder="หมายเหตุ" required></div>
+                                                                                            <div><input type="text" value="{{ $value->description }}" id="description" name="description" class="form-control" placeholder="หมายเหตุ" required></div>
                                                                                         </td>
                                                                                     </tr>
                                                                                 </tbody>
 
-
+                                                                                <input hidden type="text" value="{{$value->month}}" name="month">
+                                                                                <input hidden type="text" value="{{$value->year_year_id}}" name="year">
                                                                             </table>
                                                                             <div class="modal-footer">
                                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                                                     <h7 class="newFont">ยกเลิก</h7>
                                                                                 </button>
-                                                                                <button type="submit" class="btn btn-primary">
+                                                                                <button name="id_item" value="{{$value->id_item}}" type="submit" class="btn btn-primary">
                                                                                     <h7 class="newFont">บันทึก</h7>
                                                                                 </button>
                                                                             </div>
