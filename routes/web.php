@@ -44,7 +44,6 @@ Route::resource('report', ReportController::class);
 Route::post('/sea', [ReportController::class, 'sea']);
 
 Route::resource('createpart4', CreatePart4Controller::class);
-Route::get('/createpart4', [CreatePart4Controller::class, 'index']);
 
 Route::post('/createpart4/store', [CreatePart4Controller::class, 'store']);
 // Route::get('/createpart4', [CreatePart4Controller::class, 'index']);
