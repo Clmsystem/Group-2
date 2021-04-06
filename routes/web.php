@@ -7,10 +7,10 @@ use App\Http\Controllers\CreatePart4Controller;
 
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\GraphController;
+use App\Http\Controllers\ApporveController;
 
 use App\Http\Controllers\insertController;
 use App\Http\Controllers\FileUploadController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +50,8 @@ Route::post('/createpart4/store', [CreatePart4Controller::class, 'store']);
 
 
 Route::get('/graph', [GraphController::class, 'index']);
+
+Route::get('apporve', [ApporveController::class, 'index']);
 
 
 
