@@ -60,13 +60,12 @@
                     <div class="card-body">
                         <h3 class="newFont">สร้างตัวชี้วัด</h3><br>
                         <hr><br>
-                        <form class="forms-sample" action="{{ route('createpart4.store') }}" method="post">
+                        <form class="forms-sample" action="/createpart4/store" method="post">
                             @csrf
                             <div class="row form-group">
                                 <div class="form-group col-md-7">
                                     <label class="newFont">หัวข้อ</label>
-                                    <input type="text" name="indicator_list" id="indicator_list" class="form-control"
-                                        placeholder="หัวข้อตัวขี้วัด" required>
+                                    <input type="text" name="indicator_list" id="indicator_list" class="form-control" placeholder="หัวข้อตัวขี้วัด" required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label class="newFont">หน่วยนับ</label>
@@ -81,14 +80,12 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label class="newFont">เป้าหมาย</label>
-                                    <input type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value=""
-                                        required>
+                                    <input type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value="" required>
                                 </div>
                                 <div class="form-group col-md-9"></div>
                                 <div class="form-group col-md-3">
                                     <div class="button-position">
-                                        <button type="submit"
-                                            class="btn btn-gradient-primary mr-2 newFont">เพิ่มตัวชี้วัด</button>
+                                        <button type="submit" class="btn btn-gradient-primary mr-2 newFont">เพิ่มตัวชี้วัด</button>
                                     </div>
                                 </div>
                             </div>
@@ -141,20 +138,14 @@
                                             <td class="col-sm-2"> </td>
                                             {{-- <td class="col-sm-2"> 8000 </td> --}}
                                             <td class="col-sm-1"> {{ $value->unit_name }} </td>
-                                            <td class="col-sm-2"><button class="btn btn-inverse-success btns"
-                                                    data-toggle="modal" data-target="#modalAction{{ $i }}"><i
-                                                        class="mdi mdi-grease-pencil launch-modal"></i></button>
-                                                <button class="btn btn-inverse-danger btns" data-toggle="modal"
-                                                    data-target="#modalDelete{{ $i }}"><i
-                                                        class="mdi mdi-delete"></i></button>
+                                            <td class="col-sm-2"><button class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
+                                                <button class="btn btn-inverse-danger btns" data-toggle="modal" data-target="#modalDelete{{ $i }}"><i class="mdi mdi-delete"></i></button>
 
                                                 <!--------------------------------------------  แสดงตัวชี้วัด end   --------------------------------------------------->
 
                                                 <!--------------------------------------------  แก้ไขตัวชี้วัด Start ---------------------------------------------------->
 
-                                                <div class="modal fade" id="modalAction{{ $i }}" tabindex="-1"
-                                                    role="dialog" data-backdrop="static"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="modalAction{{ $i }}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-xl" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-body">
@@ -162,33 +153,20 @@
                                                                 <h2 class="modal-title newFont" id="exampleModalLabel">
                                                                     แก้ไขตัวชี้วัด</h2>
                                                                 <!-- -------------------- FROM ------------------------- -->
-                                                                <form class="forms-sample"
-                                                                    action="{{ route('createpart4.update', $value->id_item) }}"
-                                                                    method="post">
+                                                                <form class="forms-sample" action="{{ route('createpart4.update', $value->id_item) }}" method="post">
                                                                     @csrf
                                                                     @method('PUT')
                                                                     <hr><br>
                                                                     <div class="row">
                                                                         <div class="form-group col-md-5">
                                                                             <label class="newFont">หัวข้อ</label>
-                                                                            <input name="value_of_item"
-                                                                                id="value_of_item" type="text"
-                                                                                value="{{ $value->id_item }}" hidden>
-                                                                            <input type="text" class="form-control"
-                                                                                name="indicator_list"
-                                                                                id="indicator_list"
-                                                                                placeholder="หัวข้อตัวขี้วัด"
-                                                                                value="{{ $value->name_item }}"
-                                                                                required>
+                                                                            <input name="value_of_item" id="value_of_item" type="text" value="{{ $value->id_item }}" hidden>
+                                                                            <input type="text" class="form-control" name="indicator_list" id="indicator_list" placeholder="หัวข้อตัวขี้วัด" value="{{ $value->name_item }}" required>
                                                                         </div>
                                                                         <div class="form-group col-md-3">
-                                                                            <label
-                                                                                class="newFont">ผู้รับผิดชอบ</label><br>
-                                                                            <select name="employee[]" id="employee"
-                                                                                class="selectpicker newFont" multiple
-                                                                                data-live-search="true">
-                                                                                <optgroup class="newFont"
-                                                                                    label="ทีมดูแลเพจ">
+                                                                            <label class="newFont">ผู้รับผิดชอบ</label><br>
+                                                                            <select name="employee[]" id="employee" class="selectpicker newFont" multiple data-live-search="true">
+                                                                                <optgroup class="newFont" label="ทีมดูแลเพจ">
                                                                                     <option value="2">พิชัยยุทธ
                                                                                     </option>
                                                                                     <option value="3">ชื่นณัสฐา
@@ -207,15 +185,11 @@
                                                                         </div>
                                                                         <div class="form-group col-md-2">
                                                                             <label class="newFont">จำนวน</label>
-                                                                            <input name="count" id="count" type="text"
-                                                                                class="form-control"
-                                                                                placeholder="จำนวน/หน่วยนับ" value=""
-                                                                                required>
+                                                                            <input name="count" id="count" type="text" class="form-control" placeholder="จำนวน/หน่วยนับ" value="" required>
                                                                         </div>
                                                                         <div class="form-group col-md-2">
                                                                             <label class="newFont">หน่วยนับ</label><br>
-                                                                            <select class="form-control newFonts"
-                                                                                name="unit" id="unit">
+                                                                            <select class="form-control newFonts" name="unit" id="unit">
                                                                                 <optgroup class="newFont">
                                                                                     <option value="1">รายการ
                                                                                     </option>
@@ -231,8 +205,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary"
-                                                                            data-dismiss="modal">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                                             <h7 class="newFont">ยกเลิก</h7>
                                                                         </button>
                                                                         <button type="submit" class="btn btn-primary">
@@ -247,9 +220,7 @@
                                                 </div>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="modalDelete{{ $i }}" tabindex="-1"
-                                                    role="dialog" aria-labelledby="exampleModalLabel1"
-                                                    aria-hidden="true">
+                                                <div class="modal fade" id="modalDelete{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-body">
@@ -261,10 +232,8 @@
                                                                 </h5>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-gradient-primary"
-                                                                    data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-gradient-danger"
-                                                                    name="del" id="del">Delete</button>
+                                                                <button type="button" class="btn btn-gradient-primary" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-gradient-danger" name="del" id="del">Delete</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -307,5 +276,4 @@
         });
         document.getElementById("value_of_item").style.visibility = "hidden";
     });
-
 </script>
