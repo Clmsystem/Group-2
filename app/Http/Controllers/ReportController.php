@@ -54,6 +54,7 @@ class ReportController extends Controller
 
             $year = DB::table('year')
                 ->get();
+
             $list_item = [];
             return view('Report', compact('list_item', 'year', 'search'));
         }

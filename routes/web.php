@@ -38,6 +38,7 @@ Route::get('/insertDB', [CreatePart4Controller::class, 'index'], function () {
 
 Route::resource('submit', insertController::class);
 Route::post('/updateCount', [insertController::class, 'edit']);
+Route::post('/submit', [insertController::class, 'index']);
 
 
 Route::resource('report', ReportController::class);

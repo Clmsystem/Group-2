@@ -64,23 +64,26 @@
                                 <h3 class="newFonts">บันทึกผลตามตัวชี้วัด</h3>
                             </div>
                             <div class="form-group col-md-2">
-                                <select id="mountSelect" class="form-control">
-                                    <optgroup class="newFont">
-                                        <option hidden>เดือน</option>
-                                        <option id="op1" value="1">มกราคม</option>
-                                        <option id="op2" value="2">กุมภาพันธ์</option>
-                                        <option id="op3" value="3">มีนาคม</option>
-                                        <option id="op4" value="4">เมษายน</option>
-                                        <option id="op5" value="5">พฤษภาคม</option>
-                                        <option id="op6" value="6">มิถุนายน</option>
-                                        <option id="op7" value="7">กรกฎาคม</option>
-                                        <option id="op8" value="8">สิงหาคม</option>
-                                        <option id="op9" value="9">กันยายน</option>
-                                        <option id="op10" value="10">ตุลาคม</option>
-                                        <option id="op11" value="11">พฤศจิกายน</option>
-                                        <option id="op12" value="12">ธันวาคม</option>
-                                    </optgroup>
-                                </select>
+                                <form action="/submit" method="post">
+                                    @csrf
+                                    <select id="mountSelect" name="mountSelect" class="form-control" onchange="this.form.submit()">
+                                        <optgroup class="newFont">
+                                            <option hidden>เดือน</option>
+                                            <option id="op1" value="1">มกราคม</option>
+                                            <option id="op2" value="2">กุมภาพันธ์</option>
+                                            <option id="op3" value="3">มีนาคม</option>
+                                            <option id="op4" value="4">เมษายน</option>
+                                            <option id="op5" value="5">พฤษภาคม</option>
+                                            <option id="op6" value="6">มิถุนายน</option>
+                                            <option id="op7" value="7">กรกฎาคม</option>
+                                            <option id="op8" value="8">สิงหาคม</option>
+                                            <option id="op9" value="9">กันยายน</option>
+                                            <option id="op10" value="10">ตุลาคม</option>
+                                            <option id="op11" value="11">พฤศจิกายน</option>
+                                            <option id="op12" value="12">ธันวาคม</option>
+                                        </optgroup>
+                                    </select>
+                                </form>
                             </div>
                             <div class="col-md-3">
                                 <h3 class="newFonts"> ประจำปี พ.ศ. <?php echo date("Y") + 543; ?></h3>
@@ -237,8 +240,12 @@
     </div>
     <!-- container-scroller -->
     <!-- selected option -->
-    <script>
-        const mount = new Date().getMonth() + 1;
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+        });
+        // const mount = new Date().getMonth() + 1;
+        const mount = "<?php echo $month; ?>";
         $('#mountSelect').find('option').each((i, e) => {
             if ($(e).val() == mount) {
                 $('#mountSelect').prop('selectedIndex', i);
