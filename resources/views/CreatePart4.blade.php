@@ -135,8 +135,7 @@
                                         <tr class="d-flex">
                                             <td class="col-sm-1">{{ $i + 1 }} </td>
                                             <td class="col-sm-6  break">{{ $value->name_item }} </td>
-                                            <td class="col-sm-2"> </td>
-                                            {{-- <td class="col-sm-2"> 8000 </td> --}}
+                                            <td class="col-sm-2"> {{ $value->name_employee }}</td>
                                             <td class="col-sm-1"> {{ $value->unit_name }} </td>
                                             <td class="col-sm-2"><button class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
                                                 <button class="btn btn-inverse-danger btns" data-toggle="modal" data-target="#modalDelete{{ $i }}"><i class="mdi mdi-delete"></i></button>

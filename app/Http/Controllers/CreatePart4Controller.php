@@ -17,10 +17,11 @@ class CreatePart4Controller extends Controller
         if (session()->get('user')) {
 
             $list_item = DB::table('list_item')
-                ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
-                ->select('list_item.id_item', 'list_item.name_item', 'unit.unit_name')
+                ->leftjoin('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
+                ->leftjoin('priority','list_item.id_item','=','priority.id_item')
+                ->leftjoin('employee', 'priority.id_employee', '=', 'employee.id_employee')
+                ->select('list_item.id_item', 'list_item.name_item', 'unit.unit_name','employee.name_employee')
                 ->get();
-
             $units = DB::table('unit')
                 // ->select('unit*')
                 ->get();
@@ -50,19 +51,23 @@ class CreatePart4Controller extends Controller
     public function update(Request $request)
     {
 
-
+        // echo($request);
         DB::table('list_item')
             ->where('id_item', $request->value_of_item)
-            ->update(['name_item' => $request->indicator_list]);
-
-
-        foreach ($request->employee as $key => $value) {
-
-            print_r($value);
+            ->update(['name_item' => $request->indicator_list,'unit_id_unit' => $request->unit]);
+        if(!empty($request->employee)){
             DB::table('priority')
-                ->insert(
-                    ['id_item' => $request->value_of_item, 'id_employee' => $value]
-                );
+            ->where('id_item', $request->value_of_item)
+            ->delete();
+            foreach ($request->employee as $key => $value) { 
+            DB::table('priority')
+            ->insert(['id_item' => $request->value_of_item, 'id_employee' => $value]);
+            }
+        }
+        else {
+            DB::table('priority')
+            ->where('id_item', $request->value_of_item)
+            ->delete();
         }
         return redirect()->route('createpart4.index');
     }
