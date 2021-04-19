@@ -18,12 +18,13 @@ class CreatePart4Controller extends Controller
 
             $list_item = DB::table('list_item')
                 ->leftjoin('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
-                ->leftjoin('priority','list_item.id_item','=','priority.id_item')
+                ->leftjoin('priority', 'list_item.id_item', '=', 'priority.id_item')
                 ->leftjoin('employee', 'priority.id_employee', '=', 'employee.id_employee')
-                ->select('list_item.id_item', 'list_item.name_item', 'unit.unit_name','employee.name_employee')
+                ->select('list_item.id_item', 'list_item.name_item', 'unit.unit_name', DB::raw('GROUP_CONCAT(name_employee) as name_employee'))
+                ->orderBy('list_item.id_item')
+                ->groupBy('list_item.name_item')
                 ->get();
             $units = DB::table('unit')
-                // ->select('unit*')
                 ->get();
 
             $employee = DB::table('employee')
@@ -54,20 +55,19 @@ class CreatePart4Controller extends Controller
         // echo($request);
         DB::table('list_item')
             ->where('id_item', $request->value_of_item)
-            ->update(['name_item' => $request->indicator_list,'unit_id_unit' => $request->unit]);
-        if(!empty($request->employee)){
+            ->update(['name_item' => $request->indicator_list, 'unit_id_unit' => $request->unit]);
+        if (!empty($request->employee)) {
             DB::table('priority')
-            ->where('id_item', $request->value_of_item)
-            ->delete();
-            foreach ($request->employee as $key => $value) { 
-            DB::table('priority')
-            ->insert(['id_item' => $request->value_of_item, 'id_employee' => $value]);
+                ->where('id_item', $request->value_of_item)
+                ->delete();
+            foreach ($request->employee as $key => $value) {
+                DB::table('priority')
+                    ->insert(['id_item' => $request->value_of_item, 'id_employee' => $value]);
             }
-        }
-        else {
+        } else {
             DB::table('priority')
-            ->where('id_item', $request->value_of_item)
-            ->delete();
+                ->where('id_item', $request->value_of_item)
+                ->delete();
         }
         return redirect()->route('createpart4.index');
     }
