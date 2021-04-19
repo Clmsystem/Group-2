@@ -52,7 +52,7 @@ class CreatePart4Controller extends Controller
     public function update(Request $request)
     {
 
-        // echo($request);
+        // print_r($request);
         DB::table('list_item')
             ->where('id_item', $request->value_of_item)
             ->update(['name_item' => $request->indicator_list, 'unit_id_unit' => $request->unit]);

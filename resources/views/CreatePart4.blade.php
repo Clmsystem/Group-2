@@ -128,16 +128,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                        // echo $list_item
-                                        ?>
+
                                         @foreach ($list_item as $i => $value)
                                         <tr class="d-flex">
                                             <td class="col-sm-1">{{ $i + 1 }} </td>
                                             <td class="col-sm-6  break">{{ $value->name_item }} </td>
                                             <td class="col-sm-2"> {{ $value->name_employee }}</td>
                                             <td class="col-sm-1"> {{ $value->unit_name }} </td>
-                                            <td class="col-sm-2"><button class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
+                                            <td class="col-sm-2">
+                                                <button class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
                                                 <button class="btn btn-inverse-danger btns" data-toggle="modal" data-target="#modalDelete{{ $i }}"><i class="mdi mdi-delete"></i></button>
 
                                                 <!--------------------------------------------  แสดงตัวชี้วัด end   --------------------------------------------------->
@@ -166,19 +165,15 @@
                                                                             <label class="newFont">ผู้รับผิดชอบ</label><br>
                                                                             <select name="employee[]" id="employee" class="selectpicker newFont" multiple data-live-search="true">
                                                                                 <optgroup class="newFont" label="ทีมดูแลเพจ">
+                                                                                    <?php
+                                                                                    $empArr = explode(',', $value->name_employee);
+                                                                                    ?>
                                                                                     @foreach ($employee as $i => $value)
-                                                                                    <option value="{{ $value->id_employee }}">{{ $value->name_employee }}</option>
-                                                                                    <!-- <option value="3">ชื่นณัสฐา
-                                                                                    </option>
-                                                                                    <option value="4">กิตติพร
-                                                                                    </option>
-                                                                                    <option value="5">สุวัฒน์
-                                                                                    </option>
-                                                                                    <option value="6">สันถัต
-                                                                                    </option>
-                                                                                    <option value="7">ปรีชา</option>
-                                                                                    <option value="8">นิตยา</option>
-                                                                                    <option value="9">นาวิน</option> -->
+                                                                                    <option value="{{ $value->id_employee }}" <?php foreach ($empArr as $data) {
+                                                                                                                                    if ($data == $value->name_employee) {
+                                                                                                                                        echo "selected";
+                                                                                                                                    }
+                                                                                                                                } ?>>{{ $value->name_employee }}</option>
                                                                                     @endforeach
                                                                                 </optgroup>
                                                                             </select>
