@@ -53,22 +53,32 @@ class CreatePart4Controller extends Controller
     {
 
         // print_r($request);
-        DB::table('list_item')
-            ->where('id_item', $request->value_of_item)
-            ->update(['name_item' => $request->indicator_list, 'unit_id_unit' => $request->unit]);
-        if (!empty($request->employee)) {
-            DB::table('priority')
+        DB::transaction(function () use ($request) {
+            DB::table('list_item')
                 ->where('id_item', $request->value_of_item)
-                ->delete();
-            foreach ($request->employee as $key => $value) {
+                ->update(['name_item' => $request->indicator_list, 'unit_id_unit' => $request->unit]);
+
+            if (!empty($request->employee)) {
+
                 DB::table('priority')
-                    ->insert(['id_item' => $request->value_of_item, 'id_employee' => $value]);
+                    ->where('id_item', $request->value_of_item)
+                    ->delete();
+
+                foreach ($request->employee as $key => $value) {
+                    $dataI[$key]['id_item'] = $request->value_of_item;
+                    $dataI[$key]['id_employee'] = $value;
+                }
+                DB::table('priority')
+                    ->insert($dataI);
+            } else {
+
+                DB::table('priority')
+                    ->where('id_item', $request->value_of_item)
+                    ->delete();
             }
-        } else {
-            DB::table('priority')
-                ->where('id_item', $request->value_of_item)
-                ->delete();
-        }
+        });
+
+
         return redirect()->route('createpart4.index');
     }
 
