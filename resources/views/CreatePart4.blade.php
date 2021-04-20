@@ -131,7 +131,7 @@
 
                                         @foreach ($list_item as $i => $value)
                                         <tr class="d-flex">
-                                            <td class="col-sm-1">{{ $i + 1 }} </td>
+                                            <td class="col-sm-1">{{ $i + 1 }} </td> 
                                             <td class="col-sm-6  break">{{ $value->name_item }} </td>
                                             <td class="col-sm-2"> {{ $value->name_employee }}</td>
                                             <td class="col-sm-1"> {{ $value->unit_name }} </td>
@@ -142,6 +142,30 @@
                                                 <!--------------------------------------------  แสดงตัวชี้วัด end   --------------------------------------------------->
 
                                                 <!--------------------------------------------  แก้ไขตัวชี้วัด Start ---------------------------------------------------->
+
+                                                <div class="modal fade" id="modalDelete{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-body">
+                                                                <h3 class="modal-title newFont" id="exampleModalLabel1">
+                                                                    ลบตัวชี้วัด</h3>
+                                                                <hr>
+                                                                <h5 class="newFont">
+                                                                    ยืนยันที่จะลบตัวชี้วัดหรือไม่ ?
+                                                                </h5>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-gradient-primary" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-gradient-danger" name="del" id="del">Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+
 
                                                 <div class="modal fade" id="modalAction{{ $i }}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-xl" role="document">
@@ -206,24 +230,7 @@
                                                 </div>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="modalDelete{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-body">
-                                                                <h3 class="modal-title newFont" id="exampleModalLabel1">
-                                                                    ลบตัวชี้วัด</h3>
-                                                                <hr>
-                                                                <h5 class="newFont">
-                                                                    ยืนยันที่จะลบตัวชี้วัดหรือไม่ ?
-                                                                </h5>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-gradient-primary" data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-gradient-danger" name="del" id="del">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            
 
                                             </td>
                                         </tr>

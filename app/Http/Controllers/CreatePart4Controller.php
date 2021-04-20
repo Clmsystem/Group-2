@@ -101,3 +101,4 @@ class CreatePart4Controller extends Controller
         return redirect()->route('createpart4.index')->with('success', 'created success');
     }
 };
+ 
