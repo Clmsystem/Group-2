@@ -80,6 +80,8 @@ class CreatePart4Controller extends Controller
                     $dataI[$key]['id_item'] = $request->value_of_item;
                     $dataI[$key]['id_employee'] = $value;
                 }
+
+
                 DB::table('priority')
                     ->insert($dataI);
             } else {
@@ -106,11 +108,29 @@ class CreatePart4Controller extends Controller
     public function store(Request $request)
     {
 
-        $values = array('name_item' => $request->indicator_list, 'unit_id_unit' => $request->unit, 'year_id' => '1');
+        DB::transaction(function () use ($request) {
 
-        DB::table('list_item')->insert($values);
+            $values = array('name_item' => $request->indicator_list, 'unit_id_unit' => $request->unit, 'year_id' => '1');
+
+            DB::table('list_item')->insert($values);
+
+            $listItem = DB::table('list_item')
+                ->where('name_item', '=', $request->indicator_list)
+                ->get();
+
+
+            foreach (range(1, 12) as $number) {
+                $datatoinsert[$number]['id_item'] = $listItem[0]->id_item;
+                $datatoinsert[$number]['count'] = "0";
+                $datatoinsert[$number]['description'] = "-";
+                $datatoinsert[$number]['month'] = $number;
+                $datatoinsert[$number]['year_year_id'] = "1";
+            }
+            DB::table('transaction')
+                ->insert($datatoinsert);
+        });
+
 
         return redirect()->route('createpart4.index')->with('success', 'created success');
     }
 };
- 
