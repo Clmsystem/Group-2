@@ -38,9 +38,12 @@ class insertController extends Controller
         $desc = $request->description;
         $id_item = $request->id_item;
         $mountSelect = $request->month;
+        $yearSelect = $request->year;
 
         DB::table('transaction')
             ->where('id_item', $id_item)
+            ->where('month', $mountSelect)
+            ->where('year_year_id', $yearSelect)
             ->update(['count' => $count, 'description' => $desc]);
 
         return redirect()->route('submit.index')->with('mountSelect', $mountSelect);
