@@ -19,7 +19,10 @@ class ReportController extends Controller
         $search = [];
         $year = DB::table('year')
             ->get();
-        return view('Report', compact('list_item', 'year', 'search'));
+
+        $years = 0;
+        $months = 0;
+        return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
         // return view('Report', compact('year'));
     }
 
@@ -29,6 +32,11 @@ class ReportController extends Controller
         $quater = $request->quater;
         $months = $request->month;
 
+        // echo "<pre>";
+        // echo $years;
+        // echo $quater;
+        // echo $months;
+        // echo "</pre>";
 
         $year = DB::table('year')
             ->get();
@@ -38,26 +46,32 @@ class ReportController extends Controller
             $list_item = [];
             return view('Report', compact('list_item', 'year', 'search'));
         } else {
-            $search = DB::table('employee')
-                ->join('transaction', 'employee.id_employee', '=', 'transaction.id_employee')
-                ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
-                ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
-                ->when($quater, function ($query) use ($quater) {
-                    if ($quater == 1) {
-                        return $query->whereBetween('month', [10, 12])
-                            ->orWhere('month', 1);
-                    } else if ($quater == 2) {
-                        return $query->whereBetween('month', [2, 5]);
-                    } else {
-                        return $query->whereBetween('month', [6, 9]);
-                    }
-                })
-                ->where('year_year_id', $years)
-                ->get();
+            if ($months == 0) {
+                $search = DB::table('transaction')
+                    ->join('priority', 'transaction.id_item', '=', 'priority.id_item')
+                    ->join('employee', 'priority.id_employee', '=', 'employee.id_employee')
+                    ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
+                    ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
+                    ->where('transaction.year_year_id', '=', $years)
+                    ->groupBy('.transaction.id_item')
+                    ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,name_employee,year_year_id'))
+                    ->get();
+            } else {
+                $search = DB::table('transaction')
+                    ->join('priority', 'transaction.id_item', '=', 'priority.id_item')
+                    ->join('employee', 'priority.id_employee', '=', 'employee.id_employee')
+                    ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
+                    ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
+                    ->where('transaction.year_year_id', '=', $years)
+                    ->where('transaction.month', '=', $months)
+                    ->groupBy('.transaction.id_item')
+                    ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,name_employee,year_year_id'))
+                    ->get();
+            }
 
 
             $list_item = [];
-            return view('Report', compact('list_item', 'year', 'search'));
+            return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
         }
     }
 };
