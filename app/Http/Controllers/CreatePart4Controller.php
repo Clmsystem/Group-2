@@ -55,6 +55,10 @@ class CreatePart4Controller extends Controller
         DB::table('list_item')
             ->where('id_item' , $request->del)
             ->delete();
+        DB::table('transaction')
+            ->where('id_item' , $request->del)
+            ->delete();
+
         return redirect()->route('createpart4.index')->with('success', 'created success');
     }
 
