@@ -156,7 +156,13 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-gradient-primary" data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-gradient-danger" name="del" id="del">Delete</button>
+                                                              
+                                                                <form class="forms-sample" action="/createpart4/delete" method="post">
+                                                                    @csrf
+                                                                    <button type="submit" class="btn btn-gradient-danger" name="del" id="del" value="{{ $value->id_item }}">Delete</button>
+                                                              
+                                                                </form>
+
                                                             </div>
                                                         </div>
                                                     </div>

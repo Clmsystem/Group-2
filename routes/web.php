@@ -47,6 +47,9 @@ Route::post('/sea', [ReportController::class, 'sea']);
 Route::resource('createpart4', CreatePart4Controller::class);
 
 Route::post('/createpart4/store', [CreatePart4Controller::class, 'store']);
+
+Route::post('/createpart4/delete', [CreatePart4Controller::class, 'delete_row']);
+
 // Route::get('/createpart4', [CreatePart4Controller::class, 'index']);
 
 

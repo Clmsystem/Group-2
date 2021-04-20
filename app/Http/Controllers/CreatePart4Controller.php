@@ -49,6 +49,18 @@ class CreatePart4Controller extends Controller
             ->get();
     }
 
+
+    public function delete_row(Request $request)
+    {
+        DB::table('list_item')
+            ->where('id_item' , $request->del)
+            ->delete();
+        return redirect()->route('createpart4.index')->with('success', 'created success');
+    }
+
+
+
+
     public function update(Request $request)
     {
 
