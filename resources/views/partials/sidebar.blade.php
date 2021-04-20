@@ -49,6 +49,12 @@
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/apporve">
+          <span class="menu-title">Admin Confirm</span>
+          <i class="mdi mdi-contacts menu-icon"></i>
+        </a>
+      </li>
 
     </ul>
   </nav>

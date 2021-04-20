@@ -52,7 +52,7 @@ Route::post('/createpart4/store', [CreatePart4Controller::class, 'store']);
 
 Route::get('/graph', [GraphController::class, 'index']);
 
-Route::resource('apporve', ApporveController::class);
+Route::resource('/apporve', ApporveController::class);
 
 
 
