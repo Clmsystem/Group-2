@@ -29,10 +29,13 @@ class ReportController extends Controller
         $quater = $request->quater;
         $months = $request->month;
 
+
+        $year = DB::table('year')
+            ->get();
+
         if ($years == 0) {
             $search = [];
             $list_item = [];
-            $year = [];
             return view('Report', compact('list_item', 'year', 'search'));
         } else {
             $search = DB::table('employee')
@@ -52,8 +55,6 @@ class ReportController extends Controller
                 ->where('year_year_id', $years)
                 ->get();
 
-            $year = DB::table('year')
-                ->get();
 
             $list_item = [];
             return view('Report', compact('list_item', 'year', 'search'));
