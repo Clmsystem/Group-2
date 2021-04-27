@@ -185,7 +185,7 @@
                                                                                         </th>
                                                                                         <td class="col-sm-7">
 
-                                                                                            <textarea type="text" value="{{ $value->description }}" id="description" name="description" style="height: 100px" class="form-control" placeholder="หมายเหตุ" required></textarea>
+                                                                                            <textarea type="text" id="description" name="description" style="height: 100px" class="form-control" placeholder="หมายเหตุ" required>{{ $value->description }}</textarea>
                                                                                         </td>
 
                                                                                     </tr>
