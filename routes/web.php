@@ -56,8 +56,9 @@ Route::post('/createpart4/delete', [CreatePart4Controller::class, 'delete_row'])
 Route::get('/graph', [GraphController::class, 'index']);
 
 Route::resource('/apporve', ApporveController::class);
-Route::post('/apporvePost',[ApporveController::class,'sea'] );
-Route::post('/confirm',[ApporveController::class,'confirm'] );
+Route::post('/apporvePost', [ApporveController::class, 'sea']);
+Route::post('/confirm', [ApporveController::class, 'confirm']);
+Route::get('/get_graph', [GraphController::class, 'test']);
 
 
 
