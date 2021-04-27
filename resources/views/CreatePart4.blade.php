@@ -167,8 +167,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-
+                                                
 
 
 
@@ -246,6 +245,8 @@
                                 <!-- <div class="col-md-1"></div> -->
                             </div>
                         </div>
+              
+
                     </div>
                 </div>
             </div>
@@ -275,4 +276,14 @@
         });
         document.getElementById("value_of_item").style.visibility = "hidden";
     });
+   
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+  
+
+
+    
 </script>
