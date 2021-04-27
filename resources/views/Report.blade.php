@@ -185,7 +185,7 @@
                                             <td class="col-sm-1"> {{ $value->unit_name }} </td>
                                             <td class="col-sm-2"> {{ $value->description }}</td>
                                             <td class="col-sm-2"> {{ $value->name_employee }}</td>
-                                            <td class="col-sm-1"><a target='_blank' href=graph><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
+                                            <td class="col-sm-1"><a target='_blank' href="graph?id={{$value->id_item}}&year={{$years}}"><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
                                         </tr>
 
                                         @endforeach
