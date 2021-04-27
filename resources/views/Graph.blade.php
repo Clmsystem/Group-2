@@ -164,7 +164,7 @@
   var optionsMonth = {
     series: [{
       name: 'Value',
-      data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 47, 58, 62]
+      data: [<?= (int)$m0 ?>, <?= (int)$m1 ?>, <?= (int)$m2 ?>, <?= (int)$m3 ?>, <?= (int)$m4 ?>, <?= (int)$m5 ?>, <?= (int)$m6 ?>, <?= (int)$m7 ?>, <?= (int)$m8 ?>, <?= (int)$m9 ?>, <?= (int)$m10 ?>, <?= (int)$m11 ?>]
     }, ],
     chart: {
       type: 'bar',
