@@ -92,7 +92,6 @@
                                 <div class="form-group col-md-4">
                                     <select id="yearSelect" class="form-control" name="year">
                                         <optgroup class="newFont">
-                                            <option hidden value="0">ปี</option>
                                             @foreach ($year as $i => $value)
                                             <option value="{{ $value->year_id }}">{{ $value->year }}</option>
                                             @endforeach
