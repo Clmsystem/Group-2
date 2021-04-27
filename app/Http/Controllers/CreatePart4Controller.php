@@ -52,14 +52,23 @@ class CreatePart4Controller extends Controller
 
     public function delete_row(Request $request)
     {
-        DB::table('list_item')
-            ->where('id_item' , $request->del)
-            ->delete();
-        DB::table('transaction')
-            ->where('id_item' , $request->del)
-            ->delete();
+        $count = DB::table('transaction')
+        ->where('id_item' , $request->del)
+        ->select(DB::raw('sum(count) as count'))
+        ->get();       
+        $result = $count[0]->count;
 
-        return redirect()->route('createpart4.index')->with('success', 'created success');
+        if ($result == 0 ){
+            DB::table('list_item')
+            ->where('id_item' , $request->del)
+            ->delete();
+            DB::table('transaction')
+                ->where('id_item' , $request->del)
+                ->delete();
+            return redirect()->route('createpart4.index')->with('success', 'created success');
+        }else {
+            return redirect()->route('createpart4.index')->with('success', 'created success');
+        }
     }
 
 
