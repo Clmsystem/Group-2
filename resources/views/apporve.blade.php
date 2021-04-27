@@ -91,7 +91,6 @@
                                 <div class="form-group col-md-4">
                                     <select id="yearSelect" class="form-control" name="year">
                                         <optgroup class="newFont">
-                                            <option hidden value="0">ปี</option>
                                             @foreach ($year as $i => $value)
                                             <option value="{{ $value->year_id }}">{{ $value->year }}</option>
                                             @endforeach
@@ -101,7 +100,6 @@
                                 <div class="form-group col-md-4">
                                     <select id="mountSelect" class="form-control" name="month">
                                         <optgroup class="newFont">
-                                            <option hidden value="0">เดือน</option>
                                             <option value="10">ตุลาคม</option>
                                             <option value="11">พฤศจิกายน</option>
                                             <option value="12">ธันวาคม</option>
@@ -135,59 +133,59 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                      <form action="/confirm" method="post">
-                      @csrf
-                        <div class="row">
-                            <div class="col-md-12">
-                                <table class="table table-bordered newFont">
-                                    <thead>
-                                        <tr class="d-flex">
-                                            <th class="col-sm-1" scope="col">
-                                                <h7 class="newFont">ลำดับ</h7>
-                                            </th>
-                                            <th class="col-sm-3" scope="col">
-                                                <h7 class="newFont">รายการ</h7>
-                                            </th>
-                                            <th class="col-sm-2" scope="col">
-                                                <h7 class="newFont">จำนวน</h7>
-                                            </th>
-                                            <th class="col-sm-1" scope="col">
-                                                <h7 class="newFont">หน่วย</h7>
-                                            </th>
-                                            <th class="col-sm-2" scope="col">
-                                                <h7 class="newFont">หมายเหตุ</h7>
-                                            </th>
-                                            <th class="col-sm-3" scope="col">
-                                                <h7 class="newFont">ผู้รับผิดชอบ</h7>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($search as $i => $value)
-                                        <tr class="d-flex">
-                                            <td class="col-sm-1"> {{ $i + 1 }} </td>
-                                            <td class="col-sm-3 break"> {{ $value->name_item }}</td>
-                                            <td class="col-sm-2"> {{ $value->count }}</td>
-                                            <td class="col-sm-1"> {{ $value->unit_name }} </td>
-                                            <td class="col-sm-2"> {{ $value->description }}</td>
-                                            <td class="col-sm-3"> {{ $value->name_employee }}</td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                    
-                                </table>
-                                <br>
-                                <div class="row">
-                                    <div class="col-9"></div>
-                                    <div class="col-3">
-                                        <div class="form-group col-md-2">
-                                            <button type="submit" class="btn btn-inverse-primary btns ">อนุมัติ</button>
+                        <form action="/confirm" method="post">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-bordered newFont">
+                                        <thead>
+                                            <tr class="d-flex">
+                                                <th class="col-sm-1" scope="col">
+                                                    <h7 class="newFont">ลำดับ</h7>
+                                                </th>
+                                                <th class="col-sm-3" scope="col">
+                                                    <h7 class="newFont">รายการ</h7>
+                                                </th>
+                                                <th class="col-sm-2" scope="col">
+                                                    <h7 class="newFont">จำนวน</h7>
+                                                </th>
+                                                <th class="col-sm-1" scope="col">
+                                                    <h7 class="newFont">หน่วย</h7>
+                                                </th>
+                                                <th class="col-sm-2" scope="col">
+                                                    <h7 class="newFont">หมายเหตุ</h7>
+                                                </th>
+                                                <th class="col-sm-3" scope="col">
+                                                    <h7 class="newFont">ผู้รับผิดชอบ</h7>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($search as $i => $value)
+                                            <tr class="d-flex">
+                                                <td class="col-sm-1"> {{ $i + 1 }} </td>
+                                                <td class="col-sm-3 break"> {{ $value->name_item }}</td>
+                                                <td class="col-sm-2"> {{ $value->count }}</td>
+                                                <td class="col-sm-1"> {{ $value->unit_name }} </td>
+                                                <td class="col-sm-2"> {{ $value->description }}</td>
+                                                <td class="col-sm-3"> {{ $value->name_employee }}</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+
+                                    </table>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-9"></div>
+                                        <div class="col-3">
+                                            <div class="form-group col-md-2">
+                                                <button type="submit" class="btn btn-inverse-primary btns ">อนุมัติ</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                             </div>
-                        </div>
-                      </form>
+                        </form>
                     </div>
                 </div>
             </div>

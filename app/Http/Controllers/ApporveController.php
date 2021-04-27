@@ -5,11 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ApporveController extends Controller
 {
     public function index(Request $request)
     {
+        if ($request->mountSelect) {
+            $months = $request->mountSelect;
+        } else if (session()->get('mountSelect')) {
+            $months = session()->get('mountSelect');
+        } else {
+            $months = Carbon::now()->month;
+        }
+
         $list_item = DB::table('list_item')
             ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
             ->select('list_item.id_item', 'list_item.name_item', 'unit.unit_name')
@@ -20,7 +29,7 @@ class ApporveController extends Controller
             ->get();
 
         $years = 0;
-        $months = 0;
+        // $months = 0;
         return view('apporve', compact('list_item', 'year', 'years', 'search', 'months'));
         // return view('Report', compact('year'));
     }
@@ -75,7 +84,6 @@ class ApporveController extends Controller
     }
     public function confirm(Request $request)
     {
-       print_r($request);
+        print_r($request);
     }
-
 }
