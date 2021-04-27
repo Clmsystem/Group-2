@@ -164,56 +164,7 @@
   var optionsMonth = {
     series: [{
       name: 'Value',
-      data: [{
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }, {
-        {
-          $count
-        }
-      }]
-
+      data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 47, 58, 62]
     }, ],
     chart: {
       type: 'bar',

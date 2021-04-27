@@ -23,7 +23,7 @@ class GraphController extends Controller
 
         $m0 = $data[0]->count;
         $m1 = $data[1]->count;
-        $m0 = $data[2]->count;
+        $m2 = $data[2]->count;
         $m3 = $data[3]->count;
         $m4 = $data[4]->count;
         $m5 = $data[5]->count;
