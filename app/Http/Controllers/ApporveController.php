@@ -84,6 +84,42 @@ class ApporveController extends Controller
     }
     public function confirm(Request $request)
     {
-        print_r($request);
+        $id = $request->id_item;
+        $years = $request->year1;
+        $months = $request->month1;
+        $total = DB::table('transaction')
+                    ->join('priority', 'transaction.id_item', '=', 'priority.id_item')
+                    ->join('employee', 'priority.id_employee', '=', 'employee.id_employee')
+                    ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
+                    ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
+                    ->where('transaction.year_year_id', '=', $years)
+                    ->where('transaction.month', '=', $months)
+                    ->groupBy('.transaction.id_item')
+                    ->get();
+
+
+                    // echo "<pre>";
+                    
+                    // print_r($total);
+                    // echo "</pre>";
+                    
+        // $count = count($total);
+        // print_r($count);
+        for ($i=0; $i < count($total) ; $i++) { 
+            # code...
+            $result[$i] = $total[$i]->count;
+            if ( $result[$i] == 0  ){
+                session()->flash('message' , 'Cannot be deleted');
+                return redirect()->route('createpart4.index')->with('alert', 'Cannot be Delete');
+            }else {
+                DB::table('transaction')
+                ->where('id_item','=', $total[$i]->id_item)
+                ->where('mount',' =', $total[$i]->mount )
+                ->update(['status' => 1]);
+                return redirect()->route('apporve')->with('success', 'created success');
+
+            }
+        }
+
     }
 }

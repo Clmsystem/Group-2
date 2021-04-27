@@ -80,8 +80,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <h3 class="newFont" for=""> ค้นหาแผนสถิติ ประจำปี พ.ศ. </h3>
+                            <h3 class="newFont" for=""> ค้นหาแผนสถิติ ประจำปีงบประมาณ พ.ศ. </h3>
                             <h3 id="showyear"> </h3>
+                            {{-- <h3 id="showmount"> </h3> --}}
+
                         </div>
                         <hr><br>
                         <form class="forms-sample" action="/apporvePost" method="post">
@@ -98,7 +100,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <select id="mountSelect" class="form-control" name="month">
+                                    <select id="mountSelect" class="form-control" name="month" onchange="myFunction();">
                                         <optgroup class="newFont">
                                             <option value="10">ตุลาคม</option>
                                             <option value="11">พฤศจิกายน</option>
@@ -135,6 +137,13 @@
                     <div class="card-body">
                         <form action="/confirm" method="post">
                             @csrf
+
+                           
+
+                            {{-- <input type="hide" value=""> --}}
+                          
+
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <table class="table table-bordered newFont">
@@ -142,6 +151,7 @@
                                             <tr class="d-flex">
                                                 <th class="col-sm-1" scope="col">
                                                     <h7 class="newFont">ลำดับ</h7>
+                                        
                                                 </th>
                                                 <th class="col-sm-3" scope="col">
                                                     <h7 class="newFont">รายการ</h7>
@@ -170,6 +180,7 @@
                                                 <td class="col-sm-2"> {{ $value->description }}</td>
                                                 <td class="col-sm-3"> {{ $value->name_employee }}</td>
                                             </tr>
+                                            <input type="hidden" value="{{$value->id_item}}" name="id_item">
                                             @endforeach
                                         </tbody>
 
@@ -179,10 +190,14 @@
                                         <div class="col-9"></div>
                                         <div class="col-3">
                                             <div class="form-group col-md-2">
+                                            <input type="hidden" name="year1" id="showyear1" value="">
+                                            <input type="hidden" name="month1" id="showmount1" value="">
+
                                                 <button type="submit" class="btn btn-inverse-primary btns ">อนุมัติ</button>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </form>
@@ -217,4 +232,36 @@
             $('#yearSelect').prop('selectedIndex', i);
         }
     });
+
+
+    function getSelectValue() {
+        var getText = $("#yearSelect option:selected").text();
+        var getText2 = $("#yearSelect option:selected").val();
+
+        if (getText == "ปี") {
+            getText == null
+            $("#showyear").text("");
+        } else
+            $("#showyear").text(getText);
+            $("#showyear1").val(getText2);
+
+        // console.log(getText);
+    }
+    function getSelectValue2() {
+        var getText2 = $("#mountSelect option:selected").val();
+            $("#showmount1").val(getText2);
+
+        // console.log(getText);
+    }
+
+    getSelectValue();
+    getSelectValue2();
+
+   
+
+
+
+
+
+
 </script>
