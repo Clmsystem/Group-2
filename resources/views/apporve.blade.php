@@ -132,15 +132,12 @@
                 </div>
             </div>
 
-
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
+                      <form action="/confirm" method="post">
+                      @csrf
                         <div class="row">
-
-                        </div>
-                        <div class="row">
-
                             <div class="col-md-12">
                                 <table class="table table-bordered newFont">
                                     <thead>
@@ -187,11 +184,10 @@
                                             <button type="submit" class="btn btn-inverse-primary btns ">อนุมัติ</button>
                                         </div>
                                     </div>
-                                </div>
-                                   
+                                </div>   
                             </div>
                         </div>
-                        </form>
+                      </form>
                     </div>
                 </div>
             </div>
