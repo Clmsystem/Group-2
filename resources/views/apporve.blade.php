@@ -103,7 +103,10 @@
                                 <div class="form-group col-md-6">
                                     <select class="form-control" name="month" id="month">
                                         <optgroup class="newFont">
-                                            <option hidden value="0">เดือน</option>
+                                        <option hidden value="0">เดือน</option>
+                                            <option value="10">ตุลาคม</option>
+                                            <option value="11">พฤศจิกายน</option>
+                                            <option value="12">ธันวาคม</option>
                                             <option value="1">มกราคม</option>
                                             <option value="2">กุมภาพันธ์</option>
                                             <option value="3">มีนาคม</option>
@@ -113,24 +116,18 @@
                                             <option value="7">กรกฎาคม</option>
                                             <option value="8">สิงหาคม</option>
                                             <option value="9">กันยายน</option>
-                                            <option value="10">ตุลาคม</option>
-                                            <option value="11">พฤศจิกายน</option>
-                                            <option value="12">ธันวาคม</option>
                                         </optgroup>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-2">
-                                    <button type="submit" class="btn btn-inverse-primary btns ">ค้นหา</button>
+                                <div class="row">
+
+                                    <div class="form-group col-md-2">
+                                        <button type="submit" class="btn btn-inverse-primary btns ">ค้นหา</button>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <button type="button" class="btn btn-inverse-primary btns2 ">ดาวน์โหลด</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-
-                                <div class="form-group col-md-8">
-                                    <!-- <button type="button" class="btn btn-primary btns ">กราฟ</button> -->
-                                </div>
-
-
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -178,23 +175,20 @@
 
                                         </tr>
                                     </thead>
-                                    <form action="">
                                         <tbody>
                                             @foreach ($search as $i => $value)
                                             <tr class="d-flex">
-                                                <input type="hidden" value={{$value->id_item}} name="id_item">
                                                 <td class="col-sm-1"> {{ $i + 1 }} </td>
                                                 <td class="col-sm-3 break"> {{ $value->name_item }}</td>
-                                                <td class="col-sm-2"> </td>
+                                                <td class="col-sm-2"> {{ $value->count }}</td>
                                                 <td class="col-sm-1"> {{ $value->unit_name }} </td>
-                                                <td class="col-sm-2"> </td>
-                                                <td class="col-sm-3"> test</td>
-
+                                                <td class="col-sm-2"> {{ $value->description }}</td>
+                                                <td class="col-sm-2"> {{ $value->name_employee }}</td>
+                                                <td class="col-sm-1"><a target='_blank' href=graph><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
                                             </tr>
 
                                             @endforeach
                                         </tbody>
-
                                 </table>
 
                                 <!-- <div class="col-md-1"></div> -->
@@ -225,18 +219,18 @@
 
 </body>
 
-<script>
-    function getSelectValue() {
+<script type="text/javascript">
+    const mount = "<?php echo $months; ?>";
+    $('#mountSelect').find('option').each((i, e) => {
+        if ($(e).val() == mount) {
+            $('#mountSelect').prop('selectedIndex', i);
+        }
+    });
 
-        var getText = $("#year option:selected").text();
-        if (getText == "ปี") {
-            getText == null
-            $("#showyear").text("");
-
-        } else
-            $("#showyear").text(getText);
-        // console.log(getText);
-    }
-    getSelectValue();
-
+    const yearsOfSearch = "<?php echo $years; ?>";
+    $('#yearSelect').find('option').each((i, e) => {
+        if ($(e).val() == yearsOfSearch) {
+            $('#yearSelect').prop('selectedIndex', i);
+        }
+    });
 </script>

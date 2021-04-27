@@ -17,33 +17,59 @@ class ApporveController extends Controller
         $search = [];
         $year = DB::table('year')
             ->get();
-        return view('apporve', compact('list_item', 'year', 'search'));
+
+        $years = 0;
+        $months = 0;
+        return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
         // return view('Report', compact('year'));
     }
 
     public function sea(Request $request)
     {
         $years = $request->year;
+        $quater = $request->quater;
         $months = $request->month;
+
+        // echo "<pre>";
+        // echo $years;
+        // echo $quater;
+        // echo $months;
+        // echo "</pre>";
+
+        $year = DB::table('year')
+            ->get();
 
         if ($years == 0) {
             $search = [];
             $list_item = [];
-            $year = [];
-            return view('apporve', compact('list_item', 'year', 'search'));
+            return view('Report', compact('list_item', 'year', 'search'));
         } else {
-            $search = DB::table('employee')
-                ->join('transaction', 'employee.id_employee', '=', 'transaction.id_employee')
-                ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
-                ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
-                ->where('year_year_id', $years)
-                ->get();
+            if ($months == 0) {
+                $search = DB::table('transaction')
+                    ->join('priority', 'transaction.id_item', '=', 'priority.id_item')
+                    ->join('employee', 'priority.id_employee', '=', 'employee.id_employee')
+                    ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
+                    ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
+                    ->where('transaction.year_year_id', '=', $years)
+                    ->groupBy('.transaction.id_item')
+                    ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,name_employee,year_year_id'))
+                    ->get();
+            } else {
+                $search = DB::table('transaction')
+                    ->join('priority', 'transaction.id_item', '=', 'priority.id_item')
+                    ->join('employee', 'priority.id_employee', '=', 'employee.id_employee')
+                    ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
+                    ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
+                    ->where('transaction.year_year_id', '=', $years)
+                    ->where('transaction.month', '=', $months)
+                    ->groupBy('.transaction.id_item')
+                    ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,name_employee,year_year_id'))
+                    ->get();
+            }
 
-            $year = DB::table('year')
-                ->get();
 
             $list_item = [];
-            return view('apporve', compact('list_item', 'year', 'search'));
+            return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
         }
     }
 }
