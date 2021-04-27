@@ -151,7 +151,7 @@
                                                                             <table class="table table-bordered newFont">
                                                                                 <thead>
                                                                                     <tr class="d-flex">
-                                                                                        <th class="col-sm-5" scope="col">
+                                                                                        <th class="col-sm-6" scope="col">
                                                                                             <h5 class="newFont">
                                                                                                 รายการ</h5>
                                                                                         </th>
@@ -159,13 +159,9 @@
                                                                                             <h7 class="newFont">
                                                                                                 จำนวน</h7>
                                                                                         </th>
-                                                                                        <th class="col-sm-2" scope="col">
+                                                                                        <th class="col-sm-4" scope="col">
                                                                                             <h7 class="newFont">
                                                                                                 หน่วยนับ</h7>
-                                                                                        </th>
-                                                                                        <th class="col-sm-3" scope="col">
-                                                                                            <h7 class="newFont">
-                                                                                                หมายเหตุ</h7>
                                                                                         </th>
                                                                                     </tr>
                                                                                 </thead>
@@ -173,19 +169,32 @@
                                                                                 @csrf
                                                                                 <tbody>
                                                                                     <tr class="d-flex newFont">
-                                                                                        <th class="col-sm-5 break">
+                                                                                        <th class="col-sm-6 break">
                                                                                             {{ $value->name_item }}
                                                                                         </th>
                                                                                         <td class="col-sm-2">
                                                                                             <!-- <input  hidden name="count" id="count"> -->
                                                                                             <div><input type="text" value="{{ $value->count }}" id="count" name="count" class="form-control" placeholder="จำนวน" required></div>
                                                                                         </td>
-                                                                                        <th class="col-sm-2"> ครั้ง
+                                                                                        <th class="col-sm-4"> ครั้ง
                                                                                         </th>
+                                                                                    </tr>
+                                                                                    <tr class="d-flex newFont">
+                                                                                        <th class="col-sm-5 break">
+                                                                                            หมายเหตุ
+                                                                                        </th>
+                                                                                        <td class="col-sm-7">
+
+                                                                                            <textarea type="text" value="{{ $value->description }}" id="description" name="description" style="height: 100px" class="form-control" placeholder="หมายเหตุ" required></textarea>
+                                                                                        </td>
+
+                                                                                    </tr>
+
+                                                                                    <!-- <tr>
                                                                                         <td class="col-sm-3">
                                                                                             <div><input type="text" value="{{ $value->description }}" id="description" name="description" class="form-control" placeholder="หมายเหตุ" required></div>
                                                                                         </td>
-                                                                                    </tr>
+                                                                                    </tr> -->
                                                                                 </tbody>
 
                                                                                 <input hidden type="text" value="{{$value->month}}" name="month">
