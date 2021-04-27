@@ -20,7 +20,7 @@ class ApporveController extends Controller
 
         $years = 0;
         $months = 0;
-        return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
+        return view('apporve', compact('list_item', 'year', 'years', 'search', 'months'));
         // return view('Report', compact('year'));
     }
 
@@ -42,7 +42,7 @@ class ApporveController extends Controller
         if ($years == 0) {
             $search = [];
             $list_item = [];
-            return view('Report', compact('list_item', 'year', 'search'));
+            return view('apporve', compact('list_item', 'year', 'search'));
         } else {
             if ($months == 0) {
                 $search = DB::table('transaction')
@@ -69,7 +69,7 @@ class ApporveController extends Controller
 
 
             $list_item = [];
-            return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
+            return view('apporve', compact('list_item', 'year', 'years', 'search', 'months'));
         }
     }
 }
