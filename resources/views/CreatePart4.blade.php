@@ -50,10 +50,6 @@
         margin: 0;
         padding: 0;
     }
-
-    .card {
-        min-width: 1299px !important;
-    }
 </style>
 
 <?php
