@@ -19,22 +19,36 @@ class LoginController extends Controller
                 ->get();
         
         $result = json_decode($users, true);
-        session()->put('user', $result[0]);
+        
+        try {
+          
+          
+            if (count($users)>0){
+
+
+                if (session()->has('user')) {
+                    return view("index");
+                    
+                } else {
+                    session()->put('user', $result[0]);
+                    return view("index");
+                }
+                
+             
+            }
+            else{
+                $request->session()->flash('status', 'โปรดตรวจสอบอีเมลและพาสเวิด');
+                return view("login");
+                
+            }
+            
+        } catch (Exception $e) {
+            // handing error
+            return view("login");
+        }
        
 
-        if (count($users)>0){
-            
-            // print_r(session()->get('user'));
-                return view("index");
-                // print_r($result);
-         
-        }
-        else{
-            echo "pls check pass or email";
-            // // return view('index');
-            print_r($result);
-        }
-        
+       
         
     }
     
