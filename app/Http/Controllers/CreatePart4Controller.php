@@ -15,11 +15,17 @@ class CreatePart4Controller extends Controller
     public function index()
     {
         if (session()->get('user')) {
+            $currentYear = DB::table('year')
+            ->where('flag',1)
+            ->select('year_id')
+            ->get();
 
+        $currentYear= $currentYear[0]->year_id;    
             $list_item = DB::table('list_item')
                 ->leftjoin('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
                 ->leftjoin('priority', 'list_item.id_item', '=', 'priority.id_item')
                 ->leftjoin('employee', 'priority.id_employee', '=', 'employee.id_employee')
+                ->where('year_id',$currentYear)
                 ->select('list_item.id_item', 'list_item.name_item', 'unit.unit_name', DB::raw('GROUP_CONCAT(name_employee) as name_employee'))
                 ->orderBy('list_item.id_item')
                 ->groupBy('list_item.name_item')
@@ -123,23 +129,28 @@ class CreatePart4Controller extends Controller
     public function store(Request $request)
     {
 
+        
         DB::transaction(function () use ($request) {
+            $currentYear = DB::table('year')
+                ->where('flag',1)
+                ->select('year_id')
+                ->get();
 
-            $values = array('name_item' => $request->indicator_list, 'unit_id_unit' => $request->unit, 'year_id' => '1');
-
-            DB::table('list_item')->insert($values);
+            $currentYear= $currentYear[0]->year_id;    
+            
+            $values = array('name_item' => $request->indicator_list, 'unit_id_unit' => $request->unit, 'year_id' => $currentYear);
+        
+        DB::table('list_item')->insert($values);
 
             $listItem = DB::table('list_item')
                 ->where('name_item', '=', $request->indicator_list)
                 ->get();
-
-
             foreach (range(1, 12) as $number) {
-                $datatoinsert[$number]['id_item'] = $listItem[0]->id_item;
+                $datatoinsert[$number]['id_item'] = $listItem[0]->id_item; 
                 $datatoinsert[$number]['count'] = "0";
                 $datatoinsert[$number]['description'] = "-";
                 $datatoinsert[$number]['month'] = $number;
-                $datatoinsert[$number]['year_year_id'] = "1";
+                $datatoinsert[$number]['year_year_id'] = $currentYear;
             }
             DB::table('transaction')
                 ->insert($datatoinsert);
