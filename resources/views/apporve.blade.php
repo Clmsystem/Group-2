@@ -59,9 +59,10 @@
         /* word-break: break-all; */
         white-space: normal;
     }
-    .letter{
+
+    .letter {
         text-indent: 7px;
-        
+
     }
 </style>
 
@@ -85,7 +86,8 @@
                     <div class="card-body">
                         <div class="row">
                             <h3 class="newFont" for=""> ค้นหาแผนสถิติ ประจำปีงบประมาณ</h3>
-                            <h3 class="newFont letter" id="showyear"> </h3> <h3 class="newFont letter" > เดือน</h3>
+                            <h3 class="newFont letter" id="showyear"> </h3>
+                            <h3 class="newFont letter"> เดือน</h3>
                             <h3 class="newFont letter" id="aa"> </h3>
 
                         </div>
@@ -149,7 +151,7 @@
                                             <tr class="d-flex">
                                                 <th class="col-sm-1" scope="col">
                                                     <h7 class="newFont">ลำดับ</h7>
-                                        
+
                                                 </th>
                                                 <th class="col-sm-3" scope="col">
                                                     <h7 class="newFont">รายการ</h7>
@@ -181,15 +183,14 @@
                                             <input type="hidden" value="{{$value->id_item}}" name="id_item">
                                             @endforeach
                                         </tbody>
-
                                     </table>
                                     <br>
                                     <div class="row">
                                         <div class="col-9"></div>
                                         <div class="col-3">
                                             <div class="form-group col-md-2">
-                                            <input type="hidden" name="year1" id="showyear1" value="">
-                                            <input type="hidden" name="month1" id="showmount1" value="">
+                                                <input type="hidden" name="year1" id="showyear1" value="">
+                                                <input type="hidden" name="month1" id="showmount1" value="">
 
                                                 <button type="submit" class="btn btn-inverse-primary btns ">อนุมัติ</button>
                                             </div>
@@ -217,7 +218,11 @@
 </body>
 
 <script type="text/javascript">
-    const mount = "<?php echo $months; ?>";
+    const mount = "<?php
+
+                    use Illuminate\Support\Facades\Session;
+
+                    echo $months; ?>";
     $('#mountSelect').find('option').each((i, e) => {
         if ($(e).val() == mount) {
             $('#mountSelect').prop('selectedIndex', i);
@@ -234,26 +239,26 @@
 
     function getSelectValue() {
         var getText = $("#yearSelect option:selected").text();
-            $("#showyear").text(getText);
+        $("#showyear").text(getText);
         var getVal = $("#yearSelect option:selected").val();
-            $("#showyear1").val(getVal);
-        
+        $("#showyear1").val(getVal);
+
     };
     getSelectValue();
 
     function getSelectValue2() {
         var getText2 = $("#mountSelect option:selected").text();
-            $("#aa").text(getText2);
+        $("#aa").text(getText2);
         var getVal2 = $("#mountSelect option:selected").val();
-            $("#showmount1").val(getVal2);
+        $("#showmount1").val(getVal2);
 
         // console.log(getText);
     };
 
     getSelectValue2();
-    var msg = '{{Session::get('alert')}}';
-    var exist = '{{Session::has('alert')}}';
-    if(exist){
-      alert(msg);
+    var msg = '<?= Session::get('alert') ?>';
+    var exist = '<?= Session::has('alert') ?>';
+    if (exist) {
+        alert(msg);
     }
 </script>

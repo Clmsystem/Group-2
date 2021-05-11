@@ -22,20 +22,20 @@ class insertController extends Controller
         }
 
 
-   
+
         $currentYear = DB::table('year')
-            ->where('flag',1)
+            ->where('flag', 1)
             ->select('year_id')
             ->get();
 
         $currentYearShow = DB::table('year')
-            ->where('flag',1)
+            ->where('flag', 1)
             ->select('year')
             ->get();
-        
+
         $currentYearShow = $currentYearShow[0]->year;
 
-        $currentYear= $currentYear[0]->year_id;
+        $currentYear = $currentYear[0]->year_id;
 
 
         $input = $request->all();
@@ -47,7 +47,7 @@ class insertController extends Controller
             ->where('transaction.month', $month)
             ->where('year_year_id', $currentYear)
             ->get();
-        return view('insert', compact('priority', 'month','currentYearShow')); 
+        return view('insert', compact('priority', 'month', 'currentYearShow'));
     }
 
     public function edit(Request $request)

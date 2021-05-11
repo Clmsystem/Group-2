@@ -75,8 +75,7 @@
                             <div class="form-group col-md-2">
                                 <form action="/submit" method="post">
                                     @csrf
-                                    <select id="mountSelect" name="mountSelect" class="form-control"
-                                        onchange="this.form.submit()">
+                                    <select id="mountSelect" name="mountSelect" class="form-control" onchange="this.form.submit()">
                                         <optgroup class="newFont">
                                             <option hidden>เดือน</option>
                                             <option id="op1" value="1">มกราคม</option>
@@ -143,14 +142,10 @@
                                                 <!-- <div><input style="border:none" type="text" class="form-control" placeholder="หมายเหตุ" required></div> -->
                                             </td>
                                             <td class="col-sm-2">
-                                                <button class="btn btn-inverse-success btns" data-toggle="modal"
-                                                    data-target="#modalAction{{ $i }}"><i
-                                                        class="mdi mdi-grease-pencil launch-modal"></i></button>
+                                                <button <?= ($value->status == 1) ? 'disabled' : ''  ?> class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
 
 
-                                                <div class="modal fade" id="modalAction{{ $i }}" tabindex="-1"
-                                                    role="dialog" data-backdrop="static"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="modalAction{{ $i }}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-xl" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-body">
@@ -161,23 +156,19 @@
                                                                 <hr><br>
                                                                 <div class="card-body">
                                                                     <div class="col-md-12">
-                                                                        <form class="forms-sample" action="/updateCount"
-                                                                            method="post">
+                                                                        <form class="forms-sample" action="/updateCount" method="post">
                                                                             <table class="table table-bordered newFont">
                                                                                 <thead>
                                                                                     <tr class="d-flex">
-                                                                                        <th class="col-sm-6"
-                                                                                            scope="col">
+                                                                                        <th class="col-sm-6" scope="col">
                                                                                             <h5 class="newFont">
                                                                                                 รายการ</h5>
                                                                                         </th>
-                                                                                        <th class="col-sm-2"
-                                                                                            scope="col">
+                                                                                        <th class="col-sm-2" scope="col">
                                                                                             <h7 class="newFont">
                                                                                                 จำนวน</h7>
                                                                                         </th>
-                                                                                        <th class="col-sm-4"
-                                                                                            scope="col">
+                                                                                        <th class="col-sm-4" scope="col">
                                                                                             <h7 class="newFont">
                                                                                                 หน่วยนับ</h7>
                                                                                         </th>
@@ -192,13 +183,7 @@
                                                                                         </th>
                                                                                         <td class="col-sm-2">
                                                                                             <!-- <input  hidden name="count" id="count"> -->
-                                                                                            <div><input type="text"
-                                                                                                    value="{{ $value->count }}"
-                                                                                                    id="count"
-                                                                                                    name="count"
-                                                                                                    class="form-control"
-                                                                                                    placeholder="จำนวน"
-                                                                                                    required></div>
+                                                                                            <div><input type="text" value="{{ $value->count }}" id="count" name="count" class="form-control" placeholder="จำนวน" required></div>
                                                                                         </td>
                                                                                         <th class="col-sm-4"> ครั้ง
                                                                                         </th>
@@ -209,13 +194,7 @@
                                                                                         </th>
                                                                                         <td class="col-sm-7">
 
-                                                                                            <textarea type="text"
-                                                                                                id="description"
-                                                                                                name="description"
-                                                                                                style="height: 100px"
-                                                                                                class="form-control"
-                                                                                                placeholder="หมายเหตุ"
-                                                                                                required>{{ $value->description }}</textarea>
+                                                                                            <textarea type="text" id="description" name="description" style="height: 100px" class="form-control" placeholder="หมายเหตุ" required>{{ $value->description }}</textarea>
                                                                                         </td>
 
                                                                                     </tr>
@@ -227,23 +206,14 @@
                                                                                     </tr> -->
                                                                                 </tbody>
 
-                                                                                <input hidden type="text"
-                                                                                    value="{{$value->month}}"
-                                                                                    name="month">
-                                                                                <input hidden type="text"
-                                                                                    value="{{$value->year_year_id}}"
-                                                                                    name="year">
+                                                                                <input hidden type="text" value="{{$value->month}}" name="month">
+                                                                                <input hidden type="text" value="{{$value->year_year_id}}" name="year">
                                                                             </table>
                                                                             <div class="modal-footer">
-                                                                                <button type="button"
-                                                                                    class="btn btn-secondary"
-                                                                                    data-dismiss="modal">
+                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                                                     <h7 class="newFont">ยกเลิก</h7>
                                                                                 </button>
-                                                                                <button name="id_item"
-                                                                                    value="{{$value->id_item}}"
-                                                                                    type="submit"
-                                                                                    class="btn btn-primary">
+                                                                                <button name="id_item" value="{{$value->id_item}}" type="submit" class="btn btn-primary">
                                                                                     <h7 class="newFont">บันทึก</h7>
                                                                                 </button>
                                                                             </div>
