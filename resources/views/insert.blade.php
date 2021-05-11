@@ -25,8 +25,16 @@
     }
 
     /* adjust text position */
+    table {
+            border-spacing: 0px;
+            table-layout: fixed;
+            margin-left:auto; 
+            margin-right:auto;
+        }
     td {
         text-align: center;
+        word-wrap: break-word;
+        white-space: normal;
         /* font-size: 9px !important; */
     }
 
@@ -122,16 +130,15 @@
                                     <tbody class="test">
                                         @foreach ($priority as $i => $value)
                                         <tr class="d-flex newFont">
-                                            <th class="col-sm-1"> {{ $i + 1 }} </th>
+                                            <td class="col-sm-1"> {{ $i + 1 }} </td>
                                             <td class="col-sm-3 break"> {{ $value->name_item }} </td>
                                             <td class="col-sm-2">
                                                 {{ $value->count }}
                                             </td>
-                                            <th class="col-sm-1"> ครั้ง </th>
-                                            <td class="col-sm-3">
+                                            <td class="col-sm-1"> ครั้ง </td>
+                                            <td class="col-sm-3 break">
                                                 {{ $value->description }}
                                                 <!-- <div><input style="border:none" type="text" class="form-control" placeholder="หมายเหตุ" required></div> -->
-
                                             </td>
                                             <td class="col-sm-2">
                                                 <button class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
