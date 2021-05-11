@@ -31,7 +31,13 @@
         /* word-break: break-all; */
         white-space: normal;
     }
+    td.break2 {
+        word-wrap: break-word;
+        /* word-break: break-all; */
+        white-space: normal;
 
+        display: block
+    }
 
     /* adjust btn size */
     .btns {
@@ -133,7 +139,7 @@
                                         <tr class="d-flex">
                                             <td class="col-sm-1">{{ $i + 1 }} </td> 
                                             <td class="col-sm-6  break">{{ $value->name_item }} </td>
-                                            <td class="col-sm-2"> {{ $value->name_employee }}</td>
+                                            <td class="col-sm-2 break2"> {{ $value->name_employee  }}</td>
                                             <td class="col-sm-1"> {{ $value->unit_name }} </td>
                                             <td class="col-sm-2">
                                                 <button class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
