@@ -142,7 +142,7 @@
                                                 <!-- <div><input style="border:none" type="text" class="form-control" placeholder="หมายเหตุ" required></div> -->
                                             </td>
                                             <td class="col-sm-2">
-                                                <button <?= ($value->status == 1) ? 'disabled' : ''  ?> class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
+                                                <button <?= ($value->status == 1) ? 'disabled' : ''  ?> class="btn btn-inverse-<?= ($value->status == 1) ? 'secoundary' : 'success'  ?> btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
 
 
                                                 <div class="modal fade" id="modalAction{{ $i }}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">

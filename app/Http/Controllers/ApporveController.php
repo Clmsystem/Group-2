@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -60,8 +59,10 @@ class ApporveController extends Controller
                     ->join('employee', 'priority.id_employee', '=', 'employee.id_employee')
                     ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
                     ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
-                    ->where('transaction.year_year_id', '=', $years)
-                    ->where('transaction.month', '=', $months)
+                    ->where([
+                        ['transaction.year_year_id', '=', $years],
+                        ['transaction.month', '=', $months],
+                    ])
                     ->groupBy('transaction.id_item')
                     ->select(DB::raw('list_item.id_item,name_item,count,unit_name,description,name_employee,year_year_id'))
                     ->get();
@@ -74,31 +75,36 @@ class ApporveController extends Controller
     }
     public function confirm(Request $request)
     {
-        $id = $request->id_item;
         $years = $request->year1;
         $months = $request->month1;
         $total = DB::table('transaction')
-            ->join('priority', 'transaction.id_item', '=', 'priority.id_item')
-            ->join('employee', 'priority.id_employee', '=', 'employee.id_employee')
-            ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
-            ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
-            ->where('transaction.year_year_id', '=', $years)
-            ->where('transaction.month', '=', $months)
-            ->groupBy('transaction.id_item')
+            ->where('year_year_id', '=', $years)
+            ->where('month', '=', $months)
+            ->groupBy('id_item')
             ->get();
 
+        $canApproce = true;
         for ($i = 0; $i < count($total); $i++) {
             $result = $total[$i]->count;
             if ($result == 0) {
-                session()->flash('message', 'Cannot be Approve');
-                return redirect()->route('apporve.index')->with('alert', 'Cannot be Approve');
-            } else {
-                DB::table('transaction')
-                    ->where('id_item', '=', $total[$i]->id_item)
-                    ->where('month', '=', $total[$i]->month)
-                    ->update(['status' => 1]);
+                $canApproce = false;
             }
         }
-        return redirect()->route('apporve.index')->with('success', 'created success');
+
+        if ($canApproce) {
+            for ($i = 0; $i < count($total); $i++) {
+                DB::table('transaction')
+                    ->where([
+                        ['id_item', '=', $total[$i]->id_item],
+                        ['month', '=', $total[$i]->month],
+                        ['year_year_id', '=', $total[$i]->year_year_id],
+                    ])
+                    ->update(['status' => 1]);
+            }
+            return redirect()->route('apporve.index')->with('success', 'created success');
+        } else {
+            session()->flash('message', 'Cannot be Approve');
+            return redirect()->route('apporve.index')->with('alert', 'Cannot be Approve');
+        }
     }
 }
