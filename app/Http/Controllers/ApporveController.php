@@ -97,26 +97,18 @@ class ApporveController extends Controller
                     ->groupBy('.transaction.id_item')
                     ->get();
 
-
-                    // echo "<pre>";
-                    
-                    // print_r($total);
-                    // echo "</pre>";
-                    
-        // $count = count($total);
-        // print_r($count);
         for ($i=0; $i < count($total) ; $i++) { 
             # code...
             $result[$i] = $total[$i]->count;
             if ( $result[$i] == 0  ){
                 session()->flash('message' , 'Cannot be deleted');
-                return redirect()->route('createpart4.index')->with('alert', 'Cannot be Delete');
+                return redirect()->route('apporve.index')->with('alert', 'Cannot be Approve');
             }else {
                 DB::table('transaction')
                 ->where('id_item','=', $total[$i]->id_item)
-                ->where('mount',' =', $total[$i]->mount )
+                ->where('month',' =', $total[$i]->month ) 
                 ->update(['status' => 1]);
-                return redirect()->route('apporve')->with('success', 'created success');
+                return redirect()->route('apporve.index')->with('success', 'created success');
 
             }
         }

@@ -141,13 +141,7 @@
                     <div class="card-body">
                         <form action="/confirm" method="post">
                             @csrf
-
-                           
-
                             {{-- <input type="hide" value=""> --}}
-                          
-
-
                             <div class="row">
                                 <div class="col-md-12">
                                     <table class="table table-bordered newFont">
@@ -241,16 +235,25 @@
     function getSelectValue() {
         var getText = $("#yearSelect option:selected").text();
             $("#showyear").text(getText);
-        console.log(getText);
+        var getVal = $("#yearSelect option:selected").val();
+            $("#showyear1").val(getVal);
+        
     };
     getSelectValue();
 
     function getSelectValue2() {
         var getText2 = $("#mountSelect option:selected").text();
             $("#aa").text(getText2);
+        var getVal2 = $("#mountSelect option:selected").val();
+            $("#showmount1").val(getVal2);
 
         // console.log(getText);
     };
 
     getSelectValue2();
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
 </script>
