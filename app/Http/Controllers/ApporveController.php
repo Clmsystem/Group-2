@@ -87,7 +87,7 @@ class ApporveController extends Controller
         for ($i = 0; $i < count($total); $i++) {
             $result = $total[$i]->count;
             if ($result == 0) {
-                $canApproce = false;
+                $canApproce = false; 
             }
         }
 

@@ -31,6 +31,10 @@
         /* word-break: break-all; */
         white-space: normal;
     }
+    td.break1 {
+        word-wrap: break-word;
+        /* white-space: inherit;     */
+    }
 
     td.break2 {
         word-wrap: break-word;
@@ -42,10 +46,14 @@
 
     /* adjust btn size */
     .btns {
+        align-items: center;
         padding: 0.9rem 2em;
         font-size: 0.875rem;
+      
     }
+    table{
 
+    }
     .text-t {
         margin: 0;
         padding: 0;
@@ -121,26 +129,27 @@ use Illuminate\Support\Facades\Session;
                         <hr><br>
                         <div class="row">
                             <!-- <div class="col-md-1"></div> -->
+                            <div class="table-responsive">
                             <div class="col-md-12">
                                 <table class="table table-bordered newFont">
                                     <thead>
                                         <tr class="d-flex">
-                                            <th class="col-sm-1" scope="col">
-                                                <h7 class="newFont">ลำดับ</h7>
+                                            <th class="col-sm-1 break" scope="col">
+                                                <h7 class="newFont  break">ลำดับ</h7>
                                             </th>
-                                            <th class="col-sm-6" scope="col">
-                                                <h7 class="newFont">ตัวชี้วัด</h7>
+                                            <th class="col-sm-5 break" scope="col">
+                                                <h7 class="newFont break">ตัวชี้วัด</h7>
                                             </th>
-                                            <th class="col-sm-2" scope="col">
-                                                <h7 class="newFont">ผู้รับผิดชอบ</h7>
+                                            <th class="col-sm-3 break" scope="col">
+                                                <h7 class="newFont break">ผู้รับผิดชอบ</h7>
                                             </th>
                                             {{-- <th class="col-sm-2" scope="col">
                                                 <h7 class="newFont">จำนวน</h7>
                                             </th> --}}
-                                            <th class="col-sm-1" scope="col">
-                                                <h7 class="newFont">หน่วยนับ</h7>
+                                            <th class="col-sm-1 break" scope="col">
+                                                <h7 class="newFont break">หน่วยนับ</h7>
                                             </th>
-                                            <th class="col-sm-2" scope="col"></th>
+                                            <th class="col-sm-2 break" scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -157,14 +166,14 @@ use Illuminate\Support\Facades\Session;
                                         ?>
                                         @foreach ($list_item as $i => $value)
                                         <tr class="d-flex">
-                                            <td class="col-sm-1">{{ $i + 1 }} </td>
-                                            <td class="col-sm-6">{{ $value->name_item }} </td>
+                                            <td class="col-sm-1 break">{{ $i + 1 }} </td>
+                                            <td class="col-sm-5 break">{{ $value->name_item }} </td>
                                             <!-- <td class="col-sm-2 break2"> {{ $value->name_employee  }}</td> -->
-                                            <td class="col-sm-2">
+                                            <td class="col-sm-3 break">
                                                 <?= spliteName($value->name_employee) ?>
                                             </td>
-                                            <td class="col-sm-1"> {{ $value->unit_name }} </td>
-                                            <td class="col-sm-2">
+                                            <td class="col-sm-1 "> {{ $value->unit_name }} </td>
+                                            <td class="col-sm-2 break1">
                                                 <button class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
                                                 <button class="btn btn-inverse-danger btns" data-toggle="modal" data-target="#modalDelete{{ $i }}"><i class="mdi mdi-delete"></i></button>
 
@@ -271,7 +280,7 @@ use Illuminate\Support\Facades\Session;
                                 <!-- <div class="col-md-1"></div> -->
                             </div>
                         </div>
-
+                    </div>
 
                     </div>
                 </div>
