@@ -36,7 +36,7 @@
                         <a class="dropdown-item" href="#">
                             <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="/logout">
                             <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
                     </div>
                 </li>
@@ -163,4 +163,3 @@
             </button>
         </div>
     </nav>
-

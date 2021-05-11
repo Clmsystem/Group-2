@@ -24,7 +24,18 @@ use App\Http\Controllers\FileUploadController;
 */
 
 Route::get('/', function () {
+    if (session()->has('user')) {
+        return view("index");
+    } else {
+        return view('login');
+    }
+    
+});
+
+Route::get('/logout', function () {
+    session()->forget('user');
     return view('login');
+    
 });
 
 
@@ -34,42 +45,43 @@ Route::post('/Valid', [LoginController::class, 'index'], function ($argv) {
 })->name('test');
 
 Route::get('/insertDB', [CreatePart4Controller::class, 'index'], function () {
-});
+})->middleware('AuthLogin');
 
-Route::resource('submit', insertController::class);
-Route::post('/updateCount', [insertController::class, 'edit']);
-Route::post('/submit', [insertController::class, 'index']);
+Route::resource('submit', insertController::class)->middleware('AuthLogin');
+Route::post('/updateCount', [insertController::class, 'edit'])->middleware('AuthLogin');
+Route::post('/submit', [insertController::class, 'index'])->middleware('AuthLogin');
 
 
-Route::resource('report', ReportController::class);
-Route::post('/sea', [ReportController::class, 'sea']);
+
 Route::get('/download', [ReportController::class, 'download']);
+Route::resource('report', ReportController::class)->middleware('AuthLogin');
+Route::post('/sea', [ReportController::class, 'sea'])->middleware('AuthLogin');
 
-Route::resource('createpart4', CreatePart4Controller::class);
+Route::resource('createpart4', CreatePart4Controller::class)->middleware('AuthLogin');
 
-Route::post('/createpart4/store', [CreatePart4Controller::class, 'store']);
+Route::post('/createpart4/store', [CreatePart4Controller::class, 'store'])->middleware('AuthLogin');
 
-Route::post('/createpart4/delete', [CreatePart4Controller::class, 'delete_row']);
+Route::post('/createpart4/delete', [CreatePart4Controller::class, 'delete_row'])->middleware('AuthLogin');
 
 // Route::get('/createpart4', [CreatePart4Controller::class, 'index']);
 
 
-Route::get('/graph', [GraphController::class, 'index']);
+Route::get('/graph', [GraphController::class, 'index'])->middleware('AuthLogin');
 
-Route::resource('/apporve', ApporveController::class);
-Route::post('/apporvePost', [ApporveController::class, 'sea']);
-Route::post('/confirm', [ApporveController::class, 'confirm']);
-Route::get('/get_graph', [GraphController::class, 'test']);
+Route::resource('/apporve', ApporveController::class)->middleware('AuthLogin');
+Route::post('/apporvePost', [ApporveController::class, 'sea'])->middleware('AuthLogin');
+Route::post('/confirm', [ApporveController::class, 'confirm'])->middleware('AuthLogin');
+Route::get('/get_graph', [GraphController::class, 'test'])->middleware('AuthLogin');
 
 
 
-Route::post('/index', function () {
+Route::get('/index', function () {
     return view('index');
-})->name('/');
+});
 
 // Route::get('file-upload', [FileUploadController::class, 'index']);
 // Route::post('store', [FileUploadController::class, 'store']);
-Route::get('file-upload', [FileUploadController::class, 'index'])->name('file.upload');
-Route::post('file-upload', [FileUploadController::class, 'store'])->name('file.upload.post');
-Route::get('file/download', [FileUploadController::class, 'getfile']);
-Route::get('file-upload', [FileUploadController::class, 'store'])->name('file.upload.get');
+Route::get('file-upload', [FileUploadController::class, 'index'])->name('file.upload')->middleware('AuthLogin');
+Route::post('file-upload', [FileUploadController::class, 'store'])->name('file.upload.post')->middleware('AuthLogin');
+Route::get('file/download', [FileUploadController::class, 'getfile'])->middleware('AuthLogin');
+Route::get('file-upload', [FileUploadController::class, 'store'])->name('file.upload.get')->middleware('AuthLogin');
