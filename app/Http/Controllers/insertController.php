@@ -21,6 +21,17 @@ class insertController extends Controller
             $month = Carbon::now()->month;
         }
 
+
+   
+        $currentYear = DB::table('year')
+            ->where('flag',1)
+            ->select('year_id')
+            ->get();
+
+        
+        $currentYear= $currentYear[0]->year_id;
+
+
         $input = $request->all();
         $id_user = session()->get('user')['id_employee'];
         $priority = DB::table('priority')
@@ -28,8 +39,9 @@ class insertController extends Controller
             ->join('transaction', 'list_item.id_item', '=', 'transaction.id_item')
             ->where('priority.id_employee', $id_user)
             ->where('transaction.month', $month)
+            ->where('year_year_id', $currentYear)
             ->get();
-        return view('insert', compact('priority', 'month'));
+        return view('insert', compact('priority', 'month')); 
     }
 
     public function edit(Request $request)

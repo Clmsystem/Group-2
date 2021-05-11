@@ -73,7 +73,7 @@ class ApporveController extends Controller
                     ->where('transaction.year_year_id', '=', $years)
                     ->where('transaction.month', '=', $months)
                     ->groupBy('.transaction.id_item')
-                    ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,name_employee,year_year_id'))
+                    ->select(DB::raw('list_item.id_item,name_item,count,unit_name,description,name_employee,year_year_id'))
                     ->get();
             }
 
@@ -94,7 +94,7 @@ class ApporveController extends Controller
                     ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
                     ->where('transaction.year_year_id', '=', $years)
                     ->where('transaction.month', '=', $months)
-                    ->groupBy('.transaction.id_item')
+                    ->groupBy('.transaction.id_item') 
                     ->get();
 
         for ($i=0; $i < count($total) ; $i++) { 

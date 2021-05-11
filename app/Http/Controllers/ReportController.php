@@ -41,11 +41,6 @@ class ReportController extends Controller
         $quater = $request->quater;
         $months = $request->month;
 
-        // echo "<pre>";
-        // echo $years;
-        // echo $quater;
-        // echo $months;
-        // echo "</pre>";
 
         $year = DB::table('year')
             ->get();
@@ -62,7 +57,7 @@ class ReportController extends Controller
                     ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
                     ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
                     ->where('transaction.year_year_id', '=', $years)
-                    ->groupBy('.transaction.id_item')
+                    ->groupBy('transaction.id_item')
                     ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,name_employee,year_year_id'))
                     ->get();
             } else {
@@ -73,11 +68,11 @@ class ReportController extends Controller
                     ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
                     ->where('transaction.year_year_id', '=', $years)
                     ->where('transaction.month', '=', $months)
-                    ->groupBy('.transaction.id_item')
-                    ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,name_employee,year_year_id'))
+                    ->groupBy('transaction.id_item')
+                    ->select(DB::raw('list_item.id_item,name_item,count,unit_name,description,name_employee,year_year_id'))
                     ->get();
             }
-
+    
 
             $list_item = [];
             return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
