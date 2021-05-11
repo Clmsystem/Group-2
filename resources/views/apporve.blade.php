@@ -59,6 +59,10 @@
         /* word-break: break-all; */
         white-space: normal;
     }
+    .letter{
+        text-indent: 7px;
+        
+    }
 </style>
 
 
@@ -80,9 +84,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <h3 class="newFont" for=""> ค้นหาแผนสถิติ ประจำปีงบประมาณ พ.ศ. </h3>
-                            <h3 id="showyear"> </h3>
-                            {{-- <h3 id="showmount"> </h3> --}}
+                            <h3 class="newFont" for=""> ค้นหาแผนสถิติ ประจำปีงบประมาณ</h3>
+                            <h3 class="newFont letter" id="showyear"> </h3> <h3 class="newFont letter" > เดือน</h3>
+                            <h3 class="newFont letter" id="aa"> </h3>
 
                         </div>
                         <hr><br>
@@ -91,7 +95,7 @@
                             <!-- @method('POST') -->
                             <div class="row">
                                 <div class="form-group col-md-4">
-                                    <select id="yearSelect" class="form-control" name="year">
+                                    <select id="yearSelect" class="form-control" name="year" onchange="getSelectValue()">
                                         <optgroup class="newFont">
                                             @foreach ($year as $i => $value)
                                             <option value="{{ $value->year_id }}">{{ $value->year }}</option>
@@ -100,7 +104,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <select id="mountSelect" class="form-control" name="month" onchange="myFunction();">
+                                    <select id="mountSelect" class="form-control" name="month" onchange="getSelectValue2()">
                                         <optgroup class="newFont">
                                             <option value="10">ตุลาคม</option>
                                             <option value="11">พฤศจิกายน</option>
@@ -236,32 +240,17 @@
 
     function getSelectValue() {
         var getText = $("#yearSelect option:selected").text();
-        var getText2 = $("#yearSelect option:selected").val();
-
-        if (getText == "ปี") {
-            getText == null
-            $("#showyear").text("");
-        } else
             $("#showyear").text(getText);
-            $("#showyear1").val(getText2);
-
-        // console.log(getText);
-    }
-    function getSelectValue2() {
-        var getText2 = $("#mountSelect option:selected").val();
-            $("#showmount1").val(getText2);
-
-        // console.log(getText);
-    }
-
+        console.log(getText);
+    };
     getSelectValue();
+
+    function getSelectValue2() {
+        var getText2 = $("#mountSelect option:selected").text();
+            $("#aa").text(getText2);
+
+        // console.log(getText);
+    };
+
     getSelectValue2();
-
-   
-
-
-
-
-
-
 </script>

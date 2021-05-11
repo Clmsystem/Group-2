@@ -85,8 +85,8 @@
                                     </select>
                                 </form>
                             </div>
-                            <div class="col-md-3">
-                                <h3 class="newFonts"> ประจำปี พ.ศ. <?php echo date("Y") + 543; ?></h3>
+                            <div class="col-md-4">
+                                <h3 class="newFonts"> ประจำปีงบประมาณ <?php echo date("Y") + 543; ?></h3>
 
                             </div>
                         </div>

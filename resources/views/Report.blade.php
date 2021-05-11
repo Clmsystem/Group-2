@@ -30,7 +30,10 @@
         font-family: "ubuntu-bold", sans-serif;
 
     }
-
+    .letter{
+        text-indent: 7px;
+        
+    }
     .Pbtn {
         margin-left: 0px;
         padding: 1rem;
@@ -81,8 +84,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <h3 class="newFont" for=""> ค้นหาแผนสถิติ ประจำปี พ.ศ. </h3>
-                            <h3 id="yearSelect"> </h3>
+                            <h3 class="newFont" for=""> ค้นหาแผนสถิติ ประจำปีงบประมาณ </h3>
+                            <h3 class="letter" id="showyear"></h3>
                         </div>
                         <hr><br>
                         <form class="forms-sample" action="/sea" method="post">
@@ -90,7 +93,7 @@
                             <!-- @method('POST') -->
                             <div class="row">
                                 <div class="form-group col-md-4">
-                                    <select id="yearSelect" class="form-control" name="year">
+                                    <select id="yearSelect" class="form-control" name="year" onchange="getSelectValue()">
                                         <optgroup class="newFont">
                                             @foreach ($year as $i => $value)
                                             <option value="{{ $value->year_id }}">{{ $value->year }}</option>
@@ -226,4 +229,15 @@
             $('#yearSelect').prop('selectedIndex', i);
         }
     });
+
+
+    function getSelectValue() {
+        var getText = $("#yearSelect option:selected").text();
+            $("#showyear").text(getText);
+        console.log(getText);
+    };
+    getSelectValue();
+
+
+
 </script>
