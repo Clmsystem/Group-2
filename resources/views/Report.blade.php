@@ -30,10 +30,12 @@
         font-family: "ubuntu-bold", sans-serif;
 
     }
-    .letter{
+
+    .letter {
         text-indent: 7px;
-        
+
     }
+
     .Pbtn {
         margin-left: 0px;
         padding: 1rem;
@@ -63,7 +65,10 @@
         white-space: normal;
     }
 </style>
+<?php
 
+use Illuminate\Support\Facades\Session;
+?>
 
 <body>
     <!-- ------------------------------------------  include  --------------------------------------------->
@@ -124,10 +129,10 @@
                             <div class="row">
 
                                 <div class="form-group col-md-2">
-                                    <button type="submit" name="btn_search" id="btn_search" value="1"  class="btn btn-inverse-primary btns ">ค้นหา</button>
+                                    <button type="submit" name="btn_search" id="btn_search" value="1" class="btn btn-inverse-primary btns ">ค้นหา</button>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <button type="submit" name="btn_download" id="btn_download" value="1"  class="btn btn-inverse-primary btns2 ">ดาวน์โหลด</button>
+                                    <button type="submit" name="btn_download" id="btn_download" value="1" class="btn btn-inverse-primary btns2 ">ดาวน์โหลด</button>
                                 </div>
                             </div>
                         </form>
@@ -230,16 +235,23 @@
 
     function getSelectValue() {
         var getText = $("#yearSelect option:selected").text();
-            $("#showyear").text(getText);
+        $("#showyear").text(getText);
         console.log(getText);
     };
     getSelectValue();
 </script>
 <script>
     function search() {
-        document.getElementById("btn_search").value=1;
+        document.getElementById("btn_search").value = 1;
     }
+
     function download() {
-        document.getElementById("btn_download").value=1;
+        document.getElementById("btn_download").value = 1;
+    }
+
+    var msg = '<?= Session::get('alert') ?>';
+    var exist = '<?= Session::has('alert') ?>';
+    if (exist) {
+        alert(msg);
     }
 </script>

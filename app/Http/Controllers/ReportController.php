@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
+use function PHPUnit\Framework\isEmpty;
 
 class ReportController extends Controller
 {
@@ -74,58 +77,49 @@ class ReportController extends Controller
                 return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
             }
         } else {
-            
-            $fileName = 'tasks.csv';
-            $headers = array(
-                "Content-type"        => "text/csv",
-                "Content-Disposition" => "attachment; filename=$fileName",
-                "Pragma"              => "no-cache",
-                "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
-                "Expires"             => "0"
-            );
+            $tasks = DB::table('transaction')
+                ->join('priority', 'transaction.id_item', '=', 'priority.id_item')
+                ->join('year', 'year.year_id', '=', 'transaction.year_year_id')
+                ->join('employee', 'priority.id_employee', '=', 'employee.id_employee')
+                ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
+                ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
+                ->where('transaction.year_year_id', '=', $years)
+                ->where('transaction.month', '=', $months)
+                ->groupBy('transaction.id_item')
+                ->select(DB::raw('list_item.id_item,name_item,count,unit_name,description,name_employee,year_year_id,year.year'))
+                ->get();
 
-            $columns = array('Title', 'Assign', 'Description', 'Start Date', 'Due Date');
+            if (count($tasks) > 0) {
+                $months_th = array("มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+                $headers = array(
+                    "Content-type"        => "text/csv",
+                    "Content-Disposition" => "attachment; filename=รายงาน_" . $months_th[$months - 1] . "_" . $tasks[0]->year . ".csv",
+                    "Pragma"              => "no-cache",
+                    "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+                    "Expires"             => "0"
+                );
+                $columns = array('ตัวชี้วัด', 'จำนวน', 'หน่วย', 'หมายเหตุ', 'ผู้รับผิดชอบ', 'เดือน', 'ปีงบประมาณ');
+                $callback = function () use ($tasks, $columns, $months_th, $months) {
+                    $file = fopen("php://output", "w");
+                    fputs($file, $bom = chr(0xEF) . chr(0xBB) . chr(0xBF));
 
-            $callback = function () use ($tasks, $columns) {
-                $file = fopen('php://output', 'w');
-                fputcsv($file, $columns);
-
-                foreach ($tasks as $task) {
-                    $row['Title']  = $task->title;
-                    $row['Assign']    = $task->assign->name;
-                    $row['Description']    = $task->description;
-                    $row['Start Date']  = $task->start_at;
-                    $row['Due Date']  = $task->end_at;
-
-                    fputcsv($file, array($row['Title'], $row['Assign'], $row['Description'], $row['Start Date'], $row['Due Date']));
-                }
-
-                fclose($file);
-            };
-
-            return response()->stream($callback, 200, $headers);
-
-            
-
+                    fputcsv($file, $columns);
+                    foreach ($tasks as $task) {
+                        $row['name_item']  = $task->name_item;
+                        $row['count']    = $task->count;
+                        $row['unit_name']    = $task->unit_name;
+                        $row['description']  = $task->description;
+                        $row['name_employee']  = $task->name_employee;
+                        $row['monthName']  = $months_th[$months - 1];
+                        $row['year']  = $task->year;
+                        fputcsv($file, array($row['name_item'], $row['count'], $row['unit_name'], $row['description'], $row['name_employee'], $row['monthName'], $row['year']));
+                    }
+                    fclose($file);
+                };
+                return response()->stream($callback, 200, $headers);
+            } else {
+                return redirect("/report")->with('alert', 'ไม่มีข้อมูล');
+            }
         }
-        
-
     }
-    // public function download(Request $request)
-    // {
-    //     $years = $request->year;
-    //     $months = $request->month;
-    //     $tasks = DB::table('transection')
-    //         ->join('priority', 'transaction.id_item', '=', 'priority.id_item')
-    //         ->join('employee', 'priority.id_employee', '=', 'employee.id_employee')
-    //         ->join('list_item', 'transaction.id_item', '=', 'list_item.id_item')
-    //         ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
-    //         ->where('transaction.year_year_id', '=', $years)
-    //         ->where('transaction.month', '=', $months)
-    //         ->groupBy('transaction.id_item')
-    //         ->select(DB::raw('list_item.id_item,name_item,count,unit_name,description,name_employee,year_year_id'))
-    //         ->get();
-
-    //     print_r($tasks);
-    // }
 };
