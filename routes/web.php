@@ -43,6 +43,7 @@ Route::post('/submit', [insertController::class, 'index']);
 
 Route::resource('report', ReportController::class);
 Route::post('/sea', [ReportController::class, 'sea']);
+Route::get('/download', [ReportController::class, 'download']);
 
 Route::resource('createpart4', CreatePart4Controller::class);
 

@@ -124,18 +124,16 @@
                             <div class="row">
 
                                 <div class="form-group col-md-2">
-                                    <button type="submit" class="btn btn-inverse-primary btns ">ค้นหา</button>
+                                    <button type="submit" name="btn_search" id="btn_search" value="1"  class="btn btn-inverse-primary btns ">ค้นหา</button>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <button type="button" class="btn btn-inverse-primary btns2 ">ดาวน์โหลด</button>
+                                    <button type="submit" name="btn_download" id="btn_download" value="1"  class="btn btn-inverse-primary btns2 ">ดาวน์โหลด</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-
-
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -145,7 +143,6 @@
                                 <!-- <button type="button" class="btn btn-primary btns ">กราฟ</button> -->
                             </div>
                             <div class="form-group col-md-2">
-                                {{-- <button type="button" class="btn btn-gradient-primary btns2 ">ดาวน์โหลด</button> --}}
                             </div>
 
 
@@ -237,7 +234,12 @@
         console.log(getText);
     };
     getSelectValue();
-
-
-
+</script>
+<script>
+    function search() {
+        document.getElementById("btn_search").value=1;
+    }
+    function download() {
+        document.getElementById("btn_download").value=1;
+    }
 </script>
