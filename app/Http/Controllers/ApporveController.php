@@ -101,12 +101,12 @@ class ApporveController extends Controller
             # code...
             $result[$i] = $total[$i]->count;
             if ( $result[$i] == 0  ){
-                session()->flash('message' , 'Cannot be deleted');
+                session()->flash('message' , 'Cannot be Approve');
                 return redirect()->route('apporve.index')->with('alert', 'Cannot be Approve');
             }else {
                 DB::table('transaction')
                 ->where('id_item','=', $total[$i]->id_item)
-                ->where('month',' =', $total[$i]->month ) 
+                ->where('month','=', $total[$i]->month ) 
                 ->update(['status' => 1]);
                 return redirect()->route('apporve.index')->with('success', 'created success');
 

@@ -175,7 +175,7 @@
                                                 <td class="col-sm-3 break"> {{ $value->name_item }}</td>
                                                 <td class="col-sm-2"> {{ $value->count }}</td>
                                                 <td class="col-sm-1"> {{ $value->unit_name }} </td>
-                                                <td class="col-sm-2"> {{ $value->description }}</td>
+                                                <td class="col-sm-2 break"> {{ $value->description }}</td>
                                                 <td class="col-sm-3"> {{ $value->name_employee }}</td>
                                             </tr>
                                             <input type="hidden" value="{{$value->id_item}}" name="id_item">
