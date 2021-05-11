@@ -45,6 +45,15 @@
         padding: 0.9rem 2em;
         font-size: 0.875rem;
     }
+
+    .text-t {
+        margin: 0;
+        padding: 0;
+    }
+
+    .card {
+        min-width: 1299px !important;
+    }
 </style>
 
 <?php
@@ -139,12 +148,25 @@ use Illuminate\Support\Facades\Session;
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        <?php
+                                        function spliteName($name)
+                                        {
+                                            $text = '';
+                                            $texts = explode(",", $name);
+                                            for ($i = 0; $i < count($texts); $i++) {
+                                                $text .= '<p class="text-t">' . $texts[$i] . '</p>';
+                                            }
+                                            return $text;
+                                        }
+                                        ?>
                                         @foreach ($list_item as $i => $value)
                                         <tr class="d-flex">
                                             <td class="col-sm-1">{{ $i + 1 }} </td>
-                                            <td class="col-sm-6 break">{{ $value->name_item }} </td>
-                                            <td class="col-sm-2 break2"> {{ $value->name_employee  }}</td>
+                                            <td class="col-sm-6">{{ $value->name_item }} </td>
+                                            <!-- <td class="col-sm-2 break2"> {{ $value->name_employee  }}</td> -->
+                                            <td class="col-sm-2">
+                                                <?= spliteName($value->name_employee) ?>
+                                            </td>
                                             <td class="col-sm-1"> {{ $value->unit_name }} </td>
                                             <td class="col-sm-2">
                                                 <button class="btn btn-inverse-success btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
