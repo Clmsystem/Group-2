@@ -31,6 +31,7 @@
         /* word-break: break-all; */
         white-space: normal;
     }
+
     td.break2 {
         word-wrap: break-word;
         /* word-break: break-all; */
@@ -46,6 +47,10 @@
     }
 </style>
 
+<?php
+
+use Illuminate\Support\Facades\Session;
+?>
 
 <body>
     <!-- ------------------------------------------  include  --------------------------------------------->
@@ -137,8 +142,8 @@
 
                                         @foreach ($list_item as $i => $value)
                                         <tr class="d-flex">
-                                            <td class="col-sm-1">{{ $i + 1 }} </td> 
-                                            <td class="col-sm-6  break">{{ $value->name_item }} </td>
+                                            <td class="col-sm-1">{{ $i + 1 }} </td>
+                                            <td class="col-sm-6 break">{{ $value->name_item }} </td>
                                             <td class="col-sm-2 break2"> {{ $value->name_employee  }}</td>
                                             <td class="col-sm-1"> {{ $value->unit_name }} </td>
                                             <td class="col-sm-2">
@@ -162,21 +167,17 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-gradient-primary" data-dismiss="modal">Close</button>
-                                                              
+
                                                                 <form class="forms-sample" action="/createpart4/delete" method="post">
                                                                     @csrf
                                                                     <button type="submit" class="btn btn-gradient-danger" name="del" id="del" value="{{ $value->id_item }}">Delete</button>
-                                                              
+
                                                                 </form>
 
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-
-
-
 
                                                 <div class="modal fade" id="modalAction{{ $i }}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-xl" role="document">
@@ -201,6 +202,8 @@
                                                                             <select name="employee[]" id="employee" class="selectpicker newFont" multiple data-live-search="true">
                                                                                 <optgroup class="newFont" label="ทีมดูแลเพจ">
                                                                                     <?php
+
+
                                                                                     $empArr = explode(',', $value->name_employee);
                                                                                     ?>
                                                                                     @foreach ($employee as $i => $value)
@@ -217,15 +220,15 @@
                                                                         <div class="form-group col-md-3">
                                                                             <label class="newFont">หน่วยนับ</label><br>
                                                                             <div class="col-xs-2">
-                                                                            <select class="form-control " name="unit" id="unit" style="width:auto;">
-                                                                                <optgroup class="newFont" label="หน่วยนับ">
-                                                                                    @foreach ($units as $i => $value)
-                                                                                    <option value="{{ $value->id_unit }}">{{ $value->unit_name }}</option>
-                                                                                    @endforeach
-                                                                                </optgroup>
-                                                                            </select>
+                                                                                <select class="form-control " name="unit" id="unit" style="width:auto;">
+                                                                                    <optgroup class="newFont" label="หน่วยนับ">
+                                                                                        @foreach ($units as $i => $value)
+                                                                                        <option value="{{ $value->id_unit }}">{{ $value->unit_name }}</option>
+                                                                                        @endforeach
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -241,10 +244,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <!-- Modal -->
-                                            
-
                                             </td>
                                         </tr>
                                         @endforeach
@@ -253,7 +253,7 @@
                                 <!-- <div class="col-md-1"></div> -->
                             </div>
                         </div>
-              
+
 
                     </div>
                 </div>
@@ -284,14 +284,10 @@
         });
         document.getElementById("value_of_item").style.visibility = "hidden";
     });
-   
-    var msg = '{{Session::get('alert')}}';
-    var exist = '{{Session::has('alert')}}';
-    if(exist){
-      alert(msg);
+
+    var msg = '<?= Session::get('alert') ?>';
+    var exist = '<?= Session::has('alert') ?>';
+    if (exist) {
+        alert(msg);
     }
-  
-
-
-    
 </script>

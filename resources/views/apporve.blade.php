@@ -66,6 +66,10 @@
     }
 </style>
 
+<?php
+
+use Illuminate\Support\Facades\Session;
+?>
 
 <body>
     <!-- ------------------------------------------  include  --------------------------------------------->
@@ -220,7 +224,7 @@
 <script type="text/javascript">
     const mount = "<?php
 
-                    use Illuminate\Support\Facades\Session;
+
 
                     echo $months; ?>";
     $('#mountSelect').find('option').each((i, e) => {
