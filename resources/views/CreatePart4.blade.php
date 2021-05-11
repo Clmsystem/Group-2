@@ -34,7 +34,7 @@
     td.break2 {
         word-wrap: break-word;
         /* word-break: break-all; */
-        white-space: normal;
+        white-space: pre-line;
 
         display: block
     }
