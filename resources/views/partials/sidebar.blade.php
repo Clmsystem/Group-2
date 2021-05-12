@@ -55,6 +55,12 @@
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/management">
+          <span class="menu-title">จัดการภาพรวม</span>
+          <i class="mdi mdi-contacts menu-icon"></i>
+        </a>
+      </li>
 
     </ul>
   </nav>

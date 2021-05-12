@@ -8,6 +8,8 @@ use App\Http\Controllers\CreatePart4Controller;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\GraphController;
 use App\Http\Controllers\ApproveController;
+use App\Http\Controllers\ManagementController;
+
 
 use App\Http\Controllers\insertController;
 use App\Http\Controllers\FileUploadController;
@@ -69,6 +71,10 @@ try {
 
 
     Route::get('/graph', [GraphController::class, 'index'])->middleware('AuthLogin');
+
+    Route::resource('/management', ManagementController::class)->middleware('AuthLogin');
+    Route::post('/manageted', [ManagementController::class, 'manageted'])->middleware('AuthLogin');
+
 
     Route::resource('/approve', ApproveController::class)->middleware('AuthLogin');
     Route::post('/approvePost', [ApproveController::class, 'sea'])->middleware('AuthLogin');
