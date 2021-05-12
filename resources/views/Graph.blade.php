@@ -50,7 +50,7 @@
   <div class="main-panel">
     <div class="content-wrapper">
       <div class="page-header">
-        <h3 class="newFont"> กราฟตัวชี้วัด </h3>
+        <h3 class="newFont"> กราฟตัวชี้วัด <?= $name ?> ปีงบประมาณ <?= $year ?> </h3> 
       </div>
 
       <div class="row">

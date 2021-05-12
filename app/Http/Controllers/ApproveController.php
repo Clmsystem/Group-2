@@ -6,10 +6,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-class ApporveController extends Controller
+class ApproveController extends Controller
 {
     public function index(Request $request)
     {
+
+
+        $currentYear = DB::table('year')
+        ->where('flag', 1)
+        ->select('year_id')
+        ->get();
+
+        $currentYearShow = DB::table('year')
+            ->where('flag', 1)
+            ->select('year')
+            ->get();
+
+        $currentYearShow = $currentYearShow[0]->year;
+
+        $currentYear = $currentYear[0]->year_id;
+
         if ($request->mountSelect) {
             $months = $request->mountSelect;
         } else if (session()->get('mountSelect')) {
@@ -28,11 +44,28 @@ class ApporveController extends Controller
             ->get();
 
         $years = 0;
-        return view('apporve', compact('list_item', 'year', 'years', 'search', 'months'));
+        return view('approve', compact('list_item', 'year', 'years', 'search','currentYear' , 'months'));
     }
 
     public function sea(Request $request)
     {
+
+        $currentYear = DB::table('year')
+        ->where('flag', 1)
+        ->select('year_id')
+        ->get();
+
+        $currentYearShow = DB::table('year')
+            ->where('flag', 1)
+            ->select('year')
+            ->get();
+
+        $currentYearShow = $currentYearShow[0]->year;
+
+        $currentYear = $currentYear[0]->year_id;
+
+
+
         $years = $request->year;
         $months = $request->month;
         $year = DB::table('year')
@@ -41,7 +74,7 @@ class ApporveController extends Controller
         if ($years == 0) {
             $search = [];
             $list_item = [];
-            return view('apporve', compact('list_item', 'year', 'search'));
+            return view('approve', compact('list_item', 'year', 'search'));
         } else {
             if ($months == 0) {
                 $search = DB::table('transaction')
@@ -70,7 +103,7 @@ class ApporveController extends Controller
 
 
             $list_item = [];
-            return view('apporve', compact('list_item', 'year', 'years', 'search', 'months'));
+            return view('approve', compact('list_item', 'year','currentYear' , 'years', 'search', 'months'));
         }
     }
     public function confirm(Request $request)
@@ -101,10 +134,10 @@ class ApporveController extends Controller
                     ])
                     ->update(['status' => 1]);
             }
-            return redirect()->route('apporve.index')->with('success', 'created success');
+            return redirect()->route('approve.index')->with('success', 'created success');
         } else {
             session()->flash('message', 'Cannot be Approve');
-            return redirect()->route('apporve.index')->with('alert', 'Cannot be Approve');
+            return redirect()->route('approve.index')->with('alert', 'Cannot be Approve');
         }
     }
 }

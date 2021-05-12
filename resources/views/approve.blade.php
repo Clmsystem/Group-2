@@ -27,7 +27,8 @@
     .btn {
         font-size: 0.875rem;
         line-height: 1;
-        font-family: "ubuntu-bold", sans-serif;
+        font-family: 'Mitr', sans-serif;
+
 
     }
 
@@ -96,17 +97,20 @@ use Illuminate\Support\Facades\Session;
 
                         </div>
                         <hr><br>
-                        <form class="forms-sample" action="/apporvePost" method="post">
+                        <form class="forms-sample" action="/approvePost" method="post">
                             @csrf
                             <!-- @method('POST') -->
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <select id="yearSelect" class="form-control" name="year" onchange="getSelectValue()">
                                         <optgroup class="newFont">
-                                            @foreach ($year as $i => $value)
-                                            <option value="{{ $value->year_id }}">{{ $value->year }}</option>
-                                            @endforeach
-                                        </optgroup>
+                                            <?php 
+                                            for ($i=0; $i < count($year); $i++) { 
+                                                $selected = ($year[$i]->year_id  === $currentYear ? 'selected' : ''); 
+                                               echo '<option  value="'.$year[$i]->year_id .'"'.$selected.'>'.$year[$i]->year.'</option>';
+                                            }
+                                            ?>
+                                            </optgroup>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">

@@ -58,7 +58,10 @@ class ReportController extends Controller
         $years = $request->year;
         $quater = $request->quater;
         $months = $request->month;
-        
+        $currentYear = DB::table('year')
+        ->where('flag', 1)
+        ->select('year_id')
+        ->get();
         // Start Search 
         if (isset($_POST["btn_search"])) {
             $year = DB::table('year')
@@ -87,11 +90,11 @@ class ReportController extends Controller
                         ->where('transaction.year_year_id', '=', $years)
                         ->where('transaction.month', '=', $months)
                         ->groupBy('transaction.id_item')
-                        ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,year_year_id'), DB::raw('GROUP_CONCAT(name_employee) as name_employee'))
+                        ->select(DB::raw('list_item.id_item,name_item,count,unit_name,description,year_year_id'), DB::raw('GROUP_CONCAT(name_employee) as name_employee'))
                         ->get();
                 }
                 $list_item = [];
-                return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
+                return view('Report', compact('list_item', 'year', 'years','currentYear', 'search', 'months'));
             }
         // End Search
 

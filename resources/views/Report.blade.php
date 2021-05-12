@@ -17,17 +17,19 @@
     .btns {
         padding: 1rem 3.3rem;
         font-size: 0.875rem;
+        margin-right:-5px 
     }
 
     .btns2 {
         padding: 1rem 2.7rem;
         font-size: 0.875rem;
+        margin-left:-5px 
     }
 
     .btn {
         font-size: 0.875rem;
         line-height: 1;
-        font-family: "ubuntu-bold", sans-serif;
+        font-family: 'Mitr', sans-serif;
 
     }
 
@@ -35,7 +37,6 @@
         text-indent: 7px;
 
     }
-
     .Pbtn {
         margin-left: 0px;
         padding: 1rem;
@@ -90,7 +91,7 @@ use Illuminate\Support\Facades\Session;
                     <div class="card-body">
                         <div class="row">
                             <h3 class="newFont" for=""> ค้นหาแผนสถิติ ประจำปีงบประมาณ </h3>
-                            <h3 class="letter" id="showyear"></h3>
+                            <h3 class="letter newFont" id="showyear"></h3>
                         </div>
                         <hr><br>
                         <form class="forms-sample" action="/sea" method="post">
@@ -103,8 +104,7 @@ use Illuminate\Support\Facades\Session;
                                         <?php 
                                         for ($i=0; $i < count($year); $i++) { 
                                             $selected = ($year[$i]->year_id  === $currentYear ? 'selected' : ''); 
-                                           echo '<option  value="'.$year[$i]->year_id .'"'.$selected.'>'.$year[$i]->year.'</option>';
-                    
+                                        echo '<option  value="'.$year[$i]->year_id .'"'.$selected.'>'.$year[$i]->year.'</option>';
                                         }
                                         ?>
                                         </optgroup>
@@ -129,14 +129,12 @@ use Illuminate\Support\Facades\Session;
                                         </optgroup>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="row">
-
+                           
                                 <div class="form-group col-md-2">
                                     <button type="submit" name="btn_search" id="btn_search" value="1" class="btn btn-inverse-primary btns ">ค้นหา</button>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <button type="submit" name="btn_download" id="btn_download" value="1" class="btn btn-inverse-primary btns2 ">ดาวน์โหลด</button>
+                                    <button type="submit" name="btn_download" id="btn_download" value="1" class="btn btn-inverse-danger btns2 ">ดาวน์โหลด</button>
                                 </div>
                             </div>
                         </form>

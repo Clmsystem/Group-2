@@ -7,7 +7,7 @@ use App\Http\Controllers\CreatePart4Controller;
 
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\GraphController;
-use App\Http\Controllers\ApporveController;
+use App\Http\Controllers\ApproveController;
 
 use App\Http\Controllers\insertController;
 use App\Http\Controllers\FileUploadController;
@@ -70,9 +70,9 @@ try {
 
     Route::get('/graph', [GraphController::class, 'index'])->middleware('AuthLogin');
 
-    Route::resource('/apporve', ApporveController::class)->middleware('AuthLogin');
-    Route::post('/apporvePost', [ApporveController::class, 'sea'])->middleware('AuthLogin');
-    Route::post('/confirm', [ApporveController::class, 'confirm'])->middleware('AuthLogin');
+    Route::resource('/approve', ApproveController::class)->middleware('AuthLogin');
+    Route::post('/approvePost', [ApproveController::class, 'sea'])->middleware('AuthLogin');
+    Route::post('/confirm', [ApproveController::class, 'confirm'])->middleware('AuthLogin');
     Route::get('/get_graph', [GraphController::class, 'test'])->middleware('AuthLogin');
 
 

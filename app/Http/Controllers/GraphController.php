@@ -16,10 +16,16 @@ class GraphController extends Controller
         $id_item = $_GET['id'];
         $year_item = $_GET['year'];
         $data = DB::table('transaction')
-            ->where('id_item', '=', $id_item)
-            ->where('year_year_id', '=', $year_item)
-            ->select('count', 'month')
+            ->join('list_item','transaction.id_item','list_item.id_item')
+            ->join('year','transaction.year_year_id','year.year_id')
+            ->where('transaction.id_item', '=', $id_item)
+            ->where('transaction.year_year_id', '=', $year_item)
+            ->select('transaction.count', 'transaction.month','list_item.name_item','year.year')
             ->get();
+
+     
+        $name = $data[0]->name_item;
+        $year = $data[0]->year;
 
         $m0 = $data[0]->count;
         $m1 = $data[1]->count;
@@ -33,6 +39,6 @@ class GraphController extends Controller
         $m9 = $data[9]->count;
         $m10 = $data[10]->count;
         $m11 = $data[11]->count;
-        return view('Graph', compact('m0', 'm1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm10', 'm11'));
+        return view('Graph', compact('m0', 'm1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm10', 'm11','name','year'));
     }
 };
