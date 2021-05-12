@@ -26,21 +26,25 @@
 
     /* adjust text position */
     table {
-        border-spacing: 0px;
+        /* border-spacing: 0px; */
         table-layout: fixed;
         margin-left: auto;
         margin-right: auto;
+        border: none;
+
     }
 
     td {
         text-align: center;
         word-wrap: break-word;
         white-space: normal;
+        border: none;
         /* font-size: 9px !important; */
     }
 
     th {
         text-align: center;
+        border: none;
     }
 
     td.break {
@@ -49,6 +53,15 @@
         white-space: normal;
 
     }
+
+    .box-panel {
+        display: flex;
+        margin: 5px 0px;
+    }
+
+    /* .box-content {
+        margin: 20px 0px;
+    } */
 </style>
 
 <body>
@@ -102,7 +115,7 @@
                         <div class="row">
                             <!-- <div class="col-md-1"></div> -->
                             <div class="col-md-12">
-                                <table class="table table-bordered newFont">
+                                <table class="table newFont">
                                     <thead>
                                         <tr class="d-flex">
                                             <th class="col-sm-1" scope="col">
@@ -128,7 +141,7 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody class="test">
+                                    <tbody>
                                         @foreach ($priority as $i => $value)
                                         <tr class="d-flex newFont">
                                             <td class="col-sm-1"> {{ $i + 1 }} </td>
@@ -144,89 +157,76 @@
                                             <td class="col-sm-2">
                                                 <button <?= ($value->status == 1) ? 'disabled' : ''  ?> class="btn btn-inverse-<?= ($value->status == 1) ? 'secoundary' : 'success'  ?> btns" data-toggle="modal" data-target="#modalAction{{ $i }}"><i class="mdi mdi-grease-pencil launch-modal"></i></button>
 
-
                                                 <div class="modal fade" id="modalAction{{ $i }}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-xl" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-body">
-                                                                <br>
-                                                                <h2 class="modal-title newFont" id="exampleModalLabel">
-                                                                    แก้ไข</h2>
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                        <br>
+                                                                        <h2 class="modal-title newFont" id="exampleModalLabel">
+                                                                            แก้ไข
+                                                                        </h2>
+                                                                        <br>
+                                                                        <div class="card-body">
+                                                                            <div class="col-md-12">
+                                                                                <form class="forms-sample" action="/updateCount" method="post">
+                                                                                    @csrf
+                                                                                    <div class="row box-panel">
+                                                                                        <div class="col-md-12 box-panel head">
+                                                                                            <div class="col-md-6">
+                                                                                                <p>รายการ</p>
+                                                                                            </div>
+                                                                                            <div class="col-md-6 box-panel">
+                                                                                                <div class="col-md-6">
+                                                                                                    <p>จำนวน</p>
+                                                                                                </div>
+                                                                                                <div class="col-md-6">
+                                                                                                    <p>หน่วยนับ</p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-12 box-panel box-content">
+                                                                                            <div class="col-md-6">
+                                                                                                <p>{{ $value->name_item }}</p>
+                                                                                            </div>
+                                                                                            <div class="col-md-6 box-panel">
+                                                                                                <div class="col-md-6">
+                                                                                                    <input type="text" value="{{ $value->count }}" id="count" name="count" class="form-control" placeholder="จำนวน" required>
+                                                                                                </div>
+                                                                                                <div class="col-md-6">
+                                                                                                    <p>ครั้ง</p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
 
-                                                                <hr><br>
-                                                                <div class="card-body">
-                                                                    <div class="col-md-12">
-                                                                        <form class="forms-sample" action="/updateCount" method="post">
-                                                                            <table class="table table-bordered newFont">
-                                                                                <thead>
-                                                                                    <tr class="d-flex">
-                                                                                        <th class="col-sm-6" scope="col">
-                                                                                            <h5 class="newFont">
-                                                                                                รายการ</h5>
-                                                                                        </th>
-                                                                                        <th class="col-sm-2" scope="col">
-                                                                                            <h7 class="newFont">
-                                                                                                จำนวน</h7>
-                                                                                        </th>
-                                                                                        <th class="col-sm-4" scope="col">
-                                                                                            <h7 class="newFont">
-                                                                                                หน่วยนับ</h7>
-                                                                                        </th>
-                                                                                    </tr>
-                                                                                </thead>
-
-                                                                                @csrf
-                                                                                <tbody>
-                                                                                    <tr class="d-flex newFont">
-                                                                                        <th class="col-sm-6 break">
-                                                                                            {{ $value->name_item }}
-                                                                                        </th>
-                                                                                        <td class="col-sm-2">
-                                                                                            <!-- <input  hidden name="count" id="count"> -->
-                                                                                            <div><input type="text" value="{{ $value->count }}" id="count" name="count" class="form-control" placeholder="จำนวน" required></div>
-                                                                                        </td>
-                                                                                        <th class="col-sm-4"> ครั้ง
-                                                                                        </th>
-                                                                                    </tr>
-                                                                                    <tr class="d-flex newFont">
-                                                                                        <th class="col-sm-5 break">
-                                                                                            หมายเหตุ
-                                                                                        </th>
-                                                                                        <td class="col-sm-7">
-
-                                                                                            <textarea type="text" id="description" name="description" style="height: 100px" class="form-control" placeholder="หมายเหตุ" required>{{ $value->description }}</textarea>
-                                                                                        </td>
-
-                                                                                    </tr>
-
-                                                                                    <!-- <tr>
-                                                                                        <td class="col-sm-3">
-                                                                                            <div><input type="text" value="{{ $value->description }}" id="description" name="description" class="form-control" placeholder="หมายเหตุ" required></div>
-                                                                                        </td>
-                                                                                    </tr> -->
-                                                                                </tbody>
-
-                                                                                <input hidden type="text" value="{{$value->month}}" name="month">
-                                                                                <input hidden type="text" value="{{$value->year_year_id}}" name="year">
-                                                                            </table>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                                                    <h7 class="newFont">ยกเลิก</h7>
-                                                                                </button>
-                                                                                <button name="id_item" value="{{$value->id_item}}" type="submit" class="btn btn-primary">
-                                                                                    <h7 class="newFont">บันทึก</h7>
-                                                                                </button>
+                                                                                        <div class="col-md-12 box-panel">
+                                                                                            <div class="col-md-6">
+                                                                                                <p>หมายเหตุ</p>
+                                                                                            </div>
+                                                                                            <div class="col-md-6">
+                                                                                                <div class="col-md-12">
+                                                                                                    <textarea type="text" id="description" name="description" style="height: 100px" class="form-control" placeholder="หมายเหตุ" required>{{ $value->description }}</textarea>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <input hidden type="text" value="{{$value->month}}" name="month">
+                                                                                    <input hidden type="text" value="{{$value->year_year_id}}" name="year">
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                                                            <h7 class="newFont">ยกเลิก</h7>
+                                                                                        </button>
+                                                                                        <button name="id_item" value="{{$value->id_item}}" type="submit" class="btn btn-primary">
+                                                                                            <h7 class="newFont">บันทึก</h7>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </form>
                                                                             </div>
-                                                                            <!-- <div class="col-md-1"></div> -->
-                                                                        </form>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 grid-margin stretch-card">
-                                                        <div class="card">
-
                                                         </div>
                                                     </div>
                                                 </div>
