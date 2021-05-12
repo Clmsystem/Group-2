@@ -2,7 +2,7 @@
   <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
       <li class="nav-item nav-profile">
-        <a href="#" class="nav-link">
+        <a href="/" class="nav-link">
           <div class="nav-profile-image">
             <img src="{{session()->get('user')['img']}}" class="sizeimg" alt="profile">
             {{-- <span class="login-status online"></span> --}}
