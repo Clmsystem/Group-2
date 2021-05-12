@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 class CreatePart4Controller extends Controller
 {
 
-
     public function index()
     {
         if (session()->get('user')) {
@@ -19,7 +18,6 @@ class CreatePart4Controller extends Controller
             ->where('flag',1)
             ->select('year_id')
             ->get();
-
         $currentYear= $currentYear[0]->year_id;    
             $list_item = DB::table('list_item')
                 ->leftjoin('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
@@ -32,30 +30,24 @@ class CreatePart4Controller extends Controller
                 ->get();
             $units = DB::table('unit')
                 ->get();
-
             $employee = DB::table('employee')
                 ->where('id_department', '=', 2)
                 ->get();
-
             return view('CreatePart4', compact('list_item', 'units', 'employee'));
         } else {
             return redirect('login');
         }
     }
-
     public function testr()
     {
         return view('login');
     }
-
     public function showResponsiblePerson()
     {
         $ResponsiblePerson = DB::table('employee')
             ->where('id_department', '=', 2)
             ->get();
     }
-
-
     public function delete_row(Request $request)
     {
         $count = DB::table('transaction')
@@ -63,7 +55,6 @@ class CreatePart4Controller extends Controller
         ->select(DB::raw('sum(count) as count'))
         ->get();       
         $result = $count[0]->count;
-
         if ($result == 0 ){
             DB::table('list_item')
             ->where('id_item' , $request->del)
@@ -71,49 +62,35 @@ class CreatePart4Controller extends Controller
             DB::table('transaction')
                 ->where('id_item' , $request->del)
                 ->delete();
-
             return redirect()->route('createpart4.index')->with('success', 'created success');
         }else {
             session()->flash('message' , 'Cannot be deleted');
             return redirect()->route('createpart4.index')->with('alert', 'Cannot be Delete');
         }
     }
-
-
-
-
     public function update(Request $request)
     {
-
         // print_r($request);
         DB::transaction(function () use ($request) {
             DB::table('list_item')
                 ->where('id_item', $request->value_of_item)
                 ->update(['name_item' => $request->indicator_list, 'unit_id_unit' => $request->unit]);
-
             if (!empty($request->employee)) {
-
                 DB::table('priority')
                     ->where('id_item', $request->value_of_item)
                     ->delete();
-
                 foreach ($request->employee as $key => $value) {
                     $dataI[$key]['id_item'] = $request->value_of_item;
                     $dataI[$key]['id_employee'] = $value;
                 }
-
-
                 DB::table('priority')
                     ->insert($dataI);
             } else {
-
                 DB::table('priority')
                     ->where('id_item', $request->value_of_item)
                     ->delete();
             }
         });
-
-
         return redirect()->route('createpart4.index');
     }
 
@@ -127,21 +104,15 @@ class CreatePart4Controller extends Controller
     }
 
     public function store(Request $request)
-    {
-
-        
+    {    
         DB::transaction(function () use ($request) {
             $currentYear = DB::table('year')
                 ->where('flag',1)
                 ->select('year_id')
                 ->get();
-
             $currentYear= $currentYear[0]->year_id;    
-            
             $values = array('name_item' => $request->indicator_list, 'unit_id_unit' => $request->unit, 'year_id' => $currentYear);
-        
         DB::table('list_item')->insert($values);
-
             $listItem = DB::table('list_item')
                 ->where('name_item', '=', $request->indicator_list)
                 ->get();
@@ -155,8 +126,6 @@ class CreatePart4Controller extends Controller
             DB::table('transaction')
                 ->insert($datatoinsert);
         });
-
-
         return redirect()->route('createpart4.index')->with('success', 'created success');
     }
 };
