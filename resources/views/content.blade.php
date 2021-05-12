@@ -1,3 +1,22 @@
+<style>
+    a {
+        text-decoration: none;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Mitr&display=swap');
+
+/* adjust font this page */
+    .newFont {
+        font-family: 'Mitr', sans-serif;
+    }
+    .pp{
+        margin-top:17px; 
+        margin-left:85px; 
+
+        /* align-items: center; */
+    }
+
+</style>
+
 <div class="page-header">
     <h3 class="page-title">
         <span class="page-title-icon bg-gradient-primary text-white mr-2">
