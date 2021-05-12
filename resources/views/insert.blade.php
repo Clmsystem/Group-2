@@ -77,19 +77,19 @@
                                     @csrf
                                     <select id="mountSelect" name="mountSelect" class="form-control" onchange="this.form.submit()">
                                         <optgroup class="newFont">
-                                            <option hidden>เดือน</option>
-                                            <option id="op1" value="1">มกราคม</option>
-                                            <option id="op2" value="2">กุมภาพันธ์</option>
-                                            <option id="op3" value="3">มีนาคม</option>
-                                            <option id="op4" value="4">เมษายน</option>
-                                            <option id="op5" value="5">พฤษภาคม</option>
-                                            <option id="op6" value="6">มิถุนายน</option>
-                                            <option id="op7" value="7">กรกฎาคม</option>
-                                            <option id="op8" value="8">สิงหาคม</option>
-                                            <option id="op9" value="9">กันยายน</option>
-                                            <option id="op10" value="10">ตุลาคม</option>
-                                            <option id="op11" value="11">พฤศจิกายน</option>
-                                            <option id="op12" value="12">ธันวาคม</option>
+                                            <option hidden value="0">เดือน</option>
+                                            <option value="10">ตุลาคม</option>
+                                            <option value="11">พฤศจิกายน</option>
+                                            <option value="12">ธันวาคม</option>
+                                            <option value="1">มกราคม</option>
+                                            <option value="2">กุมภาพันธ์</option>
+                                            <option value="3">มีนาคม</option>
+                                            <option value="4">เมษายน</option>
+                                            <option value="5">พฤษภาคม</option>
+                                            <option value="6">มิถุนายน</option>
+                                            <option value="7">กรกฎาคม</option>
+                                            <option value="8">สิงหาคม</option>
+                                            <option value="9">กันยายน</option>
                                         </optgroup>
                                     </select>
                                 </form>

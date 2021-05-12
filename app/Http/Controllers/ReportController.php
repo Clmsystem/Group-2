@@ -15,6 +15,21 @@ class ReportController extends Controller
 {
     public function index(Request $request)
     {
+        $currentYear = DB::table('year')
+        ->where('flag', 1)
+        ->select('year_id')
+        ->get();
+
+        $currentYearShow = DB::table('year')
+            ->where('flag', 1)
+            ->select('year')
+            ->get();
+
+        $currentYearShow = $currentYearShow[0]->year;
+
+        $currentYear = $currentYear[0]->year_id;
+
+
         if ($request->mountSelect) {
             $months = $request->mountSelect;
         } else if (session()->get('mountSelect')) {
@@ -34,7 +49,7 @@ class ReportController extends Controller
 
         $years = 0;
         // $months = 0;
-        return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
+        return view('Report', compact('list_item', 'year', 'years','currentYear', 'search', 'months'));
         // return view('Report', compact('year'));
     }
 
@@ -43,6 +58,8 @@ class ReportController extends Controller
         $years = $request->year;
         $quater = $request->quater;
         $months = $request->month;
+        
+        // Start Search 
         if (isset($_POST["btn_search"])) {
             $year = DB::table('year')
                 ->get();
@@ -76,6 +93,9 @@ class ReportController extends Controller
                 $list_item = [];
                 return view('Report', compact('list_item', 'year', 'years', 'search', 'months'));
             }
+        // End Search
+
+        // Start Download
         } else {
             $tasks = DB::table('transaction')
                 ->join('priority', 'transaction.id_item', '=', 'priority.id_item')
@@ -121,5 +141,6 @@ class ReportController extends Controller
                 return redirect("/report")->with('alert', 'ไม่มีข้อมูล');
             }
         }
+        // End Download
     }
 };

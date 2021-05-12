@@ -100,9 +100,13 @@ use Illuminate\Support\Facades\Session;
                                 <div class="form-group col-md-4">
                                     <select id="yearSelect" class="form-control" name="year" onchange="getSelectValue()">
                                         <optgroup class="newFont">
-                                            @foreach ($year as $i => $value)
-                                            <option value="{{ $value->year_id }}">{{ $value->year }}</option>
-                                            @endforeach
+                                        <?php 
+                                        for ($i=0; $i < count($year); $i++) { 
+                                            $selected = ($year[$i]->year_id  === $currentYear ? 'selected' : ''); 
+                                           echo '<option  value="'.$year[$i]->year_id .'"'.$selected.'>'.$year[$i]->year.'</option>';
+                    
+                                        }
+                                        ?>
                                         </optgroup>
                                     </select>
                                 </div>
