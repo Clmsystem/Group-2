@@ -95,7 +95,7 @@ use Illuminate\Support\Facades\Session;
                             <h3 class="newFont letter"> เดือน</h3>
                             <h3 class="newFont letter" id="aa"> </h3>
 
-                        </div>
+                        </div> 
                         <hr><br>
                         <form class="forms-sample" action="/approvePost" method="post">
                             @csrf
@@ -131,9 +131,9 @@ use Illuminate\Support\Facades\Session;
                                         </optgroup>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="row">
-
+                            
+                                <div class="form-group col-md-2">
+                                </div>
                                 <div class="form-group col-md-2">
                                     <button type="submit" class="btn btn-inverse-primary btns ">ค้นหา</button>
                                 </div>
@@ -159,7 +159,6 @@ use Illuminate\Support\Facades\Session;
                                             <tr class="d-flex">
                                                 <th class="col-sm-1" scope="col">
                                                     <h7 class="newFont">ลำดับ</h7>
-
                                                 </th>
                                                 <th class="col-sm-3" scope="col">
                                                     <h7 class="newFont">รายการ</h7>
@@ -205,13 +204,13 @@ use Illuminate\Support\Facades\Session;
                                     </table>
                                     <br>
                                     <div class="row">
-                                        <div class="col-9"></div>
-                                        <div class="col-3">
-                                            <div class="form-group col-md-2">
+                                        <div class="col-10"></div>
+                                        <div class="col-2">
+                                            <div class="form-group">
                                                 <input type="hidden" name="year1" id="showyear1" value="">
                                                 <input type="hidden" name="month1" id="showmount1" value="">
 
-                                                <button type="submit" class="btn btn-inverse-primary btns ">อนุมัติ</button>
+                                                <button type="submit" class="btn btn-inverse-success btns ">อนุมัติ</button>
                                             </div>
                                         </div>
                                     </div>

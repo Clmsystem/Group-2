@@ -92,6 +92,8 @@ use Illuminate\Support\Facades\Session;
                         <div class="row">
                             <h3 class="newFont" for=""> ค้นหาแผนสถิติ ประจำปีงบประมาณ </h3>
                             <h3 class="letter newFont" id="showyear"></h3>
+                            <h3 class="newFont letter"> เดือน</h3>
+                            <h3 class="newFont letter" id="aa"> </h3>
                         </div>
                         <hr><br>
                         <form class="forms-sample" action="/sea" method="post">
@@ -111,7 +113,7 @@ use Illuminate\Support\Facades\Session;
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <select id="mountSelect" class="form-control" name="month">
+                                    <select id="mountSelect" class="form-control" name="month"  onchange="getSelectValue2()">
                                         <optgroup class="newFont">
                                             <option hidden value="0">เดือน</option>
                                             <option value="10">ตุลาคม</option>
@@ -252,6 +254,14 @@ use Illuminate\Support\Facades\Session;
         console.log(getText);
     };
     getSelectValue();
+
+    function getSelectValue2() {
+        var getText2 = $("#mountSelect option:selected").text();
+        $("#aa").text(getText2);
+    };
+    getSelectValue2();
+
+
 </script>
 <script>
     function search() {
