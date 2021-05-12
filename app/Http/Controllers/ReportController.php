@@ -59,7 +59,7 @@ class ReportController extends Controller
                         ->join('unit', 'list_item.unit_id_unit', '=', 'unit.id_unit')
                         ->where('transaction.year_year_id', '=', $years)
                         ->groupBy('transaction.id_item')
-                        ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,name_employee,year_year_id'))
+                        ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,year_year_id'), DB::raw('GROUP_CONCAT(name_employee) as name_employee'))
                         ->get();
                 } else {
                     $search = DB::table('transaction')
@@ -70,7 +70,7 @@ class ReportController extends Controller
                         ->where('transaction.year_year_id', '=', $years)
                         ->where('transaction.month', '=', $months)
                         ->groupBy('transaction.id_item')
-                        ->select(DB::raw('list_item.id_item,name_item,count,unit_name,description,name_employee,year_year_id'))
+                        ->select(DB::raw('list_item.id_item,name_item,sum(count) as count,unit_name,description,year_year_id'), DB::raw('GROUP_CONCAT(name_employee) as name_employee'))
                         ->get();
                 }
                 $list_item = [];
@@ -86,7 +86,7 @@ class ReportController extends Controller
                 ->where('transaction.year_year_id', '=', $years)
                 ->where('transaction.month', '=', $months)
                 ->groupBy('transaction.id_item')
-                ->select(DB::raw('list_item.id_item,name_item,count,unit_name,description,name_employee,year_year_id,year.year'))
+                ->select(DB::raw('list_item.id_item,name_item,count,unit_name,description,year_year_id,year.year'),DB::raw('GROUP_CONCAT(name_employee) as name_employee'))
                 ->get();
 
             if (count($tasks) > 0) {

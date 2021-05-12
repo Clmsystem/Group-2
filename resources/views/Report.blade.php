@@ -182,6 +182,17 @@ use Illuminate\Support\Facades\Session;
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                        function spliteName($name)
+                                        {
+                                            $text = '';
+                                            $texts = explode(",", $name);
+                                            for ($i = 0; $i < count($texts); $i++) {
+                                                $text .= '<p class="text-t">' . $texts[$i] . '</p>';
+                                            }
+                                            return $text;
+                                        }
+                                        ?>
                                         @foreach ($search as $i => $value)
                                         <tr class="d-flex">
                                             <td class="col-sm-1"> {{ $i + 1 }} </td>
@@ -189,7 +200,7 @@ use Illuminate\Support\Facades\Session;
                                             <td class="col-sm-1"> {{ $value->count }}</td>
                                             <td class="col-sm-1"> {{ $value->unit_name }} </td>
                                             <td class="col-sm-3 break"> {{ $value->description }}</td>
-                                            <td class="col-sm-2 break"> {{ $value->name_employee }}</td>
+                                            <td class="col-sm-2 break"><?= spliteName($value->name_employee) ?></td>
                                             <td class="col-sm-1"><a target='_blank' href="graph?id={{$value->id_item}}&year={{$years}}"><button type="button" class="Pbtn btn btn-inverse-success"><i class="mdi mdi-chart-bar"></i></button></a></td>
                                         </tr>
 
